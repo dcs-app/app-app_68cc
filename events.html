@@ -131,89 +131,49 @@ section {
   <meta charset="UTF-8">
   <title>Events – Haveli Restaurant 5</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Shared design tokens are injected by the orchestrator -->
   <style>
-    /* Dark‑mode support */
+    :root{
+      --primary:#B8860B;
+      --bg:#FAF7F2;
+      --text:#1F1611;
+      --surface:#FFFFFF;
+      --accent:#B8860B;
+      --muted:#6B5D52;
+      --max-width:1200px;
+    }
+    .container{max-width:var(--max-width);margin:auto;padding:1rem;}
+    h1,h2{font-family:var(--font-serif, serif);margin:0.5rem 0;}
+    a{color:inherit;text-decoration:none;}
+    button{cursor:pointer;background:none;border:none;font-size:1.5rem;}
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+    .skip-link:focus{left:0;top:0;width:auto;height:auto;background:#fff;color:#000;padding:0.5rem;z-index:1000;}
+    .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;}
+    .p-4{padding:1rem;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;}
+    .flex{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;}
+    .hero{position:relative;overflow:hidden;background:var(--surface);}
+    .hero img{width:100%;height:auto;object-fit:cover;}
+    .hero .overlay{position:absolute;bottom:0;left:0;width:100%;background:rgba(0,0,0,0.5);color:#fff;padding:1rem;}
+    .event-date{font-weight:600;color:var(--primary);}
+    .card{background:var(--surface);border-radius:.75rem;overflow:hidden;transition:transform .2s ease,box-shadow .2s ease;}
+    .card:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(0,0,0,.12);}
+    .btn{display:inline-block;padding:.6rem 1.2rem;border-radius:.5rem;background:var(--primary);color:#fff;transition:transform .2s ease,box-shadow .2s ease;}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.15);}
+    /* Dark mode */
     /* Micro‑animations */
-    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .5s ease, transform .5s ease; }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-    .btn {
-      display: inline-block;
-      padding: 10px 14px;
-      border-radius: 8px;
-      background: var(--primary);
-      color: #fff;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform .2s ease, box-shadow .2s ease;
+    .fade-in{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
+    .fade-in.visible{opacity:1;transform:translateY(0);}
+    @keyframes countUp{from{opacity:0;}to{opacity:1;}}
+    .stat-number{animation:countUp .6s ease forwards;}
+    /* Light‑section contrast fix */
+    .section-light, [data-bg="light"]{
+      background:var(--tpl-light-surface,#f7f0e3);
+      color:var(--tpl-text-on-light,#1a1a1a);
     }
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0,0,0,.15);
+    .section-light h1,.section-light h2,.section-light h3,.section-light h4,
+    .section-light p,.section-light li,.section-light label,.section-light span{
+      color:var(--tpl-text-on-light,#1a1a1a);
     }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 32px rgba(0,0,0,.12);
-    }
-    @keyframes countUp { from { opacity:0; } to { opacity:1; } }
-    .stat-number { animation: countUp .6s ease forwards; }
-    /* Light‑section contrast fix (required) */
-    .section-light, [data-bg="light"] {
-      background: var(--tpl-light-surface, #f7f0e3);
-      color: var(--tpl-text-on-light, #1a1a1a);
-    }
-    .section-light h1,
-    .section-light h2,
-    .section-light h3,
-    .section-light h4,
-    .section-light p,
-    .section-light li,
-    .section-light label,
-    .section-light span {
-      color: var(--tpl-text-on-light, #1a1a1a);
-    }
-    /* Layout utilities */
-    .container { max-width: var(--max-width); margin: 0 auto; padding: 1rem; }
-    section { margin-bottom: 2rem; }
-    h1, h2, h3 { margin-bottom: .5rem; }
-    .grid { display: grid; gap: 1rem; }
-    .grid-3 { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
-    .filter-controls { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
-    .filter-controls .btn { min-height: 44px; min-width: 44px; }
-    /* Simple carousel (no JS) */
-    .carousel { display: flex; overflow-x: auto; gap: .5rem; padding-bottom: .5rem; }
-    .carousel img { flex: 0 0 auto; width: 200px; height: 120px; object-fit: cover; border-radius: var(--radius-sm); }
-    /* Newsletter form */
-    .newsletter-form { display: flex; flex-direction: column; gap: .5rem; max-width: 400px; }
-    .newsletter-form input { padding: .5rem; border: 1px solid var(--border); border-radius: var(--radius-sm); }
-    .newsletter-form button { align-self: flex-start; }
-    /* Accessibility focus */
-    .btn:focus-visible,
-    .filter-controls .btn:focus-visible,
-    .newsletter-form input:focus-visible,
-    .newsletter-form button:focus-visible {
-      outline: 2px solid var(--primary);
-      outline-offset: 2px;
-    }
-    /* Skip link */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: #000;
-      color: #fff;
-      padding: 8px 12px;
-      z-index: 100;
-    }
-    .skip-link:focus { top: 0; }
   </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -846,7 +806,7 @@ section[data-section] {
 <meta name="dcs-build-id" content="2693eb33" data-trd-zone="68">
 <meta name="trd-template-id" content="2693eb33" data-trd-zone="68">
 <style id="trd-locked-palette" data-trd-zone="66">
-/* DCS locked palette · resolvedAt=2026-08-14T19:10:28.969Z */
+/* DCS locked palette · resolvedAt=2026-08-14T19:12:07.229Z */
   /* Zone 66 — 1 contrast correction(s) applied at lock time */
 :root {
   --tpl-primary: #1e1208;
@@ -1105,104 +1065,110 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
 </div>
   
 
-  <main id="main-content" class="container gg-main gg-section section-light">
-
+  <main class="gg-main gg-section section-light" id="main">
     <!-- Hero -->
-    <section class="section-light fade-in" aria-label="Hero">
-      <h1 class="fade-in">Upcoming Events</h1>
-      <p class="fade-in">Discover special evenings at Haveli Restaurant. Reserve your place for unforgettable experiences.</p>
+    <section class="hero fade-in">
+      <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Testimonials/image(7).jpg" alt="Elegant dining setting with candles">
+      <div class="overlay">
+        <h1>Upcoming Events</h1>
+        <p>Discover special evenings at Haveli Restaurant 5</p>
+      </div>
     </section>
 
-    <!-- Filter Controls -->
-    
-
     <!-- Upcoming Events Grid -->
-    <section class="section-light fade-in" aria-label="Upcoming Events">
-      <div class="grid grid-3">
-
-        <!-- Event Card 1 -->
-        <article class="card fade-in" data-event-type="wine">
-          <img src="https://images.dcsai.ai/phase-v4/Restaurant/Testimonials/image(7).jpg" alt="Wine Night ambience" loading="lazy">
-          <div class="card-body" style="padding: .75rem;">
-            <h3>Wine Night</h3>
-            <time datetime="2023-01-01">Date: TBD</time>
-            <p>A curated selection of wines paired with light bites.</p>
-            <p><strong>Price:</strong> Contact us</p>
-            <a href="/reservation.html" class="btn">Reserve Now</a>
+    <section class="container fade-in" aria-labelledby="upcoming-heading">
+      <h2 id="upcoming-heading">Upcoming Events</h2>
+      <div class="grid" id="events-grid">
+        <article class="card" data-event-type="wine">
+          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/products/image(2).jpg" alt="Wine dinner ambience">
+          <div class="p-4">
+            <p class="event-date"><time datetime="2024-10-12">October 12 2024</time></p>
+            <h3>Wine Dinner</h3>
+            <p>A curated selection of fine wines paired with seasonal dishes.</p>
+            <p>Price: $45 per person</p>
+            <a href="#!" class="btn">Reserve Now</a>
           </div>
         </article>
 
-        <!-- Event Card 2 -->
-        <article class="card fade-in" data-event-type="music">
-          <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/products/image(2).jpg" alt="Live Music stage" loading="lazy">
-          <div class="card-body" style="padding: .75rem;">
+        <article class="card" data-event-type="live-music">
+          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Testimonials/image(3).jpg" alt="Live music night">
+          <div class="p-4">
+            <p class="event-date"><time datetime="2024-10-19">October 19 2024</time></p>
             <h3>Live Music Night</h3>
-            <time datetime="2023-01-01">Date: TBD</time>
-            <p>Enjoy acoustic performances while dining.</p>
-            <p><strong>Price:</strong> Contact us</p>
-            <a href="/reservation.html" class="btn">Reserve Now</a>
+            <p>Enjoy acoustic performances while savoring our signature menu.</p>
+            <p>Price: $30 per person</p>
+            <a href="#!" class="btn">Reserve Now</a>
           </div>
         </article>
 
-        <!-- Event Card 3 -->
-        <article class="card fade-in" data-event-type="brunch">
-          <img src="https://images.dcsai.ai/phase-v4/Restaurant/Testimonials/image(3).jpg" alt="Sunday Brunch setting" loading="lazy">
-          <div class="card-body" style="padding: .75rem;">
+        <article class="card" data-event-type="brunch">
+          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Award Press/image(14).jpg" alt="Sunday brunch setting">
+          <div class="p-4">
+            <p class="event-date"><time datetime="2024-10-27">October 27 2024</time></p>
             <h3>Sunday Brunch</h3>
-            <time datetime="2023-01-01">Date: TBD</time>
-            <p>Relaxed brunch with classic dishes and fresh juices.</p>
-            <p><strong>Price:</strong> Contact us</p>
-            <a href="/reservation.html" class="btn">Reserve Now</a>
+            <p>Delicious brunch buffet with live cooking stations.</p>
+            <p>Price: $25 per person</p>
+            <a href="#!" class="btn">Reserve Now</a>
           </div>
         </article>
-
       </div>
     </section>
 
     <!-- Featured Event Spotlight -->
-    <section class="section-light fade-in" aria-label="Featured Event">
-      <div class="card">
-        <img src="https://images.dcsai.ai/phase-v4/Restaurant/Award Press/image(14).jpg" alt="Featured event ambience" loading="lazy">
-        <div class="card-body" style="padding: .75rem;">
-          <h2>Featured Event: Details Coming Soon</h2>
-          <p>We are preparing an exclusive culinary experience. Stay tuned for the full announcement.</p>
-          <p><strong>Menu:</strong> A specially curated tasting menu.</p>
-          <p><strong>Sommelier:</strong> Our in‑house sommelier will guide the wine pairing.</p>
-          <a href="/reservation.html" class="btn">Reserve Now</a>
+    <section class="container section-light fade-in" aria-labelledby="featured-heading">
+      <h2 id="featured-heading">Featured Event</h2>
+      <article class="card flex">
+        <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Ambience Evening/image(14).jpg" alt="Chef collaboration event" style="max-width:300px;width:100%;height:auto;">
+        <div class="p-4" style="flex:1;">
+          <h3>Chef Collaboration: North‑South Fusion</h3>
+          <p>Join renowned chefs for an exclusive tasting menu blending northern and southern Indian flavors, complemented by a curated wine list.</p>
+          <p><strong>Menu Highlights:</strong> Paneer Tikka, Lamb Rogan Josh, Coconut‑infused desserts.</p>
+          <p><strong>Sommelier:</strong> Anjali Patel</p>
+          <p>Price: $80 per person</p>
+          <a href="#!" class="btn">Buy Tickets</a>
         </div>
-      </div>
+      </article>
     </section>
 
     <!-- Past Events Archive -->
-    <section class="section-light fade-in" aria-label="Past Events">
-      <h2>Past Events</h2>
-      <div class="carousel" aria-label="Photo carousel of past events">
-        <img src="https://images.dcsai.ai/phase-v4/Restaurant/Ambience Evening/image(14).jpg" alt="Past event photo 1" loading="lazy">
-        <img src="https://images.dcsai.ai/phase-v4/Restaurant/Award Press/image(9).jpg" alt="Past event photo 2" loading="lazy">
-        <img src="https://images.dcsai.ai/phase-v4/Restaurant/Ambience Evening/image(18).jpg" alt="Past event photo 3" loading="lazy">
+    <section class="container fade-in" aria-labelledby="past-heading">
+      <h2 id="past-heading">Past Events Gallery</h2>
+      <div class="grid">
+        <figure class="card">
+          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Award Press/image(9).jpg" alt="Wine dinner guests enjoying tasting">
+          <figcaption>Wine Dinner – September 2024</figcaption>
+        </figure>
+        <figure class="card">
+          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Ambience Evening/image(18).jpg" alt="Live music audience clapping">
+          <figcaption>Live Music Night – August 2024</figcaption>
+        </figure>
+        <figure class="card">
+          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Award Press/image(4).jpg" alt="Brunch buffet spread">
+          <figcaption>Sunday Brunch – July 2024</figcaption>
+        </figure>
       </div>
     </section>
 
     <!-- Recurring Events -->
-    <section class="section-light fade-in" aria-label="Recurring Events">
-      <h2>Recurring Events</h2>
+    <section class="container fade-in" aria-labelledby="recurring-heading">
+      <h2 id="recurring-heading">Recurring Events</h2>
       <ul>
-        <li><strong>Every Sunday Brunch:</strong> 10:00 – 14:00 – A relaxed brunch with classic favorites.</li>
-        <li><strong>Every Tuesday Wine Night:</strong> 19:00 – 22:00 – Sample curated wines with small plates.</li>
+        <li><strong>Every Sunday:</strong> Brunch Buffet – $25 per person</li>
+        <li><strong>Every Tuesday:</strong> Wine Tasting Night – $30 per person</li>
       </ul>
     </section>
 
     <!-- Mailing List Signup -->
-    <section class="section-light fade-in" aria-label="Mailing List">
-      <h2>Be First to Hear About New Events</h2>
-      <p>Subscribe to our mailing list for the latest updates.</p>
-      <form class="newsletter-form" action="mailto:contact@dcsai.ai?subject=Event%20inquiry%20%E2%80%94%20Haveli%20Restaurant%205" method="post" novalidate>
-        <label for="email">Email address</label>
-        <input type="email" id="email" name="email" placeholder="you@example.com" required aria-required="true" autocomplete="email" inputmode="email">
+    <section class="container fade-in" aria-labelledby="signup-heading">
+      <h2 id="signup-heading">Stay Updated</h2>
+      <p>Be the first to hear about new events and exclusive offers.</p>
+      <form action="mailto:contact@dcsai.ai?subject=Event%20inquiry%20%E2%80%94%20Haveli%20Restaurant%205" method="post" class="flex" novalidate>
+        <label for="email" class="visually-hidden">Email address</label>
+        <input type="email" id="email" name="email" placeholder="Your email" required aria-required="true"
+               style="flex:1;padding:.5rem;border:1px solid var(--muted);border-radius:.25rem;" autocomplete="email" inputmode="email">
         <button type="submit" class="btn">Subscribe</button>
       </form>
     </section>
-
   <!-- ─── Phase F (section filler) — industry/page-aware fallback ─── -->
 <section class="trd-section-filler" data-trd-section-filler="phase-F" style="padding:48px 24px;max-width:880px;margin:0 auto;line-height:1.7;">
   <h2 style="font-size:1.5rem;font-weight:700;margin:0 0 18px;">Upcoming events</h2>
@@ -1211,37 +1177,20 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
 <!-- ─── /Phase F ──────────────────────────────────────────────── -->
 </main>
 
-  <!-- Scripts -->
   <script>
-    // Theme toggle persistence
+    // Theme toggle
     const themeBtn = document.getElementById('theme-toggle');
     themeBtn.onclick = () => document.documentElement.classList.toggle('dark');
     if (localStorage.theme === 'dark' ||
-        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme:dark)').matches)) {
       document.documentElement.classList.add('dark');
     }
 
     // Fade‑in on scroll
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
+    }, {threshold: 0.1});
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // Simple filter functionality
-    const filterButtons = document.querySelectorAll('.filter-controls .btn');
-    const cards = document.querySelectorAll('[data-event-type]');
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filter = btn.dataset.filter;
-        cards.forEach(card => {
-          if (filter === 'all' || card.dataset.eventType === filter) {
-            card.style.display = '';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
-    });
   </script>
     <footer class="gg-footer" role="contentinfo">
   <div class="gg-footer-newsletter">
@@ -1313,7 +1262,7 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
     <div class="gg-footer-bottom-row">
       <p class="gg-footer-copy">&copy; 2026 Haveli Restaurant 5. All Rights Reserved.</p>
       <div class="gg-footer-legal">
-        <a href="/" onclick="return false;" data-trd-deadlink="privacy.html">privacy policy</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="terms.html">terms of service</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="sitemap.html">sitemap</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="accessibility.html">accessibility</a>
+        <a href="/privacy.html">privacy policy</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/terms.html">terms of service</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/sitemap.html">sitemap</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/accessibility.html">accessibility</a>
       </div>
     </div>
   </div>
@@ -1323,7 +1272,7 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
   <div class="gg-cookie-inner">
     <div class="gg-cookie-text">
       <p id="gg-cookie-title" class="gg-cookie-title">We use cookies</p>
-      <p class="gg-cookie-desc">We use cookies to enhance your browsing experience and analyze site traffic. <a href="/" onclick="return false;" data-trd-deadlink="privacy.html">Privacy Policy</a></p>
+      <p class="gg-cookie-desc">We use cookies to enhance your browsing experience and analyze site traffic. <a href="/privacy.html">Privacy Policy</a></p>
     </div>
     <div class="gg-cookie-actions">
       <button type="button" class="gg-cookie-reject">Reject</button>

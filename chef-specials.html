@@ -129,102 +129,75 @@ section {
 }
 </style>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chef Specials – Haveli Restaurant 5</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Design Tokens (injected by orchestrator) -->
+  <meta name="description" content="Weekly rotating chef specials at Haveli Restaurant 5">
   <style>
+    /* ---- Design Tokens (injected by orchestrator) ---- */
     :root {
-      --primary: var(--color-accent, #B8860B);
-      --bg: var(--color-bg, #FAF7F2);
-      --text: var(--color-text-primary, #1F1611);
-      --accent: var(--color-accent, #B8860B);
-      --surface: var(--color-surface, #FFFFFF);
-      --muted: var(--color-text-secondary, #6B5D52);
-      --border: var(--color-border, rgba(31,22,17,0.1));
-      --radius-sm: 6px;
-      --radius-md: 12px;
-      --radius-lg: 32px;
-      --shadow-sm: 0 2px 8px rgba(31,22,17,0.06);
-      --shadow-md: 0 12px 36px rgba(31,22,17,0.1);
-      --max-width: 1200px;
+      --primary: var(--primary, #B8860B);
+      --bg: var(--bg, #FAF7F2);
+      --text: var(--text, #1F1611);
+      --accent: var(--accent, #B8860B);
+      --surface: var(--surface, #FFFFFF);
+      --muted: var(--muted, #6A6A6A);
+      --max-width: var(--max-width, 1200px);
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,
-    h1,h2,h3{font-family:var(--font-serif, serif);color:var(--text)}
+    *{box-sizing:border-box}
+    html,body{height:100%}
     a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
     .container{max-width:var(--max-width);margin:auto;padding:1rem}
-    .skip-link{position:absolute;top:-40px;left:0;background:#000;color:#fff;padding:8px 12px;z-index:100}
-    .skip-link:focus{top:0}
-    .btn{
-      display:inline-block;
-      padding:10px 14px;
-      border-radius:8px;
-      background:var(--primary);
-      color:#fff;
-      font-weight:600;
-      cursor:pointer;
-      transition:transform .2s ease,box-shadow .2s ease;
+    .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{left:0;top:0;width:auto;height:auto;background:#fff;color:#000;padding:.5rem}
+    h1,h2,h3,h4{margin:0 0 .5rem}
+    h1{font-size:2rem}
+    h2{font-size:1.5rem}
+    .grid{
+      display:grid;
+      gap:1rem;
+      grid-template-columns:1fr;
     }
-    .btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    @media(min-width:600px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(min-width:900px){
+      .grid{grid-template-columns:repeat(3,1fr)}
     }
     .card{
       background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:var(--radius-md);
+      border-radius:.5rem;
       overflow:hidden;
-      box-shadow:var(--shadow-sm);
-      transition:transform .2s ease,box-shadow .2s ease;
-    }
-    .card:hover{
-      transform:translateY(-4px);
-      box-shadow:0 16px 32px rgba(0,0,0,0.12);
-    }
-    .grid{
-      display:grid;
-      gap:16px;
-    }
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    @media (max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:600px){.grid-3{grid-template-columns:1fr}}
-    .badge{
-      position:absolute;
-      top:8px;
-      left:8px;
-      background:var(--primary);
-      color:#fff;
-      padding:2px 6px;
-      font-size:.75rem;
-      border-radius:4px;
-    }
-    .hero{
-      text-align:center;
-      padding:2rem 1rem;
-    }
-    .hero h1{font-size:2rem;margin-bottom:.5rem}
-    .hero p{font-size:1rem;margin-bottom:.5rem}
-    .hero .sub{font-size:.9rem;color:var(--muted)}
-    .spotlight{
+      padding:1rem;
       display:flex;
       flex-direction:column;
-      align-items:center;
+      gap:.5rem;
+    }
+    .card:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(0,0,0,.12)}
+    .card img{border-radius:.5rem}
+    .badge{
+      align-self:flex-start;
+      background:var(--primary);
+      color:#fff;
+      padding:.2rem .5rem;
+      border-radius:.25rem;
+      font-size:.75rem;
+    }
+    .btn{
+      display:inline-block;
+      padding:.6rem 1.2rem;
+      background:var(--accent);
+      color:#fff;
+      border:none;
+      border-radius:.5rem;
+      cursor:pointer;
       text-align:center;
-      gap:1rem;
-      padding:2rem 1rem;
+      transition:transform .2s ease,box-shadow .2s ease;
     }
-    .spotlight img{width:100%;max-width:400px;height:auto;border-radius:var(--radius-md)}
-    .chef-note{padding:1.5rem 1rem;background:var(--surface);margin:2rem 0;border-radius:var(--radius-md);box-shadow:var(--shadow-sm)}
-    .archive{
-      overflow-x:auto;
-      white-space:nowrap;
-      padding:1rem 0;
-    }
-    .archive img{width:120px;height:80px;object-fit:cover;margin-right:8px;border-radius:var(--radius-sm)}
-    .reservation-cta{text-align:center;margin:2rem 0}
-    /* Fade‑in animation */
+    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.15)}
     .fade-in{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
     .fade-in.visible{opacity:1;transform:translateY(0)}
+    /* Dark mode */
     /* Light‑section contrast fix */
     .section-light, [data-bg="light"]{
       background:var(--tpl-light-surface,#f7f0e3);
@@ -234,7 +207,8 @@ section {
     .section-light p,.section-light li,.section-light label,.section-light span{
       color:var(--tpl-text-on-light,#1a1a1a);
     }
-    /* Dark mode */
+    /* Theme toggle button */
+    
   </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -867,7 +841,7 @@ section[data-section] {
 <meta name="dcs-build-id" content="2693eb33" data-trd-zone="68">
 <meta name="trd-template-id" content="2693eb33" data-trd-zone="68">
 <style id="trd-locked-palette" data-trd-zone="66">
-/* DCS locked palette · resolvedAt=2026-08-14T19:10:28.969Z */
+/* DCS locked palette · resolvedAt=2026-08-14T19:12:07.229Z */
   /* Zone 66 — 1 contrast correction(s) applied at lock time */
 :root {
   --tpl-primary: #1e1208;
@@ -1124,79 +1098,72 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
   
   <script>(function(){var w=document.querySelector('.gg-a11y-widget');if(!w)return;var t=w.querySelector('.gg-a11y-toggle');var html=document.documentElement;var STEP=2;function close(){w.setAttribute('data-open','false');t.setAttribute('aria-expanded','false')}function open(){w.setAttribute('data-open','true');t.setAttribute('aria-expanded','true')}t.addEventListener('click',function(e){e.stopPropagation();var o=w.getAttribute('data-open')==='true';if(o)close();else open()});document.addEventListener('click',function(e){if(!w.contains(e.target))close()});document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});w.querySelectorAll('.gg-a11y-opt').forEach(function(b){b.addEventListener('click',function(){var a=b.getAttribute('data-act');var s=parseFloat(getComputedStyle(html).fontSize)||16;if(a==='text-up')html.style.fontSize=Math.min(s+STEP,22)+'px';else if(a==='text-down')html.style.fontSize=Math.max(s-STEP,12)+'px';else if(a==='contrast')html.classList.toggle('gg-a11y-contrast');else if(a==='motion')html.classList.toggle('gg-a11y-motion');else if(a==='links')html.classList.toggle('gg-a11y-links');else if(a==='reset'){html.style.fontSize='';html.classList.remove('gg-a11y-contrast','gg-a11y-motion','gg-a11y-links')}})});})();</script>
 </div>
-  <!-- Theme toggle (positioned per spec) -->
-  
-
-  <main id="main-content" class="container gg-main gg-section section-light">
+  <!-- Skip to content -->
+  <main id="main" class="container gg-main gg-section section-light">
     <!-- Hero Section -->
-    <section class="hero fade-in">
-      <h1>This Week from Our Kitchen</h1>
-      <p>Discover the chef’s latest creations – updated weekly.</p>
-      <p class="sub">Seasonal ingredients, limited availability.</p>
+    <section class="fade-in section-light" data-bg="light">
+      <h1 class="fade-in">Chef’s Weekly Specials</h1>
+      <p class="fade-in">Discover what our chef is crafting this week. Updated weekly for a fresh experience.</p>
     </section>
 
     <!-- Current Specials Grid -->
     <section class="fade-in">
-      <h2 class="section-title">Current Specials</h2>
-      <div class="grid grid-3">
+      <h2 class="fade-in">Current Specials</h2>
+      <div class="grid">
         <!-- Dish 1 -->
-        <article class="card fade-in" style="position:relative;">
-          <img src="https://images.dcsai.ai/phase-v4/Restaurant/Feature Detail/image.jpg" alt="Placeholder dish image" loading="lazy" style="width:100%;height:auto;">
+        <article class="card fade-in">
+          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Feature Detail/image.jpg" alt="Placeholder dish image">
           <span class="badge">NEW THIS WEEK</span>
-          <div class="card-content" style="padding:0.75rem;">
-            <h3 style="margin-bottom:.5rem;">Dish name</h3>
-            <p style="margin-bottom:.5rem;">Description not provided.</p>
-            <p style="margin-bottom:.5rem;">Price: Contact us for details</p>
-          </div>
+          <h3>Dish Name</h3>
+          <p>Description coming soon.</p>
+          <p><strong>Price:</strong> $0.00</p>
         </article>
         <!-- Dish 2 -->
-        <article class="card fade-in" style="position:relative;">
-          <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/services/magnific_closeup-of-latino-male-pa_3002397161.jpeg" alt="Placeholder dish image" loading="lazy" style="width:100%;height:auto;">
+        <article class="card fade-in">
+          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/services/magnific_closeup-of-latino-male-pa_3002397161.jpeg" alt="Placeholder dish image">
           <span class="badge">NEW THIS WEEK</span>
-          <div class="card-content" style="padding:0.75rem;">
-            <h3 style="margin-bottom:.5rem;">Dish name</h3>
-            <p style="margin-bottom:.5rem;">Description not provided.</p>
-            <p style="margin-bottom:.5rem;">Price: Contact us for details</p>
-          </div>
+          <h3>Dish Name</h3>
+          <p>Description coming soon.</p>
+          <p><strong>Price:</strong> $0.00</p>
         </article>
         <!-- Dish 3 -->
-        <article class="card fade-in" style="position:relative;">
-          <img src="https://images.dcsai.ai/phase-v4/Restaurant/Loyalty Program/image(14).jpg" alt="Placeholder dish image" loading="lazy" style="width:100%;height:auto;">
+        <article class="card fade-in">
+          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Loyalty Program/image(14).jpg" alt="Placeholder dish image">
           <span class="badge">NEW THIS WEEK</span>
-          <div class="card-content" style="padding:0.75rem;">
-            <h3 style="margin-bottom:.5rem;">Dish name</h3>
-            <p style="margin-bottom:.5rem;">Description not provided.</p>
-            <p style="margin-bottom:.5rem;">Price: Contact us for details</p>
-          </div>
+          <h3>Dish Name</h3>
+          <p>Description coming soon.</p>
+          <p><strong>Price:</strong> $0.00</p>
         </article>
+        <!-- Additional dish placeholders can be added up to 9 -->
       </div>
     </section>
 
     <!-- Featured Dish Spotlight -->
-    <section class="spotlight fade-in">
-      <h2>Featured Dish</h2>
-      <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/services/magnific_closeup-of-chefs-hands-ea_3002156686.jpeg" alt="Chef portrait – placeholder" loading="lazy">
-      <div>
-        <h3 style="margin-bottom:.5rem;">Dish name</h3>
-        <p style="margin-bottom:.5rem;">Chef’s inspiration and sourcing details are not available.</p>
-      </div>
+    <section class="fade-in section-light" data-bg="light">
+      <h2 class="fade-in">Featured Dish</h2>
+      <article class="card fade-in">
+        <img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/services/magnific_closeup-of-chefs-hands-ea_3002156686.jpeg" alt="Featured dish image">
+        <h3>Featured Dish Name</h3>
+        <p>Chef’s inspiration and story about this special creation. Contact us for details.</p>
+        <p><strong>Price:</strong> $0.00</p>
+      </article>
     </section>
 
     <!-- Chef's Note -->
-    <section class="chef-note fade-in">
-      <h2>Chef’s Note</h2>
-      <p>Chef’s note: Contact us for details about this week’s theme.</p>
+    <section class="fade-in">
+      <h2 class="fade-in">Chef’s Note</h2>
+      <p class="fade-in">A short note from our chef about this week’s theme. Stay tuned for fresh flavors.</p>
     </section>
 
     <!-- Past Specials Archive -->
-    <section class="section-light fade-in" data-bg="light">
-      <h2>Past Specials Archive</h2>
-      <div class="archive">
-        <img src="https://images.dcsai.ai/phase-v4/Restaurant/Loyalty Program/image(18).jpg" alt="Past special thumbnail" loading="lazy">
-        <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/services/magnific_closeup-of-a-white-female_3002145744.jpeg" alt="Past special thumbnail" loading="lazy">
-        <img src="https://images.dcsai.ai/phase-v4/Restaurant/Private Events/image(2).jpg" alt="Past special thumbnail" loading="lazy">
-        <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/services/magnific_closeup-of-a-black-female_3002470883.jpeg" alt="Past special thumbnail" loading="lazy">
-        <img src="https://images.dcsai.ai/phase-v4/Restaurant/Private Events/image(6).jpg" alt="Past special thumbnail" loading="lazy">
+    <section class="fade-in">
+      <h2 class="fade-in">Past Specials Archive</h2>
+      <div class="grid">
+        <article class="card fade-in"><img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Loyalty Program/image(18).jpg" alt="Past special thumbnail"></article>
+        <article class="card fade-in"><img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/services/magnific_closeup-of-a-white-female_3002145744.jpeg" alt="Past special thumbnail"></article>
+        <article class="card fade-in"><img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Private Events/image(2).jpg" alt="Past special thumbnail"></article>
+        <article class="card fade-in"><img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/services/magnific_closeup-of-a-black-female_3002470883.jpeg" alt="Past special thumbnail"></article>
+        <article class="card fade-in"><img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Private Events/image(6).jpg" alt="Past special thumbnail"></article>
       </div>
     </section>
 
@@ -1212,20 +1179,24 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
 <!-- ─── /Phase F ──────────────────────────────────────────────── -->
 </main>
 
-  <!-- Scripts -->
+  <!-- Theme Toggle Button -->
+  
+
   <script>
-    // Theme toggle
-    const themeBtn = document.getElementById('theme-toggle');
-    themeBtn.onclick = () => document.documentElement.classList.toggle('dark');
+    // Theme toggle script
+    const t = document.getElementById('theme-toggle');
+    t.onclick = () => document.documentElement.classList.toggle('dark');
     if (localStorage.theme === 'dark' ||
         (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme:dark)').matches)) {
       document.documentElement.classList.add('dark');
     }
 
-    // Fade‑in on scroll
+    // Intersection Observer for fade‑in
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, {threshold:0.1});
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
     <footer class="gg-footer" role="contentinfo">
@@ -1298,7 +1269,7 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
     <div class="gg-footer-bottom-row">
       <p class="gg-footer-copy">&copy; 2026 Haveli Restaurant 5. All Rights Reserved.</p>
       <div class="gg-footer-legal">
-        <a href="/" onclick="return false;" data-trd-deadlink="privacy.html">privacy policy</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="terms.html">terms of service</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="sitemap.html">sitemap</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="accessibility.html">accessibility</a>
+        <a href="/privacy.html">privacy policy</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/terms.html">terms of service</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/sitemap.html">sitemap</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/accessibility.html">accessibility</a>
       </div>
     </div>
   </div>
@@ -1308,7 +1279,7 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
   <div class="gg-cookie-inner">
     <div class="gg-cookie-text">
       <p id="gg-cookie-title" class="gg-cookie-title">We use cookies</p>
-      <p class="gg-cookie-desc">We use cookies to enhance your browsing experience and analyze site traffic. <a href="/" onclick="return false;" data-trd-deadlink="privacy.html">Privacy Policy</a></p>
+      <p class="gg-cookie-desc">We use cookies to enhance your browsing experience and analyze site traffic. <a href="/privacy.html">Privacy Policy</a></p>
     </div>
     <div class="gg-cookie-actions">
       <button type="button" class="gg-cookie-reject">Reject</button>

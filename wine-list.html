@@ -128,117 +128,147 @@ section {
   .trd-container { padding: 0 var(--sp-3); }
 }
 </style>
-<meta charset="UTF-8">
-<title>Our Wine Program – Haveli Restaurant 5</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-/* Design Tokens (injected by orchestrator) */
-:root{
-  --primary: var(--color-accent, #B8860B);
-  --bg: var(--color-bg, #FAF7F2);
-  --text: var(--color-text-primary, #1F1611);
-  --accent: var(--color-accent, #B8860B);
-  --surface: var(--color-surface, #FFFFFF);
-  --muted: var(--color-text-secondary, #6B5D52);
-  --font-serif: 'Fraunces','Cormorant','Playfair Display',serif;
-  --font-sans: 'Inter',system-ui,sans-serif;
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 32px;
-  --shadow-sm: 0 2px 8px rgba(31,22,17,0.06);
-  --max-width: 1200px;
-}
-/* Global Styles */
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;overflow-x:hidden}
-h1,h2,h3{font-family:var(--font-serif);color:var(--text)}
-a{color:inherit;text-decoration:none}
-button, .btn{cursor:pointer;border:none;background:none}
-.container{max-width:var(--max-width);margin:auto;padding:1rem}
-.skip-link{
-  position:absolute;top:-40px;left:0;background:#000;color:#fff;padding:8px 12px;z-index:100;
-}
-.skip-link:focus{top:0}
-/* Dark Mode */
-/* Micro Animations */
-.fade-in{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
-.fade-in.visible{opacity:1;transform:translateY(0)}
-.btn{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--primary);color:#fff;transition:transform .2s ease,box-shadow .2s ease}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.15)}
-.card{background:var(--surface);border:1px solid var(--muted);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);padding:1rem;margin-bottom:1rem;transition:transform .2s ease,box-shadow .2s ease}
-.card:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(0,0,0,0.12)}
-@keyframes countUp{from{opacity:0}to{opacity:1}}
-.stat-number{animation:countUp .6s ease forwards}
-/* Light‑section contrast fix */
-.section-light, [data-bg="light"]{
-  background:var(--surface);
-  color:var(--text);
-}
-.section-light h1,.section-light h2,.section-light h3,.section-light p,.section-light li,.section-light span,.section-light label{
-  color:var(--text);
-}
-/* Layout */
-.hero{
-  position:relative;
-  background:var(--surface);
-  color:var(--text);
-  text-align:center;
-  padding:4rem 1rem;
-  margin-bottom:2rem;
-}
-.hero img{
-  width:100%;
-  height:auto;
-  max-height:300px;
-  object-fit:cover;
-  margin-bottom:1rem;
-}
-.filter-group{
-  display:flex;
-  flex-wrap:wrap;
-  gap:0.5rem;
-  margin-bottom:2rem;
-}
-.filter-group label{
-  font-size:0.9rem;
-}
-.wine-grid{
-  display:grid;
-  gap:1rem;
-  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-}
-.wine-card{
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-}
-.wine-card ul{
-  list-style:none;
-  padding:0;
-  margin:0.5rem 0;
-}
-.wine-card li{
-  margin-bottom:0.25rem;
-}
-.price{
-  font-weight:600;
-  margin-top:auto;
-}
-.by-glass{
-  background:var(--bg);
-  padding:1rem;
-  border-left:4px solid var(--primary);
-  margin-bottom:2rem;
-}
-.sommelier-picks .card{border-left:4px solid var(--accent)}
-.pairings ul{list-style:disc inside}
-.club-section{background:var(--bg);padding:1rem;border:1px solid var(--muted);border-radius:var(--radius-sm)}
-.disclaimer{font-size:0.85rem;color:var(--muted);margin-top:2rem}
-/* Responsive */
-@media (max-width:600px){
-  .hero{padding:2rem 0.5rem}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wine Program – Haveli Restaurant 5</title>
+  <meta name="description" content="Explore the curated wine program at Haveli Restaurant 5.">
+  <style>
+    /* Design Tokens (provided by orchestrator) */
+    :root {
+      --primary: var(--color-accent, #B8860B);
+      --bg: var(--color-bg, #FAF7F2);
+      --text: var(--color-text-primary, #1F1611);
+      --accent: var(--primary);
+      --surface: var(--color-surface, #FFFFFF);
+      --muted: var(--color-text-secondary, #6B5D52);
+      --font-serif: var(--font-serif, 'Playfair Display', serif);
+      --font-sans: var(--font-sans, 'Inter', sans-serif);
+      --max-width: var(--max-width, 1200px);
+    }
+    /* Global Styles */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 1rem; }
+    /* Typography */
+    h1, h2, h3, h4 { font-family: var(--font-serif); color: var(--text); margin: 0 0 .5rem; }
+    p { margin: 0 0 1rem; }
+    /* Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--primary);
+      color: #fff;
+      padding: .5rem 1rem;
+      z-index: 100;
+    }
+    .skip-link:focus { top: 0; }
+    /* Hero */
+    .hero {
+      position: relative;
+      text-align: center;
+      color: var(--text);
+      padding: 3rem 1rem;
+    }
+    .hero img { width: 100%; height: auto; object-fit: cover; }
+    .hero h1 { font-size: 2rem; margin-top: .5rem; }
+    .hero p { font-size: 1rem; max-width: 40rem; margin: .5rem auto; }
+    /* Filter Controls */
+    .filter-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin: 1rem 0;
+    }
+    .filter-controls label {
+      cursor: pointer;
+      padding: .4rem .8rem;
+      border: 1px solid var(--muted);
+      border-radius: .4rem;
+      background: var(--surface);
+    }
+    .filter-controls input { display: none; }
+    .filter-controls input:checked + label {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    /* Wine List */
+    .wine-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; grid-template-columns: 1fr; }
+    @media (min-width: 600px) {
+      .wine-list { grid-template-columns: repeat(2, 1fr); }
+    }
+    .wine-card {
+      background: var(--surface);
+      border: 1px solid var(--muted);
+      border-radius: .5rem;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+    .wine-card h3 { font-family: var(--font-serif); font-size: 1.2rem; }
+    .wine-card .details { font-size: .9rem; color: var(--muted); }
+    .wine-card .note { font-style: italic; margin-top: .5rem; }
+    .wine-card .price { margin-top: auto; font-weight: 600; }
+    /* By‑the‑Glass Highlight */
+    .by-glass { background: var(--bg); border-left: 4px solid var(--primary); padding-left: .8rem; }
+    /* Sommelier Picks */
+    .sommelier-picks { margin-top: 2rem; }
+    .sommelier-picks h2 { border-bottom: 2px solid var(--primary); padding-bottom: .3rem; }
+    /* Wine Pairings */
+    .pairings { margin-top: 2rem; }
+    .pairings ul { padding-left: 1.2rem; }
+    /* Light‑section contrast fix (if needed) */
+    .section-light, [data-bg="light"] {
+      background: var(--tpl-light-surface, #f7f0e3);
+      color: var(--tpl-text-on-light, #1a1a1a);
+    }
+    .section-light h1,
+    .section-light h2,
+    .section-light h3,
+    .section-light h4,
+    .section-light p,
+    .section-light li,
+    .section-light label,
+    .section-light span {
+      color: var(--tpl-text-on-light, #1a1a1a);
+    }
+    /* Dark Mode */
+    /* Micro‑Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .btn {
+      display: inline-block;
+      padding: .6rem 1.2rem;
+      border-radius: .5rem;
+      background: var(--primary);
+      color: #fff;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.15);
+    }
+    .card {
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(0,0,0,.12);
+    }
+    @keyframes countUp { from { opacity:0; } to { opacity:1; } }
+    .stat-number { animation: countUp .6s ease forwards; }
+    /* Theme Toggle Button */
+    
+  </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -870,7 +900,7 @@ section[data-section] {
 <meta name="dcs-build-id" content="2693eb33" data-trd-zone="68">
 <meta name="trd-template-id" content="2693eb33" data-trd-zone="68">
 <style id="trd-locked-palette" data-trd-zone="66">
-/* DCS locked palette · resolvedAt=2026-08-14T19:10:28.969Z */
+/* DCS locked palette · resolvedAt=2026-08-14T19:12:07.229Z */
   /* Zone 66 — 1 contrast correction(s) applied at lock time */
 :root {
   --tpl-primary: #1e1208;
@@ -1127,168 +1157,124 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
   
   <script>(function(){var w=document.querySelector('.gg-a11y-widget');if(!w)return;var t=w.querySelector('.gg-a11y-toggle');var html=document.documentElement;var STEP=2;function close(){w.setAttribute('data-open','false');t.setAttribute('aria-expanded','false')}function open(){w.setAttribute('data-open','true');t.setAttribute('aria-expanded','true')}t.addEventListener('click',function(e){e.stopPropagation();var o=w.getAttribute('data-open')==='true';if(o)close();else open()});document.addEventListener('click',function(e){if(!w.contains(e.target))close()});document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});w.querySelectorAll('.gg-a11y-opt').forEach(function(b){b.addEventListener('click',function(){var a=b.getAttribute('data-act');var s=parseFloat(getComputedStyle(html).fontSize)||16;if(a==='text-up')html.style.fontSize=Math.min(s+STEP,22)+'px';else if(a==='text-down')html.style.fontSize=Math.max(s-STEP,12)+'px';else if(a==='contrast')html.classList.toggle('gg-a11y-contrast');else if(a==='motion')html.classList.toggle('gg-a11y-motion');else if(a==='links')html.classList.toggle('gg-a11y-links');else if(a==='reset'){html.style.fontSize='';html.classList.remove('gg-a11y-contrast','gg-a11y-motion','gg-a11y-links')}})});})();</script>
 </div>
-<!-- Theme toggle (positioned per spec) -->
+  <!-- Skip to Content -->
+  <main id="main" class="container gg-main gg-section section-light">
+    <!-- Hero Section -->
+    <section class="hero fade-in">
+      <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Feature Detail/image(9).jpg" alt="Elegant wine cellar with softly lit bottles">
+      <h1 class="fade-in">Our Wine Program</h1>
+      <p class="fade-in">A curated selection of world‑class wines, hand‑picked by our sommelier to complement the flavors of Haveli Restaurant.</p>
+    </section>
 
+    <!-- Filter Controls -->
+    
 
-<main id="main-content" class="container gg-main gg-section section-light">
+    <!-- Wine List -->
+    <section class="fade-in">
+      <ul class="wine-list">
+        <!-- Placeholder Card – By‑the‑Glass -->
+        <li class="wine-card by-glass fade-in" data-category="sparkling">
+          <h3>Sparkling Wine – TBD</h3>
+          <div class="details">Producer: TBD • Vintage: TBD • Region: TBD</div>
+          <div class="note">A crisp, lively sparkling wine perfect for celebrations.</div>
+          <div class="price">Glass: $12 • Bottle: $45</div>
+        </li>
 
-  <!-- Hero Section -->
-  <section class="hero section-light fade-in">
-    <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Feature Detail/image(9).jpg" alt="Elegant wine cellar interior">
-    <h1>Our Wine Program</h1>
-    <p>Curated selections by our sommelier to complement the Haveli experience.</p>
-  </section>
+        <!-- Placeholder Card – Red -->
+        <li class="wine-card fade-in" data-category="red">
+          <h3>Red Wine – TBD</h3>
+          <div class="details">Producer: TBD • Vintage: TBD • Region: TBD</div>
+          <div class="note">Rich and full‑bodied, ideal with our grilled specialties.</div>
+          <div class="price">Glass: $14 • Bottle: $60</div>
+        </li>
 
-  <!-- Category Filter -->
-  <section class="fade-in">
-    <fieldset class="filter-group" aria-label="Wine category filter">
-      <legend class="visually-hidden">Filter wines</legend>
-      <label><input type="radio" name="wine-filter" value="all" checked> All</label>
-      <label><input type="radio" name="wine-filter" value="sparkling"> Sparkling</label>
-      <label><input type="radio" name="wine-filter" value="white"> White</label>
-      <label><input type="radio" name="wine-filter" value="red"> Red</label>
-      <label><input type="radio" name="wine-filter" value="dessert"> Dessert</label>
-    </fieldset>
-  </section>
+        <!-- Placeholder Card – White -->
+        <li class="wine-card fade-in" data-category="white">
+          <h3>White Wine – TBD</h3>
+          <div class="details">Producer: TBD • Vintage: TBD • Region: TBD</div>
+          <div class="note">Fresh and aromatic, pairs beautifully with our seafood dishes.</div>
+          <div class="price">Glass: $13 • Bottle: $55</div>
+        </li>
 
-  <!-- Wine List -->
-  <section class="wine-grid fade-in">
-    <!-- Placeholder wine cards (use neutral placeholder data) -->
-    <article class="card wine-card" data-category="sparkling">
-      <h2 class="wine-name" style="font-family:var(--font-serif);">Sparkling Placeholder</h2>
-      <ul>
-        <li><strong>Producer:</strong> Placeholder Winery</li>
-        <li><strong>Vintage:</strong> 2022</li>
-        <li><strong>Region:</strong> Placeholder Region</li>
-        <li><strong>Tasting Note:</strong> Fresh and lively with subtle fruit aromas.</li>
+        <!-- Additional placeholder cards can be added following the same pattern -->
       </ul>
-      <p class="price"><data value="12">₹12</data> per glass • <data value="45">₹45</data> per bottle</p>
-    </article>
+    </section>
 
-    <article class="card wine-card" data-category="white">
-      <h2 class="wine-name" style="font-family:var(--font-serif);">White Placeholder</h2>
-      <ul>
-        <li><strong>Producer:</strong> Placeholder Winery</li>
-        <li><strong>Vintage:</strong> 2021</li>
-        <li><strong>Region:</strong> Placeholder Region</li>
-        <li><strong>Tasting Note:</strong> Crisp acidity with citrus and floral notes.</li>
+    <!-- Sommelier Picks -->
+    <section class="sommelier-picks fade-in">
+      <h2>Sommelier Picks</h2>
+      <ul class="wine-list">
+        <li class="wine-card fade-in" data-category="red">
+          <h3>Signature Red – TBD</h3>
+          <div class="details">Producer: TBD • Vintage: TBD • Region: TBD</div>
+          <div class="note">Our sommelier’s top recommendation – deep flavors with silky tannins.</div>
+          <div class="price">Bottle: $120</div>
+        </li>
+        <li class="wine-card fade-in" data-category="white">
+          <h3>Signature White – TBD</h3>
+          <div class="details">Producer: TBD • Vintage: TBD • Region: TBD</div>
+          <div class="note">Elegant white with citrus notes, perfect for lighter fare.</div>
+          <div class="price">Bottle: $95</div>
+        </li>
       </ul>
-      <p class="price"><data value="10">₹10</data> per glass • <data value="40">₹40</data> per bottle</p>
-    </article>
+    </section>
 
-    <article class="card wine-card" data-category="red">
-      <h2 class="wine-name" style="font-family:var(--font-serif);">Red Placeholder</h2>
+    <!-- Wine Pairings -->
+    <section class="pairings section-light fade-in">
+      <h2>Wine Pairings</h2>
+      <p>Our staff recommends the following pairings to enhance your dining experience:</p>
       <ul>
-        <li><strong>Producer:</strong> Placeholder Winery</li>
-        <li><strong>Vintage:</strong> 2020</li>
-        <li><strong>Region:</strong> Placeholder Region</li>
-        <li><strong>Tasting Note:</strong> Rich, full‑bodied with dark fruit and spice.</li>
+        <li><strong>Spiced Chicken Biryani</strong> – paired with a medium‑bodied Red.</li>
+        <li><strong>Paneer Tikka</strong> – paired with a crisp White.</li>
+        <li><strong>Butter Naan & Lamb Curry</strong> – paired with a robust Red.</li>
+        <li><strong>Seasonal Fruit Tart</strong> – paired with a sweet Dessert wine.</li>
       </ul>
-      <p class="price"><data value="11">₹11</data> per glass • <data value="42">₹42</data> per bottle</p>
-    </article>
+    </section>
 
-    <article class="card wine-card" data-category="dessert">
-      <h2 class="wine-name" style="font-family:var(--font-serif);">Dessert Placeholder</h2>
-      <ul>
-        <li><strong>Producer:</strong> Placeholder Winery</li>
-        <li><strong>Vintage:</strong> 2019</li>
-        <li><strong>Region:</strong> Placeholder Region</li>
-        <li><strong>Tasting Note:</strong> Lush sweetness with honey and dried fruit.</li>
-      </ul>
-      <p class="price"><data value="13">₹13</data> per glass • <data value="48">₹48</data> per bottle</p>
-    </article>
-  </section>
-
-  <!-- By‑the‑Glass Featured -->
-  <section class="by-glass fade-in">
-    <h2>By‑the‑Glass Highlights</h2>
-    <p>Our sommelier recommends the following wines by the glass for immediate enjoyment.</p>
-    <ul>
-      <li><strong>Sparkling Placeholder</strong> – ₹12 per glass</li>
-      <li><strong>White Placeholder</strong> – ₹10 per glass</li>
-      <li><strong>Red Placeholder</strong> – ₹11 per glass</li>
-    </ul>
-  </section>
-
-  <!-- Sommelier Picks -->
-  <section class="sommelier-picks fade-in">
-    <h2>Sommelier Picks</h2>
-    <div class="card">
-      <h3 class="wine-name" style="font-family:var(--font-serif);">Red Placeholder – Reserve Selection</h3>
-      <ul>
-        <li><strong>Producer:</strong> Placeholder Winery</li>
-        <li><strong>Vintage:</strong> 2020</li>
-        <li><strong>Region:</strong> Placeholder Region</li>
-        <li><strong>Tasting Note:</strong> Deep, velvety palate with notes of blackcurrant, cedar, and fine tannins. Ideal for aging.</li>
-      </ul>
-      <p class="price"><data value="55">₹55</data> per glass • <data value="210">₹210</data> per bottle</p>
-    </div>
-    <div class="card">
-      <h3 class="wine-name" style="font-family:var(--font-serif);">White Placeholder – Reserve Selection</h3>
-      <ul>
-        <li><strong>Producer:</strong> Placeholder Winery</li>
-        <li><strong>Vintage:</strong> 2021</li>
-        <li><strong>Region:</strong> Placeholder Region</li>
-        <li><strong>Tasting Note:</strong> Elegant aromatics of white peach and jasmine, balanced acidity, lingering finish.</li>
-      </ul>
-      <p class="price"><data value="50">₹50</data> per glass • <data value="190">₹190</data> per bottle</p>
-    </div>
-  </section>
-
-  <!-- Wine Pairings -->
-  <section class="pairings fade-in">
-    <h2>Wine Pairings</h2>
-    <p>Suggested pairings with our signature dishes:</p>
-    <ul>
-      <li><strong>Red Placeholder</strong> – Perfect with Tandoori Lamb Chops.</li>
-      <li><strong>White Placeholder</strong> – Complements Paneer Tikka.</li>
-      <li><strong>Sparkling Placeholder</strong> – Ideal for our assorted appetizers.</li>
-    </ul>
-  </section>
-
-  <!-- Wine Club / Dinners -->
-  <section class="club-section fade-in">
-    <h2>Wine Club & Dinner Events</h2>
-    <p>Join our exclusive Wine Club for monthly tastings, special releases, and curated dinner experiences. <a href="#!" class="btn">Learn More</a></p>
-  </section>
-
-  <!-- Disclaimer -->
-  <section class="disclaimer fade-in">
-    <p>Vintages and availability are subject to change. Please confirm with your server.</p>
-  </section>
-
+    <!-- Disclaimer -->
+    <section class="fade-in">
+      <p><em>Vintages and availability are subject to change. Please confirm with your server.</em></p>
+    </section>
+  <!-- ─── Phase F (section filler) — industry/page-aware fallback ─── -->
+<section class="trd-section-filler" data-trd-section-filler="phase-F" style="padding:48px 24px;max-width:880px;margin:0 auto;line-height:1.7;">
+  <h2 style="font-size:1.5rem;font-weight:700;margin:0 0 18px;">From our cellar</h2>
+  <p style="margin:0 0 14px;color:inherit;opacity:.92;">Our wine list is short by design — every bottle on it has been chosen because we'd happily drink it ourselves. Selections rotate as new producers come in. If you're looking for something specific, ask your server.</p>
+</section>
+<!-- ─── /Phase F ──────────────────────────────────────────────── -->
 </main>
 
-<script>
-/* Theme toggle */
-const themeBtn=document.getElementById('theme-toggle');
-themeBtn.onclick=()=>document.documentElement.classList.toggle('dark');
-if(localStorage.theme==='dark'||(!('theme' in localStorage)&&window.matchMedia('(prefers-color-scheme:dark)').matches)){
-  document.documentElement.classList.add('dark');
-}
+  <!-- Theme Toggle Button -->
+  
 
-/* Fade‑in on scroll */
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
-},{threshold:0.1});
-document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+  <!-- Scripts -->
+  <script>
+    // Theme toggle logic
+    
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-/* Wine filter */
-const filterRadios=document.querySelectorAll('input[name="wine-filter"]');
-filterRadios.forEach(r=>r.addEventListener('change',applyFilter));
-function applyFilter(){
-  const val=this.value;
-  document.querySelectorAll('.wine-card').forEach(card=>{
-    if(val==='all' || card.dataset.category===val){
-      card.style.display='block';
-    }else{
-      card.style.display='none';
+    // Wine filter logic
+    const filterRadios = document.querySelectorAll('input[name="wine-filter"]');
+    const wineCards = document.querySelectorAll('.wine-card');
+
+    function applyFilter() {
+      const value = document.querySelector('input[name="wine-filter"]:checked').value;
+      wineCards.forEach(card => {
+        if (value === 'all' || card.dataset.category === value) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
     }
-  });
-}
-/* Run on page load */
-applyFilter.call(document.querySelector('input[name="wine-filter"]:checked'));
-</script>
+
+    filterRadios.forEach(radio => {
+      radio.addEventListener('change', applyFilter);
+    });
+
+    // Run on page load
+    applyFilter();
+  </script>
     <footer class="gg-footer" role="contentinfo">
   <div class="gg-footer-newsletter">
     <h3 class="gg-footer-newsletter-title">join the herd!</h3>
@@ -1359,7 +1345,7 @@ applyFilter.call(document.querySelector('input[name="wine-filter"]:checked'));
     <div class="gg-footer-bottom-row">
       <p class="gg-footer-copy">&copy; 2026 Haveli Restaurant 5. All Rights Reserved.</p>
       <div class="gg-footer-legal">
-        <a href="/" onclick="return false;" data-trd-deadlink="privacy.html">privacy policy</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="terms.html">terms of service</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="sitemap.html">sitemap</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="accessibility.html">accessibility</a>
+        <a href="/privacy.html">privacy policy</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/terms.html">terms of service</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/sitemap.html">sitemap</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/accessibility.html">accessibility</a>
       </div>
     </div>
   </div>
@@ -1369,7 +1355,7 @@ applyFilter.call(document.querySelector('input[name="wine-filter"]:checked'));
   <div class="gg-cookie-inner">
     <div class="gg-cookie-text">
       <p id="gg-cookie-title" class="gg-cookie-title">We use cookies</p>
-      <p class="gg-cookie-desc">We use cookies to enhance your browsing experience and analyze site traffic. <a href="/" onclick="return false;" data-trd-deadlink="privacy.html">Privacy Policy</a></p>
+      <p class="gg-cookie-desc">We use cookies to enhance your browsing experience and analyze site traffic. <a href="/privacy.html">Privacy Policy</a></p>
     </div>
     <div class="gg-cookie-actions">
       <button type="button" class="gg-cookie-reject">Reject</button>

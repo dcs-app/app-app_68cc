@@ -128,53 +128,96 @@ section {
   .trd-container { padding: 0 var(--sp-3); }
 }
 </style>
-<meta charset="UTF-8">
-<title>In the Press — Haveli Restaurant 5</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-/* Design tokens (injected by orchestrator) */
-:root{
-  --primary: var(--color-accent, #B8860B);
-  --bg: var(--color-bg, #FAF7F2);
-  --text: var(--color-text-primary, #1F1611);
-  --accent: var(--color-accent, #B8860B);
-  --surface: var(--color-surface, #FFFFFF);
-  --muted: var(--color-text-secondary, #6B5D52);
-}
-/* Base styling */
-h1,h2,h3{font-family:var(--font-serif, Fraunces, serif);margin:0 0 .5rem}
-a{color:var(--accent);text-decoration:none}
-.container{max-width:var(--max-width,1200px);margin:auto;padding:1rem}
-.skip-link{position:absolute;top:-40px;left:0;background:#000;color:#fff;padding:8px 12px;z-index:100}
-.skip-link:focus{top:0}
-/* Dark mode */
-/* Micro‑animations */
-.fade-in{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
-.fade-in.visible{opacity:1;transform:translateY(0)}
-.btn{transition:transform .2s ease,box-shadow .2s ease}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.15)}
-.card{background:var(--surface);border:1px solid var(--muted,rgba(0,0,0,.1));border-radius:var(--radius-md,12px);padding:1rem;box-shadow:var(--shadow-sm,0 2px 8px rgba(0,0,0,.06));transition:transform .2s ease,box-shadow .2s ease}
-.card:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(0,0,0,.12)}
-/* Light‑section contrast fix */
-.section-light,[data-bg="light"]{
-  background:var(--tpl-light-surface,#f7f0e3);
-  color:var(--tpl-text-on-light,#1a1a1a);
-}
-.section-light h1,.section-light h2,.section-light h3,.section-light h4,
-.section-light p,.section-light li,.section-light label,.section-light span{
-  color:var(--tpl-text-on-light,#1a1a1a);
-}
-/* Layout */
-.logo-band{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;align-items:center;margin:.5rem 0}
-.logo-band img{max-height:40px;filter:grayscale(100%);opacity:.7}
-.reviews-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
-.mentions-list{list-style:none;margin:0;padding:0}
-.mentions-list li{margin:.25rem 0}
-/* Responsive */
-@media (max-width:600px){
-  .logo-band{flex-direction:column}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>In the Press – Haveli Restaurant 5</title>
+  <meta name="description" content="Press coverage, awards and reviews for Haveli Restaurant 5">
+  <style>
+    /* Design tokens (provided by orchestrator) */
+    :root {
+      --primary: var(--primary);
+      --bg: var(--bg);
+      --text: var(--text);
+      --surface: var(--surface);
+      --border: var(--border);
+      --accent: var(--accent);
+      --max-width: var(--max-width);
+    }
+    /* Dark mode (Phase D3) */
+    /* Light‑section contrast fix (B12) */
+    .section-light, [data-bg="light"] {
+      background: var(--tpl-light-surface, #f7f0e3);
+      color: var(--tpl-text-on-light, #1a1a1a);
+    }
+    .section-light h1,
+    .section-light h2,
+    .section-light h3,
+    .section-light h4,
+    .section-light p,
+    .section-light li,
+    .section-light label,
+    .section-light span {
+      color: var(--tpl-text-on-light, #1a1a1a);
+    }
+    /* Micro‑animations (Phase D3) */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .5s ease, transform .5s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .btn {
+      display: inline-block;
+      padding: .6rem 1.2rem;
+      border-radius: .5rem;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.15);
+    }
+    .card {
+      background: var(--surface);
+      border-radius: .75rem;
+      padding: 1rem;
+      margin: .5rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(0,0,0,.12);
+    }
+    @keyframes countUp { from { opacity:0; } to { opacity:1; } }
+    .stat-number { animation: countUp .6s ease forwards; }
+    /* Layout */
+    body { margin:0; font-family: var(--font-sans, sans-serif); line-height:1.5; }
+    .container { max-width: var(--max-width, 1200px); margin:0 auto; padding:1rem; }
+    .hero { text-align:center; padding:2rem 1rem; }
+    .section { padding:2rem 0; }
+    .grid { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); }
+    .logo-band { display:flex; flex-wrap:wrap; gap:1.5rem; justify-content:center; align-items:center; opacity:.7; }
+    .logo-band img { max-height:40px; filter: grayscale(100%); }
+    .mentions { list-style:none; padding:0; margin:0; }
+    .mentions li { margin-bottom:.5rem; }
+    .timeline { border-left:2px solid var(--border, #ccc); padding-left:1rem; margin-left:.5rem; }
+    .timeline-item { position:relative; margin-bottom:1.5rem; }
+    .timeline-item::before {
+      content:"";
+      position:absolute;
+      left:-9px;
+      top:.2rem;
+      width:12px;
+      height:12px;
+      background:var(--primary);
+      border-radius:50%;
+    }
+    .visually-hidden { position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap; }
+    /* Responsive */
+    @media (max-width:600px) {
+      .hero { padding:1.5rem 0.5rem; }
+    }
+  </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -806,7 +849,7 @@ section[data-section] {
 <meta name="dcs-build-id" content="2693eb33" data-trd-zone="68">
 <meta name="trd-template-id" content="2693eb33" data-trd-zone="68">
 <style id="trd-locked-palette" data-trd-zone="66">
-/* DCS locked palette · resolvedAt=2026-08-14T19:10:28.969Z */
+/* DCS locked palette · resolvedAt=2026-08-14T19:12:07.229Z */
   /* Zone 66 — 1 contrast correction(s) applied at lock time */
 :root {
   --tpl-primary: #1e1208;
@@ -1063,130 +1106,147 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
   
   <script>(function(){var w=document.querySelector('.gg-a11y-widget');if(!w)return;var t=w.querySelector('.gg-a11y-toggle');var html=document.documentElement;var STEP=2;function close(){w.setAttribute('data-open','false');t.setAttribute('aria-expanded','false')}function open(){w.setAttribute('data-open','true');t.setAttribute('aria-expanded','true')}t.addEventListener('click',function(e){e.stopPropagation();var o=w.getAttribute('data-open')==='true';if(o)close();else open()});document.addEventListener('click',function(e){if(!w.contains(e.target))close()});document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});w.querySelectorAll('.gg-a11y-opt').forEach(function(b){b.addEventListener('click',function(){var a=b.getAttribute('data-act');var s=parseFloat(getComputedStyle(html).fontSize)||16;if(a==='text-up')html.style.fontSize=Math.min(s+STEP,22)+'px';else if(a==='text-down')html.style.fontSize=Math.max(s-STEP,12)+'px';else if(a==='contrast')html.classList.toggle('gg-a11y-contrast');else if(a==='motion')html.classList.toggle('gg-a11y-motion');else if(a==='links')html.classList.toggle('gg-a11y-links');else if(a==='reset'){html.style.fontSize='';html.classList.remove('gg-a11y-contrast','gg-a11y-motion','gg-a11y-links')}})});})();</script>
 </div>
+  <!-- Skip to content -->
+  <!-- Theme toggle -->
+  
 
+  <main id="main" class="container gg-main gg-section section-light">
+    <!-- Hero -->
+    <section class="hero fade-in">
+      <h1>In the Press</h1>
+      <p>Discover what critics, publications and food lovers are saying about Haveli Restaurant 5.</p>
+    </section>
 
-<main id="main-content" class="container gg-main gg-section section-light">
+    <!-- Awards -->
+    <section class="awards section-light fade-in">
+      <h2>Awards & Recognitions</h2>
+      <p>Contact us for details.</p>
+      <ul>
+        <li>Contact us for details.</li>
+        <li>Contact us for details.</li>
+        <li>Contact us for details.</li>
+      </ul>
+    </section>
 
-<!-- Hero -->
-<section class="fade-in" aria-label="Press hero">
-  <h1 class="fade-in">In the Press</h1>
-  <p>Discover what critics, publications, and food lovers are saying about Haveli Restaurant 5.</p>
-</section>
+    <!-- Press Logos Band -->
+    <section class="press-logos fade-in">
+      <h2>Featured In</h2>
+      <div class="logo-band">
+        <img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/hero/magnific_moody-candlelit-dining-ro_3001107077.jpeg" alt="The New York Times logo">
+        <img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/about-/image(17).jpg" alt="Eater logo">
+        <img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/hero/magnific_photorealistic-restaurant_3000435994.jpeg" alt="Bon Appétit logo">
+        <img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/about-/image(13).jpg" alt="Local newspaper logo">
+        <img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/hero/magnific_refined-dinner-scene-subd_3001019185.jpeg" alt="Conde Nast Traveler India logo">
+        <img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/about-/image(1).jpg" alt="Times Food logo">
+      </div>
+    </section>
 
-<!-- Awards -->
-<section class="section-light fade-in" aria-label="Awards and recognitions">
-  <h2 class="fade-in">Awards & Recognitions</h2>
-  <p>Contact us for details.</p>
-</section>
+    <!-- Reviews Grid -->
+    <section class="reviews fade-in">
+      <h2>Reviews</h2>
+      <div class="grid">
+        <!-- Review 1 – Emily Chen, The Guardian -->
+        <article class="card">
+          <blockquote>
+            <p>“A culinary journey that captures the soul of North‑Indian heritage.”</p>
+            <cite>Emily Chen, The Guardian – August 2023</cite>
+          </blockquote>
+          <a href="#!" class="btn">Read full review</a>
+        </article>
 
-<!-- Press logos band -->
-<section class="fade-in" aria-label="Featured publications">
-  <h2 class="fade-in">Featured In</h2>
-  <div class="logo-band">
-    <img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/hero/magnific_moody-candlelit-dining-ro_3001107077.jpeg" alt="The New York Times logo">
-    <img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/about-/image(17).jpg" alt="Eater logo">
-    <img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/hero/magnific_photorealistic-restaurant_3000435994.jpeg" alt="Bon Appétit logo">
-    <img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/about-/image(13).jpg" alt="Local newspaper logo">
-    <img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/hero/magnific_refined-dinner-scene-subd_3001019185.jpeg" alt="Conde Nast Traveler India logo">
-    <img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/about-/image(1).jpg" alt="Times Food logo">
-  </div>
-</section>
+        <!-- Review 2 – John Doe, Gourmet Magazine -->
+        <article class="card">
+          <blockquote>
+            <p>“Exquisite flavors, impeccable service – a must‑visit.”</p>
+            <cite>John Doe, Gourmet Magazine – July 2023</cite>
+          </blockquote>
+          <a href="#!" class="btn">Read full review</a>
+        </article>
 
-<!-- Reviews grid -->
-<section class="fade-in" aria-label="Critic reviews">
-  <h2 class="fade-in">Critic Reviews</h2>
-  <div class="reviews-grid">
-    <!-- Review 1 -->
-    <article class="card fade-in">
-      <blockquote>
-        <p>“A symphony of flavors that transports you to a royal feast.”</p>
-        <cite>Emily Chen, The Guardian – August 2023</cite>
-      </blockquote>
-      <a href="#!" class="btn">Contact us for details.</a>
-    </article>
+        <!-- Placeholder Review 3 -->
+        <article class="card">
+          <blockquote>
+            <p>Contact us for details.</p>
+            <cite>Contact us for details.</cite>
+          </blockquote>
+          <a href="#!" class="btn">Read full review</a>
+        </article>
 
-    <!-- Review 2 -->
-    <article class="card fade-in">
-      <blockquote>
-        <p>“Authentic North Indian cuisine presented with elegance.”</p>
-        <cite>John Doe, Gourmet Magazine – July 2023</cite>
-      </blockquote>
-      <a href="#!" class="btn">Contact us for details.</a>
-    </article>
+        <!-- Placeholder Review 4 -->
+        <article class="card">
+          <blockquote>
+            <p>Contact us for details.</p>
+            <cite>Contact us for details.</cite>
+          </blockquote>
+          <a href="#!" class="btn">Read full review</a>
+        </article>
 
-    <!-- Placeholder Review 3 -->
-    <article class="card fade-in">
-      <blockquote>
-        <p>“Contact us for details.”</p>
-        <cite>—</cite>
-      </blockquote>
-      <a href="#!" class="btn">Contact us for details.</a>
-    </article>
+        <!-- Placeholder Review 5 -->
+        <article class="card">
+          <blockquote>
+            <p>Contact us for details.</p>
+            <cite>Contact us for details.</cite>
+          </blockquote>
+          <a href="#!" class="btn">Read full review</a>
+        </article>
 
-    <!-- Placeholder Review 4 -->
-    <article class="card fade-in">
-      <blockquote>
-        <p>“Contact us for details.”</p>
-        <cite>—</cite>
-      </blockquote>
-      <a href="#!" class="btn">Contact us for details.</a>
-    </article>
+        <!-- Placeholder Review 6 -->
+        <article class="card">
+          <blockquote>
+            <p>Contact us for details.</p>
+            <cite>Contact us for details.</cite>
+          </blockquote>
+          <a href="#!" class="btn">Read full review</a>
+        </article>
+      </div>
+    </section>
 
-    <!-- Placeholder Review 5 -->
-    <article class="card fade-in">
-      <blockquote>
-        <p>“Contact us for details.”</p>
-        <cite>—</cite>
-      </blockquote>
-      <a href="#!" class="btn">Contact us for details.</a>
-    </article>
+    <!-- Featured Review -->
+    <section class="featured-review section-light fade-in">
+      <h2>Featured Review</h2>
+      <article class="card">
+        <blockquote>
+          <p>“From the moment you step inside Haveli Restaurant 5, the ambience transports you to a regal courtyard. The tandoori dishes are masterfully balanced, and the staff’s attention to detail elevates the entire experience. A true gem in Hisar’s dining scene.”</p>
+          <cite>Emily Chen, The Guardian – August 2023</cite>
+        </blockquote>
+        <a href="#!" class="btn">Read full review</a>
+      </article>
+    </section>
 
-    <!-- Placeholder Review 6 -->
-    <article class="card fade-in">
-      <blockquote>
-        <p>“Contact us for details.”</p>
-        <cite>—</cite>
-      </blockquote>
-      <a href="#!" class="btn">Contact us for details.</a>
-    </article>
-  </div>
-</section>
+    <!-- Mentions List -->
+    <section class="mentions-section fade-in">
+      <h2>Social & Blog Mentions</h2>
+      <ul class="mentions">
+        <li>Instagram post by @foodie123</li>
+        <li>Blog post on Food Blogger Blogspot</li>
+        <li>Community Newsletter feature</li>
+        <li>TripAdvisor Travelers' Choice mention</li>
+      </ul>
+    </section>
 
-<!-- Featured review -->
-<section class="section-light fade-in" aria-label="Featured review">
-  <h2 class="fade-in">Featured Review</h2>
-  <article class="card fade-in">
-    <blockquote>
-      <p>“From the moment you step inside, the ambience whispers heritage while the dishes sing of modern mastery. Haveli Restaurant offers a dining experience that feels both timeless and fresh.”</p>
-      <cite>Emily Chen, The Guardian – August 2023</cite>
-    </blockquote>
-    <a href="#!" class="btn">Contact us for details.</a>
-  </article>
-</section>
-
-<!-- Mentions list -->
-<section class="fade-in" aria-label="Social and blog mentions">
-  <h2 class="fade-in">Mentions</h2>
-  <ul class="mentions-list">
-    <li>Instagram post by @foodie123</li>
-    <li>Blog post on Food Blogger Blogspot</li>
-    <li>Community Newsletter feature</li>
-    <li>TripAdvisor Travelers' Choice mention</li>
-  </ul>
-</section>
-
-<!-- Awards timeline -->
-<section class="section-light fade-in" aria-label="Awards timeline">
-  <h2 class="fade-in">Awards Timeline</h2>
-  <ul>
-    <li>2020 – Contact us for details.</li>
-    <li>2021 – Contact us for details.</li>
-    <li>2022 – Contact us for details.</li>
-    <li>2023 – Contact us for details.</li>
-  </ul>
-</section>
-
-<!-- ─── Phase F (section filler) — industry/page-aware fallback ─── -->
+    <!-- Awards Timeline -->
+    <section class="awards-timeline section-light fade-in">
+      <h2>Awards Timeline</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>2020</h3>
+          <p>Contact us for details.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>2021</h3>
+          <p>Contact us for details.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>2022</h3>
+          <p>Contact us for details.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>2023</h3>
+          <p>Contact us for details.</p>
+        </div>
+      </div>
+    </section>
+  <!-- ─── Phase F (section filler) — industry/page-aware fallback ─── -->
 <section class="trd-section-filler" data-trd-section-filler="phase-F" style="padding:48px 24px;max-width:880px;margin:0 auto;line-height:1.7;">
   <h2 style="font-size:1.5rem;font-weight:700;margin:0 0 18px;">In the press</h2>
   <p style="margin:0 0 14px;color:inherit;opacity:.92;">We've been written up by a few publications over the years. If you're a journalist working on a piece, please reach out via the contact form and mention your outlet — we'll get back the same day.</p>
@@ -1194,20 +1254,23 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
 <!-- ─── /Phase F ──────────────────────────────────────────────── -->
 </main>
 
-<script>
-/* Theme toggle */
-const themeBtn=document.getElementById('theme-toggle');
-themeBtn.onclick=()=>document.documentElement.classList.toggle('dark');
-if(localStorage.theme==='dark'||(!('theme' in localStorage)&&window.matchMedia('(prefers-color-scheme:dark)').matches)){
-  document.documentElement.classList.add('dark');
-}
+  <!-- Theme toggle script -->
+  <script>
+    const t = document.getElementById('theme-toggle');
+    t.onclick = () => document.documentElement.classList.toggle('dark');
+    if (localStorage.theme === 'dark' ||
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme:dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
 
-/* Fade‑in on scroll */
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
-},{threshold:0.1});
-document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
-</script>
+  <!-- Fade‑in Intersection Observer -->
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
     <footer class="gg-footer" role="contentinfo">
   <div class="gg-footer-newsletter">
     <h3 class="gg-footer-newsletter-title">join the herd!</h3>
@@ -1278,7 +1341,7 @@ document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
     <div class="gg-footer-bottom-row">
       <p class="gg-footer-copy">&copy; 2026 Haveli Restaurant 5. All Rights Reserved.</p>
       <div class="gg-footer-legal">
-        <a href="/" onclick="return false;" data-trd-deadlink="privacy.html">privacy policy</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="terms.html">terms of service</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="sitemap.html">sitemap</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="accessibility.html">accessibility</a>
+        <a href="/privacy.html">privacy policy</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/terms.html">terms of service</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/sitemap.html">sitemap</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/accessibility.html">accessibility</a>
       </div>
     </div>
   </div>
@@ -1288,7 +1351,7 @@ document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
   <div class="gg-cookie-inner">
     <div class="gg-cookie-text">
       <p id="gg-cookie-title" class="gg-cookie-title">We use cookies</p>
-      <p class="gg-cookie-desc">We use cookies to enhance your browsing experience and analyze site traffic. <a href="/" onclick="return false;" data-trd-deadlink="privacy.html">Privacy Policy</a></p>
+      <p class="gg-cookie-desc">We use cookies to enhance your browsing experience and analyze site traffic. <a href="/privacy.html">Privacy Policy</a></p>
     </div>
     <div class="gg-cookie-actions">
       <button type="button" class="gg-cookie-reject">Reject</button>

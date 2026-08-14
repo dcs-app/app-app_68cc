@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" lang="en"><head><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" data-trd-phase="42.26"><meta http-equiv="Pragma" content="no-cache" data-trd-phase="42.26"><meta http-equiv="Expires" content="0" data-trd-phase="42.26">
+<html lang="en" lang="en">
+<head><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" data-trd-phase="42.26"><meta http-equiv="Pragma" content="no-cache" data-trd-phase="42.26"><meta http-equiv="Expires" content="0" data-trd-phase="42.26">
 <style id="trd-tokens">
 /* ── TRD Design Token System (Phase A1) ── */
 :root {
@@ -127,59 +128,133 @@ section {
   .trd-container { padding: 0 var(--sp-3); }
 }
 </style>
-<meta charset="UTF-8">
-<title>Gift Cards – Haveli Restaurant</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-/* Design tokens */
-:root{
-  --primary: var(--color-accent, #B8860B);
-  --bg: var(--color-bg, #FAF7F2);
-  --text: var(--color-text-primary, #1F1611);
-  --accent: var(--color-accent, #B8860B);
-  --surface: var(--color-surface, #FFFFFF);
-  --muted: var(--color-text-secondary, #6B5D52);
-}
-/* Dark mode */
-/* Light‑section contrast fix */
-.section-light, [data-bg="light"]{
-  background: var(--tpl-light-surface, #f7f0e3);
-  color: var(--tpl-text-on-light, #1a1a1a);
-}
-.section-light h1,.section-light h2,.section-light h3,.section-light h4,
-.section-light p,.section-light li,.section-light label,.section-light span{
-  color: var(--tpl-text-on-light, #1a1a1a);
-}
-/* Layout */
-.container{max-width:var(--max-width,1200px);margin:0 auto;padding:1rem;}
-.grid{display:grid;gap:1rem;}
-.grid-2{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));}
-/* Cards & Buttons */
-.card{background:var(--surface);border:1px solid var(--muted);border-radius:8px;padding:1rem;box-shadow:0 2px 6px rgba(0,0,0,0.1);}
-.btn{display:inline-block;padding:0.75rem 1rem;border-radius:8px;background:var(--primary);color:#fff;text-align:center;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease;}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.15);}
-/* Micro‑animations */
-.fade-in{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
-.fade-in.visible{opacity:1;transform:translateY(0);}
-.card{transition:transform .2s ease,box-shadow .2s ease;}
-.card:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(0,0,0,0.12);}
-@keyframes countUp{from{opacity:0;}to{opacity:1;}}
-.stat-number{animation:countUp .6s ease forwards;}
-/* Form */
-form{display:flex;flex-direction:column;gap:0.75rem;}
-label{font-weight:600;}
-input,textarea{padding:0.5rem;border:1px solid var(--muted);border-radius:4px;font:inherit;}
-input:focus,textarea:focus{outline:2px solid var(--primary);}
-.error{border-color:#e00;color:#e00;}
-.error-message{font-size:0.875rem;color:#e00;}
-/* FAQ */
-.faq-item{border-bottom:1px solid var(--muted);padding:0.5rem 0;}
-.faq-question{background:none;border:none;width:100%;text-align:left;padding:0;cursor:pointer;font-weight:600;display:flex;justify-content:space-between;align-items:center;}
-.faq-answer{display:none;padding-top:0.5rem;}
-.faq-answer.visible{display:block;}
-/* Focus-visible */
-button:focus-visible,.btn:focus-visible{outline:2px solid var(--primary);outline-offset:2px;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gift Cards – Haveli Restaurant 5</title>
+  <meta name="description" content="Give the gift of a memorable meal with Haveli Restaurant 5 gift cards.">
+  <style>
+    /* Design tokens (provided by orchestrator) */
+    :root{
+      --primary: var(--primary);
+      --bg: var(--bg);
+      --text: var(--text);
+      --accent: var(--accent);
+      --surface: var(--surface);
+      --muted: var(--muted);
+    }
+    .container{
+      max-width: var(--max-width, 1200px);
+      margin:0 auto;
+      padding:1rem;
+    }
+    .skip-link{
+      position:absolute;
+      left:-999px;
+      top:auto;
+      width:1px;
+      height:1px;
+      overflow:hidden;
+    }
+    .skip-link:focus{
+      left:0;
+      top:0;
+      width:auto;
+      height:auto;
+      background:#000;
+      color:#fff;
+      padding:0.5rem 1rem;
+      z-index:1000;
+    }
+    h1{font-size:2rem;margin-bottom:1rem;}
+    h2{font-size:1.5rem;margin:1.5rem 0 0.5rem;}
+    .grid{
+      display:grid;
+      gap:1rem;
+    }
+    .grid-2{
+      grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    }
+    .grid-3{
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    }
+    .card{
+      background:var(--surface);
+      padding:1rem;
+      border-radius:0.5rem;
+      text-align:center;
+    }
+    .card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 16px 32px rgba(0,0,0,0.12);
+    }
+    .btn{
+      display:inline-block;
+      padding:0.6rem 1.2rem;
+      background:var(--primary);
+      color:#fff;
+      border:none;
+      border-radius:0.5rem;
+      cursor:pointer;
+      text-decoration:none;
+      transition:transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    }
+    .form-field{
+      margin-bottom:1rem;
+    }
+    .form-field label{
+      display:block;
+      margin-bottom:0.3rem;
+    }
+    .form-field input,
+    .form-field textarea,
+    .form-field select{
+      width:100%;
+      padding:0.5rem;
+      border:1px solid var(--muted, #ccc);
+      border-radius:0.25rem;
+      font-family:inherit;
+    }
+    .error{
+      border-color:#e00;
+    }
+    .faq-item{
+      border-bottom:1px solid var(--muted, #ddd);
+    }
+    .faq-question{
+      background:none;
+      width:100%;
+      text-align:left;
+      padding:0.5rem;
+      font-weight:600;
+      cursor:pointer;
+    }
+    .faq-answer{
+      display:none;
+      padding:0.5rem;
+    }
+    .faq-answer.visible{
+      display:block;
+    }
+    /* Dark mode */
+    /* Micro‑animations */
+    .fade-in{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
+    .fade-in.visible{opacity:1;transform:translateY(0);}
+    @keyframes countUp{from{opacity:0;}to{opacity:1;}}
+    .stat-number{animation:countUp .6s ease forwards;}
+    /* Light‑section contrast fix */
+    .section-light, [data-bg="light"]{
+      background:var(--tpl-light-surface, #f7f0e3);
+      color:var(--tpl-text-on-light, #1a1a1a);
+    }
+    .section-light h1,.section-light h2,.section-light h3,.section-light h4,
+    .section-light p,.section-light li,.section-light label,.section-light span{
+      color:var(--tpl-text-on-light, #1a1a1a);
+    }
+  </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -808,13 +883,10 @@ section[data-section] {
   "certificateUrl": "https://api.dcsai.ai/api/storage/cert/4f125691-4370-491b-b4b9-d4f484bf4a83"
 }</script>
 <!-- /TRD Content Credentials -->
-<style id="trd-section-dividers">
-.trd-section-divider{height:1px;background:linear-gradient(to right,transparent,rgba(0,0,0,0.08),transparent);margin:0;border:none;}
-</style>
 <meta name="dcs-build-id" content="2693eb33" data-trd-zone="68">
 <meta name="trd-template-id" content="2693eb33" data-trd-zone="68">
 <style id="trd-locked-palette" data-trd-zone="66">
-/* DCS locked palette · resolvedAt=2026-08-14T19:10:28.969Z */
+/* DCS locked palette · resolvedAt=2026-08-14T19:12:07.229Z */
   /* Zone 66 — 1 contrast correction(s) applied at lock time */
 :root {
   --tpl-primary: #1e1208;
@@ -1025,7 +1097,8 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
   }
 }
 </style>
-</head><body data-trd-light-page="1">
+</head>
+<body data-trd-light-page="1">
     <header class="gg-header" role="banner">
   <div class="gg-header-inner">
     <nav class="gg-nav-left" role="navigation" aria-label="Left navigation">
@@ -1072,84 +1145,130 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
 </div>
 
 
-<main id="main-content" class="container section-light gg-main gg-section section-light">
-<section class="fade-in">
-<h1 class="stat-number">Give the Gift of Haveli Restaurant</h1>
-<p>Share an unforgettable meal with your loved ones.</p>
-<img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/menu/image(18).jpg" alt="Warm ambience of Haveli Restaurant with guests enjoying a meal" style="width:100%;max-height:400px;object-fit:cover;margin:1rem 0;">
-<a href="/reservation.html" style="text-decoration:none;display:inline-block;color:inherit;"><button class="btn">Buy Now</button></a>
-</section><hr class="trd-section-divider"><section class="fade-in">
-<h2>Choose a Denomination</h2>
-<div class="grid grid-2">
-<div class="card"><p>Contact us for details</p></div>
-<div class="card"><p>Contact us for details</p></div>
-<div class="card"><p>Contact us for details</p></div>
-<div class="card"><p>Contact us for details</p></div>
-</div>
-</section><hr class="trd-section-divider"><section class="fade-in">
-<h2>Card Type</h2>
-<div class="grid grid-2">
-<div class="card"><label><input type="radio" name="card-type" value="digital"> Digital e‑card (email delivery)</label></div>
-<div class="card"><label><input type="radio" name="card-type" value="physical"> Physical card (shipped)</label></div>
-<div class="card"><label><input type="radio" name="card-type" value="pdf"> Printable PDF</label></div>
-</div>
-</section><hr class="trd-section-divider"><section class="fade-in">
-<h2>Occasion</h2>
-<div class="grid grid-2">
-<div class="card"><label><input type="radio" name="occasion" value="birthday"> Birthday</label></div>
-<div class="card"><label><input type="radio" name="occasion" value="anniversary"> Anniversary</label></div>
-<div class="card"><label><input type="radio" name="occasion" value="holiday"> Holiday</label></div>
-<div class="card"><label><input type="radio" name="occasion" value="thankyou"> Thank You</label></div>
-<div class="card"><label><input type="radio" name="occasion" value="justbecause"> Just Because</label></div>
-</div>
-</section><hr class="trd-section-divider"><section class="fade-in">
-<h2>Preview</h2>
-<img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/chef team/image(9).jpg" alt="Sample Haveli Restaurant gift card design" style="width:100%;max-width:400px;display:block;margin:auto;">
-</section><hr class="trd-section-divider"><section class="fade-in">
-<h2>How to Redeem</h2>
-<ul>
-<li>Present the gift card at the register.</li>
-<li>Valid at any Haveli Restaurant location.</li>
-<li>Check balance online or by asking staff.</li>
-<li>Expiration policy: Contact us for details.</li>
-</ul>
-</section><hr class="trd-section-divider"><section class="fade-in">
-<h2>Frequently Asked Questions</h2>
-<div class="faq-item">
-<button class="faq-question" aria-expanded="false">What is the expiration policy?<span aria-hidden="true">▸</span></button>
-<div class="faq-answer" aria-hidden="true"><p>Contact us for details regarding expiration.</p></div>
-</div>
-<div class="faq-item">
-<button class="faq-question" aria-expanded="false">Can I combine multiple gift cards?<span aria-hidden="true">▸</span></button>
-<div class="faq-answer" aria-hidden="true"><p>Yes, multiple cards can be used together. Please confirm with staff.</p></div>
-</div>
-<div class="faq-item">
-<button class="faq-question" aria-expanded="false">What if the card is lost?<span aria-hidden="true">▸</span></button>
-<div class="faq-answer" aria-hidden="true"><p>Contact us to discuss replacement options.</p></div>
-</div>
-<div class="faq-item">
-<button class="faq-question" aria-expanded="false">Are there any fees?<span aria-hidden="true">▸</span></button>
-<div class="faq-answer" aria-hidden="true"><p>No additional fees are applied.</p></div>
-</div>
-</section><hr class="trd-section-divider"><section class="fade-in">
-<h2>Send Your Gift Today</h2>
-<form id="gift-form" action="mailto:contact@dcsai.ai?subject=Website%20form%20submission%20%E2%80%94%20Haveli%20Restaurant%205" method="POST" novalidate>
-<div>
-<label for="recipient-name">Recipient Name <span aria-hidden="true">*</span></label>
-<input type="text" id="recipient-name" name="recipient-name" required aria-required="true">
-<span class="error-message" id="name-error" hidden>Please enter a name.</span>
-</div>
-<div>
-<label for="recipient-email">Recipient Email</label>
-<input type="email" id="recipient-email" name="recipient-email">
-</div>
-<div>
-<label for="message">Personal Message</label>
-<textarea id="message" name="message" rows="4"></textarea>
-</div>
-<button type="submit" class="btn">Send</button>
-</form>
-</section>
+<main id="main" class="section-light gg-main gg-section section-light">
+  <!-- Hero -->
+  <section class="fade-in">
+    <div class="container">
+      <h1>Give the Gift of Haveli Restaurant 5</h1>
+      <p>Share an unforgettable meal with friends and family.</p>
+      <img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/menu/image(18).jpg" alt="A beautifully set table with a Haveli Restaurant gift card displayed" style="width:100%;max-height:300px;object-fit:cover;margin:1rem 0;">
+      <a href="#purchase" class="btn">Buy Now</a>
+    </div>
+  </section>
+
+  <!-- Denomination Grid -->
+  <section id="purchase" class="fade-in">
+    <div class="container">
+      <h2>Choose an Amount</h2>
+      <div class="grid grid-3">
+        <div class="card"><p>Contact us for details</p></div>
+        <div class="card"><p>Contact us for details</p></div>
+        <div class="card"><p>Contact us for details</p></div>
+        <div class="card"><p>Contact us for details</p></div>
+        <div class="card"><p>Contact us for details</p></div>
+        <div class="card"><p>Contact us for details</p></div>
+      </div>
+      <div class="form-field" style="margin-top:1rem;">
+        <label for="custom-amount">Custom Amount (optional)</label>
+        <input type="number" id="custom-amount" name="custom-amount" min="0" placeholder="Enter amount">
+      </div>
+    </div>
+  </section>
+
+  <!-- Card Type Selector -->
+  <section class="fade-in">
+    <div class="container">
+      <h2>Card Type</h2>
+      <div class="grid grid-2">
+        <label class="card"><input type="radio" name="card-type" value="digital" checked> Digital e‑card (email delivery)</label>
+        <label class="card"><input type="radio" name="card-type" value="physical"> Physical card (shipped)</label>
+        <label class="card"><input type="radio" name="card-type" value="pdf"> Printable PDF (download)</label>
+      </div>
+    </div>
+  </section>
+
+  <!-- Occasion Selector -->
+  <section class="fade-in">
+    <div class="container">
+      <h2>Occasion</h2>
+      <div class="grid grid-2">
+        <label class="card"><input type="radio" name="occasion" value="birthday" checked> Birthday</label>
+        <label class="card"><input type="radio" name="occasion" value="anniversary"> Anniversary</label>
+        <label class="card"><input type="radio" name="occasion" value="holiday"> Holiday</label>
+        <label class="card"><input type="radio" name="occasion" value="thankyou"> Thank You</label>
+        <label class="card"><input type="radio" name="occasion" value="justbecause"> Just Because</label>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preview -->
+  <section class="fade-in">
+    <div class="container">
+      <h2>Here's How It Looks</h2>
+      <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/chef team/image(9).jpg" alt="Sample Haveli Restaurant gift card design" style="max-width:100%;height:auto;">
+    </div>
+  </section>
+
+  <!-- Use Information -->
+  <section class="fade-in">
+    <div class="container">
+      <h2>How to Redeem</h2>
+      <p>Present the gift card at the register when dining in‑restaurant. Expiration policy varies – contact us for details. Gift cards are valid at any Haveli Restaurant location. Balance can be checked by calling us or via our website.</p>
+    </div>
+  </section>
+
+  <!-- Purchase Form -->
+  <section class="fade-in">
+    <div class="container">
+      <h2>Send Your Gift</h2>
+      <form id="gift-card-form" method="POST" action="mailto:contact@dcsai.ai?subject=Website%20form%20submission%20%E2%80%94%20Haveli%20Restaurant%205">
+        <div class="form-field">
+          <label for="recipient-name">Recipient Name <span aria-hidden="true">*</span></label>
+          <input type="text" id="recipient-name" name="recipient-name" required aria-required="true" aria-label="Recipient Name">
+        </div>
+        <div class="form-field">
+          <label for="recipient-email">Recipient Email (optional)</label>
+          <input type="email" id="recipient-email" name="recipient-email" aria-label="Recipient Email">
+        </div>
+        <div class="form-field">
+          <label for="message">Personal Message (optional)</label>
+          <textarea id="message" name="message" rows="4" aria-label="Personal Message"></textarea>
+        </div>
+        <button type="submit" class="btn">Send Your Gift Today</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="fade-in">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <button class="faq-question btn" aria-expanded="false">What is the refund policy?</button>
+        <div class="faq-answer" aria-hidden="true">
+          <p>Refunds are not offered. Please contact us for any concerns.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question btn" aria-expanded="false">What if the card is lost?</button>
+        <div class="faq-answer" aria-hidden="true">
+          <p>Lost cards cannot be replaced. Keep the card safe.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question btn" aria-expanded="false">When does the card expire?</button>
+        <div class="faq-answer" aria-hidden="true">
+          <p>Expiration details vary; please inquire for specific terms.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question btn" aria-expanded="false">Can I combine multiple gift cards?</button>
+        <div class="faq-answer" aria-hidden="true">
+          <p>Multiple gift cards can be used together toward a single purchase.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 <!-- ─── Phase F (section filler) — industry/page-aware fallback ─── -->
 <section class="trd-section-filler" data-trd-section-filler="phase-F" style="padding:48px 24px;max-width:880px;margin:0 auto;line-height:1.7;">
   <h2 style="font-size:1.5rem;font-weight:700;margin:0 0 18px;">Gift cards</h2>
@@ -1159,46 +1278,42 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
 </main>
 
 <script>
-// Theme toggle
-const themeBtn=document.getElementById('theme-toggle');
-themeBtn.onclick=()=>document.documentElement.classList.toggle('dark');
-if(localStorage.theme==='dark'||(!('theme' in localStorage)&&window.matchMedia('(prefers-color-scheme:dark)').matches)){
-  document.documentElement.classList.add('dark');
-}
-
-// Fade‑in observer
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
-}, {threshold:0.1});
-document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
-
-// FAQ toggle
-document.querySelectorAll('.faq-question').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    const expanded=btn.getAttribute('aria-expanded')==='true';
-    btn.setAttribute('aria-expanded',!expanded);
-    const answer=btn.nextElementSibling;
-    answer.classList.toggle('visible');
-    answer.setAttribute('aria-hidden',expanded);
-  });
-});
-
-// Form validation
-const form=document.getElementById('gift-form');
-form.addEventListener('submit',e=>{
-  const nameInput=document.getElementById('recipient-name');
-  const errorMsg=document.getElementById('name-error');
-  if(nameInput.value.trim()===''){
-    e.preventDefault();
-    nameInput.classList.add('error');
-    errorMsg.hidden=false;
-    nameInput.setAttribute('aria-invalid','true');
-  }else{
-    nameInput.classList.remove('error');
-    errorMsg.hidden=true;
-    nameInput.removeAttribute('aria-invalid');
+  // Theme toggle
+  const themeBtn = document.getElementById('theme-toggle');
+  themeBtn.onclick = () => document.documentElement.classList.toggle('dark');
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme:dark)').matches)) {
+    document.documentElement.classList.add('dark');
   }
-});
+
+  // Fade‑in on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, {threshold:0.1});
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // FAQ toggle
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', !expanded);
+      const answer = btn.nextElementSibling;
+      answer.setAttribute('aria-hidden', expanded);
+      answer.classList.toggle('visible', !expanded);
+    });
+  });
+
+  // Form validation
+  const form = document.getElementById('gift-card-form');
+  form.addEventListener('submit', e => {
+    const nameField = document.getElementById('recipient-name');
+    if (!nameField.value.trim()) {
+      e.preventDefault();
+      nameField.classList.add('error');
+      nameField.focus();
+    } else {
+      nameField.classList.remove('error');
+    }
+  });
 </script>
     <footer class="gg-footer" role="contentinfo">
   <div class="gg-footer-newsletter">
@@ -1270,7 +1385,7 @@ form.addEventListener('submit',e=>{
     <div class="gg-footer-bottom-row">
       <p class="gg-footer-copy">&copy; 2026 Haveli Restaurant 5. All Rights Reserved.</p>
       <div class="gg-footer-legal">
-        <a href="/" onclick="return false;" data-trd-deadlink="privacy.html">privacy policy</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="terms.html">terms of service</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="sitemap.html">sitemap</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="accessibility.html">accessibility</a>
+        <a href="/privacy.html">privacy policy</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/terms.html">terms of service</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/sitemap.html">sitemap</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/accessibility.html">accessibility</a>
       </div>
     </div>
   </div>
@@ -1280,7 +1395,7 @@ form.addEventListener('submit',e=>{
   <div class="gg-cookie-inner">
     <div class="gg-cookie-text">
       <p id="gg-cookie-title" class="gg-cookie-title">We use cookies</p>
-      <p class="gg-cookie-desc">We use cookies to enhance your browsing experience and analyze site traffic. <a href="/" onclick="return false;" data-trd-deadlink="privacy.html">Privacy Policy</a></p>
+      <p class="gg-cookie-desc">We use cookies to enhance your browsing experience and analyze site traffic. <a href="/privacy.html">Privacy Policy</a></p>
     </div>
     <div class="gg-cookie-actions">
       <button type="button" class="gg-cookie-reject">Reject</button>
@@ -1583,4 +1698,5 @@ form.addEventListener('submit',e=>{
   }
 })();
 </script>
-</body></html>
+</body>
+</html>

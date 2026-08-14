@@ -1,14 +1,19 @@
 # Validation Report
 
-**Framework Detected:** static-html  
-**Total Files Scanned:** 40  
+## Summary
+- **Verdict:** pass  
+- **Framework detected:** static-html  
+- **Total files scanned:** 1  
 
-No issues were found during the deterministic validation checks.
+## Issues
+No issues were found. All deterministic checks passed.
+
+## Details (JSON)
 
 ```json
 {
   "verdict": "pass",
   "framework_detected": "static-html",
-  "total_files_scanned": 40,
+  "total_files_scanned": 1,
   "issues": []
 }

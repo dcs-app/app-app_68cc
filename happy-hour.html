@@ -130,121 +130,99 @@ section {
 </style>
   <meta charset="UTF-8">
   <title>Happy Hour – Haveli Restaurant 5</title>
+  <meta name="description" content="Mon‑Fri 4 PM – 7 PM happy hour at Haveli Restaurant 5 – bar‑only specials on drinks and bites.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Shared design tokens are injected by the orchestrator -->
   <style>
-    /* Dark mode (Phase D3) */
-    /* Micro‑animations (Phase D3) */
-    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .5s ease, transform .5s ease; }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-    .btn {
-      display: inline-block;
-      padding: .75rem 1.25rem;
-      border-radius: .5rem;
-      background: var(--primary);
-      color: #fff;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform .2s ease, box-shadow .2s ease;
+    /* ---- Design Tokens (injected by orchestrator) ---- */
+    :root{
+      --primary: var(--primary, #B8860B);
+      --bg: var(--bg, #FAF7F2);
+      --text: var(--text, #1F1611);
+      --surface: var(--surface, #FFFFFF);
+      --muted: var(--muted, #6B5D52);
     }
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0,0,0,.15);
+    *{box-sizing:border-box}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+    .container{max-width:var(--max-width,1200px);margin:auto;padding:1rem}
+    .skip-link{
+      position:absolute;
+      top:-40px;
+      left:0;
+      background:#000;
+      color:#fff;
+      padding:.5rem 1rem;
+      z-index:100;
     }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--muted);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      transition: transform .2s ease, box-shadow .2s ease;
+    .skip-link:focus{top:0}
+    h1,h2,h3,h4{font-family:var(--font-serif, serif);margin:0}
+    .hero{
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      padding:3rem 1rem;
+      background:#000;
+      color:#fff;
     }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 32px rgba(0,0,0,.12);
+    .hero img{
+      position:absolute;
+      inset:0;
+      object-fit:cover;
+      z-index:-1;
     }
-    @keyframes countUp { from { opacity:0; } to { opacity:1; } }
-    .stat-number { animation: countUp .6s ease forwards; }
-    /* Light‑section contrast fix (B12) */
-    .section-light, [data-bg="light"] {
-      background: var(--tpl-light-surface, #f7f0e3);
-      color: var(--tpl-text-on-light, #1a1a1a);
+    .hero-title{font-size:2.5rem;margin-bottom:.5rem}
+    .hero-subtitle{font-size:1.25rem;margin-bottom:1rem}
+    .hero-time{font-size:1.125rem;background:rgba(0,0,0,.4);padding:.5rem 1rem;border-radius:8px}
+    .menu-section{padding:2rem 1rem}
+    .menu-section h2{font-size:2rem;margin-bottom:1rem;text-align:center}
+    .menu-grid{
+      display:grid;
+      gap:1rem;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
     }
-    .section-light h1,
-    .section-light h2,
-    .section-light h3,
-    .section-light h4,
-    .section-light p,
-    .section-light li,
-    .section-light label,
-    .section-light span {
-      color: var(--tpl-text-on-light, #1a1a1a);
+    .card{
+      background:var(--surface);
+      border-radius:8px;
+      padding:1rem;
+      box-shadow:0 2px 6px rgba(0,0,0,.1);
     }
-    /* Layout */
-    .container {
-      max-width: var(--max-width, 1200px);
-      margin: 0 auto;
-      padding: 1rem;
+    .item-name{font-weight:600;margin-bottom:.25rem}
+    .price{font-size:.95rem}
+    .price del{color:var(--muted);margin-right:.5rem}
+    .happy-price{color:var(--primary);font-weight:600}
+    .info-grid{
+      display:grid;
+      gap:1rem;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
     }
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
+    .info-card{
+      background:var(--surface);
+      padding:1rem;
+      border-radius:8px;
+      text-align:center;
     }
-    .hero img {
-      width: 100%;
-      max-height: 300px;
-      object-fit: cover;
-      border-radius: var(--radius-md);
+    .cta-btn{
+      display:inline-block;
+      background:var(--primary);
+      color:#fff;
+      padding:.75rem 1.5rem;
+      border-radius:6px;
+      font-weight:600;
+      margin-top:1rem;
     }
-    .time-display {
-      font-size: 2rem;
-      font-weight: 700;
-      background: var(--primary);
-      color: #fff;
-      padding: .5rem 1rem;
-      border-radius: .5rem;
-    }
-    .grid {
-      display: grid;
-      gap: 1rem;
-    }
-    @media (min-width: 600px) {
-      .grid-2 { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (min-width: 900px) {
-      .grid-3 { grid-template-columns: repeat(3, 1fr); }
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    th, td {
-      padding: .5rem;
-      border-bottom: 1px solid var(--muted);
-      text-align: left;
-    }
-    s {
-      color: var(--muted);
-      margin-right: .5rem;
-    }
-    .cta {
-      text-align: center;
-      margin-top: 2rem;
-    }
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: #000;
-      color: #fff;
-      padding: .5rem 1rem;
-      z-index: 100;
-    }
-    .skip-link:focus { top: 0; }
-    /* Theme toggle positioning (override) */
+    /* ---- Dark Mode ---- */
+    /* ---- Micro‑Animations ---- */
+    .fade-in{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+    .fade-in.visible{opacity:1;transform:translateY(0)}
+    .btn{transition:transform .2s ease,box-shadow .2s ease}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.15)}
+    .card{transition:transform .2s ease,box-shadow .2s ease}
+    .card:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(0,0,0,.12)}
+    @keyframes countUp{from{opacity:0}to{opacity:1}}
+    .stat-number{animation:countUp .6s ease forwards}
+    /* ---- Theme Toggle Position ---- */
     
   </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -878,7 +856,7 @@ section[data-section] {
 <meta name="dcs-build-id" content="2693eb33" data-trd-zone="68">
 <meta name="trd-template-id" content="2693eb33" data-trd-zone="68">
 <style id="trd-locked-palette" data-trd-zone="66">
-/* DCS locked palette · resolvedAt=2026-08-14T19:10:28.969Z */
+/* DCS locked palette · resolvedAt=2026-08-14T19:12:07.229Z */
   /* Zone 66 — 1 contrast correction(s) applied at lock time */
 :root {
   --tpl-primary: #1e1208;
@@ -1135,116 +1113,85 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
   
   <script>(function(){var w=document.querySelector('.gg-a11y-widget');if(!w)return;var t=w.querySelector('.gg-a11y-toggle');var html=document.documentElement;var STEP=2;function close(){w.setAttribute('data-open','false');t.setAttribute('aria-expanded','false')}function open(){w.setAttribute('data-open','true');t.setAttribute('aria-expanded','true')}t.addEventListener('click',function(e){e.stopPropagation();var o=w.getAttribute('data-open')==='true';if(o)close();else open()});document.addEventListener('click',function(e){if(!w.contains(e.target))close()});document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});w.querySelectorAll('.gg-a11y-opt').forEach(function(b){b.addEventListener('click',function(){var a=b.getAttribute('data-act');var s=parseFloat(getComputedStyle(html).fontSize)||16;if(a==='text-up')html.style.fontSize=Math.min(s+STEP,22)+'px';else if(a==='text-down')html.style.fontSize=Math.max(s-STEP,12)+'px';else if(a==='contrast')html.classList.toggle('gg-a11y-contrast');else if(a==='motion')html.classList.toggle('gg-a11y-motion');else if(a==='links')html.classList.toggle('gg-a11y-links');else if(a==='reset'){html.style.fontSize='';html.classList.remove('gg-a11y-contrast','gg-a11y-motion','gg-a11y-links')}})});})();</script>
 </div>
-  
-
-  <main id="main-content" class="container gg-main gg-section section-light">
+  <!-- Skip to content -->
+  <main class="gg-main gg-section section-light" id="main">
     <!-- Hero Section -->
-    <section class="hero fade-in" aria-labelledby="hero-title">
-      <h1 id="hero-title">Happy Hour</h1>
-      <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Feature Detail/image(8).jpg" alt="Lively bar atmosphere with patrons enjoying drinks">
-      <div class="time-display" aria-live="polite">
-        <time datetime="2026-08-14">Mon‑Fri, 4:00 PM – 7:00 PM</time>
-      </div>
-      <p>Unwind with special prices on drinks and bites during weekdays.</p>
-    </section>
-
-    <!-- What's Discounted -->
-    <section class="section-light fade-in" data-bg="light" aria-labelledby="discounted-title">
-      <h2 id="discounted-title">Happy‑Hour Specials</h2>
-      <p>Our happy‑hour menu offers a selection of drinks and small plates at reduced prices. <em>Contact us for the full list.</em></p>
-    </section>
-
-    <!-- Drink Specials -->
-    <section class="fade-in" aria-labelledby="drinks-title">
-      <h2 id="drinks-title">Drink Specials</h2>
-      <div class="grid grid-2">
-        <article class="card">
-          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/team/magnific_a-52yearold-latino-man-ba_3002665844.jpeg" alt="Refreshing cocktail">
-          <div class="card-content">
-            <h3>Signature Cocktail</h3>
-            <p><s>₹250</s> <strong>₹150</strong></p>
-          </div>
-        </article>
-        <article class="card">
-          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Feature Detail/image(12).jpg" alt="Glass of wine">
-          <div class="card-content">
-            <h3>Wine by the Glass</h3>
-            <p><s>₹300</s> <strong>₹180</strong></p>
-          </div>
-        </article>
-        <article class="card">
-          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/chef team/image(8).jpg" alt="Cold beer">
-          <div class="card-content">
-            <h3>Craft Beer</h3>
-            <p><s>₹200</s> <strong>₹120</strong></p>
-          </div>
-        </article>
-        <article class="card">
-          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/menu/image(15).jpg" alt="Non‑alcoholic mocktail">
-          <div class="card-content">
-            <h3>Mocktail</h3>
-            <p><s>₹180</s> <strong>₹100</strong></p>
-          </div>
-        </article>
+    <section class="hero fade-in">
+      <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Feature Detail/image(8).jpg" alt="Lively bar scene with cocktails and happy guests">
+      <h1 class="hero-title">Happy Hour</h1>
+      <p class="hero-subtitle">Weekday Wind‑Down</p>
+      <div class="hero-time">
+        <time datetime="2026-08-14T16:00" aria-label="Monday to Friday, 4 PM to 7 PM">Mon‑Fri, 4 PM – 7 PM</time>
       </div>
     </section>
 
-    <!-- Food Specials -->
-    <section class="fade-in" aria-labelledby="food-title">
-      <h2 id="food-title">Food Specials</h2>
-      <div class="grid grid-2">
+    <!-- Happy‑Hour Specials -->
+    <section class="menu-section fade-in">
+      <h2>Happy‑Hour Specials</h2>
+      <div class="menu-grid">
+        <!-- Drink Cards -->
         <article class="card">
-          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/chef team/image(12).jpg" alt="Crispy samosa">
-          <div class="card-content">
-            <h3>Samosa (2 pcs)</h3>
-            <p><s>₹120</s> <strong>₹80</strong></p>
-          </div>
+          <p class="item-name">Mango Margarita</p>
+          <p class="price"><del>₹250</del> <span class="happy-price">₹150</span></p>
         </article>
         <article class="card">
-          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/menu/image(11).jpg" alt="Mini paneer tikka">
-          <div class="card-content">
-            <h3>Paneer Tikka (3 pcs)</h3>
-            <p><s>₹180</s> <strong>₹120</strong></p>
-          </div>
+          <p class="item-name">Classic Mojito</p>
+          <p class="price"><del>₹220</del> <span class="happy-price">₹130</span></p>
         </article>
         <article class="card">
-          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/chef team/image(17).jpg" alt="Spicy chicken sliders">
-          <div class="card-content">
-            <h3>Chicken Sliders (2 pcs)</h3>
-            <p><s>₹200</s> <strong>₹140</strong></p>
-          </div>
+          <p class="item-name">House Red Wine (glass)</p>
+          <p class="price"><del>₹300</del> <span class="happy-price">₹180</span></p>
         </article>
         <article class="card">
-          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/hero/magnific_refined-intimate-restaura_3001106958.jpeg" alt="Seasonal fruit platter">
-          <div class="card-content">
-            <h3>Fruit Platter</h3>
-            <p><s>₹150</s> <strong>₹100</strong></p>
-          </div>
+          <p class="item-name">Cold Beer</p>
+          <p class="price"><del>₹180</del> <span class="happy-price">₹110</span></p>
+        </article>
+        <!-- Food Cards -->
+        <article class="card">
+          <p class="item-name">Spicy Chicken Wings</p>
+          <p class="price"><del>₹200</del> <span class="happy-price">₹120</span></p>
+        </article>
+        <article class="card">
+          <p class="item-name">Paneer Tikka Skewers</p>
+          <p class="price"><del>₹180</del> <span class="happy-price">₹110</span></p>
+        </article>
+        <article class="card">
+          <p class="item-name">Mini Veg Samosas (2 pcs)</p>
+          <p class="price"><del>₹150</del> <span class="happy-price">₹90</span></p>
+        </article>
+        <article class="card">
+          <p class="item-name">Cheesy Garlic Bread</p>
+          <p class="price"><del>₹170</del> <span class="happy-price">₹100</span></p>
         </article>
       </div>
     </section>
 
     <!-- Where & When -->
-    <section class="section-light fade-in" data-bg="light" aria-labelledby="location-title">
-      <h2 id="location-title">Where &amp; When</h2>
-      <p><strong>Location:</strong> New Delhi</p>
-      <p><strong>Happy‑Hour Timing:</strong> <time datetime="2026-08-14">Mon‑Fri, 4:00 PM – 7:00 PM</time></p>
-      <p>Bar‑only service during happy hour. The dining‑room serves the regular menu.</p>
-    </section>
-
-    <!-- Bar vs Dining‑Room -->
-    <section class="fade-in" aria-labelledby="bar-dining-title">
-      <h2 id="bar-dining-title">Bar‑Only vs Dining‑Room</h2>
-      <p>During the happy‑hour window, discounted prices apply only to the bar area. The dining‑room continues to offer the regular menu at standard rates.</p>
+    <section class="menu-section fade-in">
+      <h2>Where &amp; When</h2>
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>Location</h3>
+          <p>Haveli Restaurant 5</p>
+          <p>New Delhi, India</p>
+        </div>
+        <div class="info-card">
+          <h3>Happy‑Hour Hours</h3>
+          <p><time datetime="2026-08-14T16:00">Mon‑Fri</time></p>
+          <p>4 PM – 7 PM</p>
+        </div>
+        <div class="info-card">
+          <h3>Bar‑Only</h3>
+          <p>Happy hour is available at the bar only. The dining‑room serves the regular menu.</p>
+        </div>
+      </div>
     </section>
 
     <!-- Group / Private Happy Hour -->
-    <section class="fade-in" aria-labelledby="group-title">
-      <h2 id="group-title">Group &amp; Private Happy Hour</h2>
-      <p>Looking to host a corporate gathering or a private celebration? Book a dedicated happy‑hour slot for your group.</p>
-      <div class="cta">
-        <a href="/reservation.html" class="btn">Reserve Your Group</a>
-      </div>
+    <section class="menu-section fade-in">
+      <h2>Group &amp; Private Happy Hour</h2>
+      <p>Looking to host a corporate gathering or a private party? Book a dedicated happy‑hour slot for your group and enjoy exclusive perks.</p>
+      <a href="/reservation.html" class="cta-btn btn">Reserve Your Group</a>
     </section>
   <!-- ─── Phase F (section filler) — industry/page-aware fallback ─── -->
 <section class="trd-section-filler" data-trd-section-filler="phase-F" style="padding:48px 24px;max-width:880px;margin:0 auto;line-height:1.7;">
@@ -1254,10 +1201,22 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
 <!-- ─── /Phase F ──────────────────────────────────────────────── -->
 </main>
 
+  <!-- Theme Toggle -->
+  
+
   <script>
-    // Theme toggle script (Phase D3)
-    
-    }, { threshold: 0.1 });
+    // Theme toggle with persistence
+    const themeBtn = document.getElementById('theme-toggle');
+    themeBtn.onclick = () => document.documentElement.classList.toggle('dark');
+    if (localStorage.theme === 'dark' ||
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme:dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+
+    // IntersectionObserver for fade‑in
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, {threshold: 0.1});
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
     <footer class="gg-footer" role="contentinfo">
@@ -1330,7 +1289,7 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
     <div class="gg-footer-bottom-row">
       <p class="gg-footer-copy">&copy; 2026 Haveli Restaurant 5. All Rights Reserved.</p>
       <div class="gg-footer-legal">
-        <a href="/" onclick="return false;" data-trd-deadlink="privacy.html">privacy policy</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="terms.html">terms of service</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="sitemap.html">sitemap</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="accessibility.html">accessibility</a>
+        <a href="/privacy.html">privacy policy</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/terms.html">terms of service</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/sitemap.html">sitemap</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/accessibility.html">accessibility</a>
       </div>
     </div>
   </div>
@@ -1340,7 +1299,7 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
   <div class="gg-cookie-inner">
     <div class="gg-cookie-text">
       <p id="gg-cookie-title" class="gg-cookie-title">We use cookies</p>
-      <p class="gg-cookie-desc">We use cookies to enhance your browsing experience and analyze site traffic. <a href="/" onclick="return false;" data-trd-deadlink="privacy.html">Privacy Policy</a></p>
+      <p class="gg-cookie-desc">We use cookies to enhance your browsing experience and analyze site traffic. <a href="/privacy.html">Privacy Policy</a></p>
     </div>
     <div class="gg-cookie-actions">
       <button type="button" class="gg-cookie-reject">Reject</button>
