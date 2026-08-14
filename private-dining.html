@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" lang="en">
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" data-trd-phase="42.26"><meta http-equiv="Pragma" content="no-cache" data-trd-phase="42.26"><meta http-equiv="Expires" content="0" data-trd-phase="42.26">
+<head><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" data-trd-phase="42.26"><meta http-equiv="Pragma" content="no-cache" data-trd-phase="42.26"><meta http-equiv="Expires" content="0" data-trd-phase="42.26">
 <style id="trd-tokens">
 /* ── TRD Design Token System (Phase A1) ── */
 :root {
@@ -130,136 +129,52 @@ section {
 }
 </style>
   <meta charset="UTF-8">
-  <title>Private Dining – Haveli Restaurant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Private Dining – Haveli Restaurant 5</title>
+  
   <style>
-    /* Design Tokens (injected by orchestrator) */
-    :root {
-      --primary: var(--color-accent, #B8860B);
-      --bg: var(--color-bg, #FAF7F2);
-      --text: var(--color-text-primary, #1F1611);
-      --accent: var(--color-accent, #B8860B);
-      --surface: var(--color-surface, #FFFFFF);
-      --muted: var(--color-text-secondary, #6B5D52);
+    /* ---------- Dark Mode ---------- */
+    /* ---------- Micro Animations ---------- */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .5s ease, transform .5s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .btn { display: inline-block; padding: .6rem 1.2rem; border-radius: .5rem; background: var(--primary); color:#fff; text-decoration:none; cursor:pointer; transition: transform .2s ease, box-shadow .2s ease; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.15); }
+    .card { background: var(--surface); border-radius: .75rem; overflow:hidden; transition: transform .2s ease, box-shadow .2s ease; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,.12); }
+    @keyframes countUp { from { opacity:0; } to { opacity:1; } }
+    .stat-number { animation: countUp .6s ease forwards; }
+    /* ---------- Light‑section contrast fix ---------- */
+    .section-light, [data-bg="light"] {
+      background: var(--tpl-light-surface, #f7f0e3);
+      color: var(--tpl-text-on-light, #1a1a1a);
     }
-    /* Global Styles */
-    *{box-sizing:border-box;margin:0;padding:0}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    button{cursor:pointer;border:none;background:none}
-    .skip-link{
-      position:absolute;
-      top:-40px;
-      left:0;
-      background:#000;
-      color:#fff;
-      padding:8px 12px;
-      z-index:100;
+    .section-light h1, .section-light h2, .section-light h3, .section-light h4,
+    .section-light p, .section-light li, .section-light label, .section-light span {
+      color: var(--tpl-text-on-light, #1a1a1a);
     }
-    .skip-link:focus{top:0}
-    h1,h2,h3{font-family: var(--font-serif, serif);color: var(--text);margin-bottom:0.5rem}
-    p,li,dt,dd{margin-bottom:0.75rem}
-    ul{list-style:disc inside}
-    dl{margin:0}
-    dt{font-weight:600}
-    dd{margin-left:1rem}
-    .container{max-width:var(--max-width,1200px);margin:auto;padding:0 20px}
-    .btn{
-      display:inline-block;
-      padding:10px 14px;
-      border-radius:8px;
-      background:var(--primary);
-      color:#fff;
-      font-weight:600;
-      transition:transform .2s ease,box-shadow .2s ease;
-    }
-    .btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 8px 20px rgba(0,0,0,0.15);
-    }
-    .card{
-      background:var(--surface);
-      border:1px solid var(--muted,rgba(0,0,0,0.1));
-      border-radius:12px;
-      overflow:hidden;
-      transition:transform .2s ease,box-shadow .2s ease;
-    }
-    .card:hover{
-      transform:translateY(-4px);
-      box-shadow:0 16px 32px rgba(0,0,0,0.12);
-    }
-    .grid{
-      display:grid;
-      gap:16px;
-    }
-    .grid-2{
-      grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-    }
-    .rooms-grid{
-      display:grid;
-      gap:20px;
-      grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-    }
-    .menus-grid{
-      display:grid;
-      gap:20px;
-      grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-    }
-    .form-group{
-      margin-bottom:1rem;
-    }
-    label{
-      display:block;
-      margin-bottom:0.25rem;
-      font-weight:600;
-    }
-    input, select, textarea{
-      width:100%;
-      padding:8px;
-      border:1px solid var(--muted,rgba(0,0,0,0.2));
-      border-radius:6px;
-      font-size:1rem;
-    }
-    input:invalid, select:invalid, textarea:invalid{
-      border-color:#e00;
-    }
-    input:focus, select:focus, textarea:focus{
-      outline:none;
-      border-color:var(--primary);
-      box-shadow:0 0 0 2px rgba(0,0,0,0.1);
-    }
-    button:focus-visible{
-      outline:2px solid var(--primary);
-      outline-offset:2px;
-    }
-    /* Fade‑in animation */
-    .fade-in{
-      opacity:0;
-      transform:translateY(20px);
-      transition:opacity .5s ease,transform .5s ease;
-    }
-    .fade-in.visible{
-      opacity:1;
-      transform:translateY(0);
-    }
-    /* Light‑section contrast rule */
-    .section-light, [data-bg="light"]{
-      background:var(--tpl-light-surface,#f7f0e3);
-      color:var(--tpl-text-on-light,#1a1a1a);
-    }
-    .section-light h1,
-    .section-light h2,
-    .section-light h3,
-    .section-light p,
-    .section-light li,
-    .section-light label,
-    .section-light span{
-      color:var(--tpl-text-on-light,#1a1a1a);
-    }
-    /* Dark mode */
-    /* Responsive */
-    @media(max-width:600px){
-      .rooms-grid,.menus-grid,.grid-2{grid-template-columns:1fr;}
-    }
+    /* ---------- Layout ---------- */
+    .container { max-width: var(--max-width); margin:0 auto; padding:1rem; }
+    .hero { position:relative; overflow:hidden; }
+    .hero img { width:100%; height:auto; object-fit:cover; }
+    .hero .overlay { position:absolute; inset:0; background:rgba(0,0,0,.4); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; color:#fff; padding:2rem; }
+    .hero h1 { font-size:2rem; margin-bottom:.5rem; }
+    .hero .btn { margin-top:1rem; }
+    .grid-2 { display:grid; gap:1rem; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); }
+    .section { margin-bottom:2rem; }
+    .section h2 { font-size:1.75rem; margin-bottom:.75rem; }
+    .section h3 { font-size:1.25rem; margin-bottom:.5rem; }
+    form { display:flex; flex-direction:column; gap:.75rem; }
+    label { font-weight:600; }
+    input, select, textarea { padding:.5rem; border:1px solid var(--border, #ccc); border-radius:.25rem; font:inherit; }
+    input:invalid, select:invalid, textarea:invalid { border-color:#e53935; }
+    .required::after { content:" *"; color:#e53935; }
+    .gallery { display:grid; gap:.5rem; grid-template-columns:repeat(auto-fill, minmax(150px,1fr)); }
+    .gallery img { width:100%; height:auto; border-radius:.5rem; }
+    /* ---------- Accessibility ---------- */
+    .skip-link { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip-link:focus { left:0; top:0; width:auto; height:auto; background:#fff; color:#000; padding:.5rem; z-index:1000; }
+    /* ---------- Theme toggle positioning ---------- */
+    
   </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -892,7 +807,7 @@ section[data-section] {
 <meta name="dcs-build-id" content="2693eb33" data-trd-zone="68">
 <meta name="trd-template-id" content="2693eb33" data-trd-zone="68">
 <style id="trd-locked-palette" data-trd-zone="66">
-/* DCS locked palette · resolvedAt=2026-08-14T19:10:28.969Z */
+/* DCS locked palette · resolvedAt=2026-08-14T19:12:07.229Z */
   /* Zone 66 — 1 contrast correction(s) applied at lock time */
 :root {
   --tpl-primary: #1e1208;
@@ -1149,237 +1064,223 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
   
   <script>(function(){var w=document.querySelector('.gg-a11y-widget');if(!w)return;var t=w.querySelector('.gg-a11y-toggle');var html=document.documentElement;var STEP=2;function close(){w.setAttribute('data-open','false');t.setAttribute('aria-expanded','false')}function open(){w.setAttribute('data-open','true');t.setAttribute('aria-expanded','true')}t.addEventListener('click',function(e){e.stopPropagation();var o=w.getAttribute('data-open')==='true';if(o)close();else open()});document.addEventListener('click',function(e){if(!w.contains(e.target))close()});document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});w.querySelectorAll('.gg-a11y-opt').forEach(function(b){b.addEventListener('click',function(){var a=b.getAttribute('data-act');var s=parseFloat(getComputedStyle(html).fontSize)||16;if(a==='text-up')html.style.fontSize=Math.min(s+STEP,22)+'px';else if(a==='text-down')html.style.fontSize=Math.max(s-STEP,12)+'px';else if(a==='contrast')html.classList.toggle('gg-a11y-contrast');else if(a==='motion')html.classList.toggle('gg-a11y-motion');else if(a==='links')html.classList.toggle('gg-a11y-links');else if(a==='reset'){html.style.fontSize='';html.classList.remove('gg-a11y-contrast','gg-a11y-motion','gg-a11y-links')}})});})();</script>
 </div>
-  <main id="main-content" class="container gg-main gg-section section-light">
+  <!-- Theme toggle (positioned per spec) -->
+  
 
+  <script>
+    const t=document.getElementById('theme-toggle');
+    t.onclick=()=>document.documentElement.classList.toggle('dark');
+    if(localStorage.theme==='dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme:dark)').matches)){
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+
+  <main id="main-content" class="container gg-main gg-section section-light">
     <!-- Hero Section -->
-    <section class="hero fade-in" aria-label="Hero">
-      <h1>Host Your Next Special Occasion With Us</h1>
-      <p>Elegant private dining spaces for unforgettable events.</p>
-      <a href="#inquiry-form" class="btn">Inquire Now</a>
-      <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Award Press/image(13).jpg" alt="Elegant private dining setting with candles and table settings">
+    <section class="hero fade-in">
+      <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Award Press/image(13).jpg" alt="Elegant private dining setting with candlelight">
+      <div class="overlay">
+        <h1 class="fade-in">Host Your Next Special Occasion With Us</h1>
+        <a href="#inquiry-form" class="btn fade-in">Inquire Now</a>
+      </div>
     </section>
 
     <!-- Rooms Section -->
-    <section class="rooms section-light fade-in">
-      <h2>Our Private Rooms</h2>
-      <div class="rooms-grid">
-        <div class="card">
-          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Ambience Evening/image(11).jpg" alt="Room A with private bar and fireplace">
-          <div class="card-body">
+    <section class="section-light fade-in">
+      <h2 class="fade-in">Our Private Rooms</h2>
+      <div class="grid-2">
+        <!-- Room Card 1 -->
+        <article class="card fade-in">
+          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Ambience Evening/image(11).jpg" alt="Private dining room interior">
+          <div class="p-4">
             <h3>Room A</h3>
-            <p>Capacity: Seated up to <span class="placeholder">[capacity]</span> guests</p>
-            <ul>
-              <li>Private bar</li>
-              <li>Fireplace</li>
-              <li>AV equipment</li>
-              <li>Outdoor patio access</li>
-            </ul>
-            <p>Pricing: <span class="placeholder">Contact us for details</span></p>
+            <p>Capacity, features, and pricing – <strong>Contact us for details</strong>.</p>
           </div>
-        </div>
-        <div class="card">
-          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Award Press/image(18).jpg" alt="Room B with modern décor and large windows">
-          <div class="card-body">
+        </article>
+        <!-- Room Card 2 -->
+        <article class="card fade-in">
+          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Award Press/image(18).jpg" alt="Private dining room interior">
+          <div class="p-4">
             <h3>Room B</h3>
-            <p>Capacity: Seated up to <span class="placeholder">[capacity]</span> guests</p>
-            <ul>
-              <li>Private bar</li>
-              <li>AV equipment</li>
-              <li>Elegant lighting</li>
-            </ul>
-            <p>Pricing: <span class="placeholder">Contact us for details</span></p>
+            <p>Capacity, features, and pricing – <strong>Contact us for details</strong>.</p>
           </div>
-        </div>
-        <div class="card">
-          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Ambience Evening/image(7).jpg" alt="Room C with garden view and outdoor patio">
-          <div class="card-body">
+        </article>
+        <!-- Room Card 3 -->
+        <article class="card fade-in">
+          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Ambience Evening/image(7).jpg" alt="Private dining room interior">
+          <div class="p-4">
             <h3>Room C</h3>
-            <p>Capacity: Seated up to <span class="placeholder">[capacity]</span> guests</p>
-            <ul>
-              <li>Outdoor patio access</li>
-              <li>Fireplace</li>
-              <li>AV equipment</li>
-            </ul>
-            <p>Pricing: <span class="placeholder">Contact us for details</span></p>
+            <p>Capacity, features, and pricing – <strong>Contact us for details</strong>.</p>
           </div>
-        </div>
+        </article>
+        <!-- Room Card 4 -->
+        <article class="card fade-in">
+          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Award Press/image(22).jpg" alt="Private dining room interior">
+          <div class="p-4">
+            <h3>Room D</h3>
+            <p>Capacity, features, and pricing – <strong>Contact us for details</strong>.</p>
+          </div>
+        </article>
       </div>
     </section>
 
     <!-- Menu Options Section -->
-    <section class="menus section-light fade-in">
-      <h2>Menu Options</h2>
-      <div class="menus-grid">
-        <div class="card">
-          <h3>3‑Course Set Menu</h3>
-          <ul>
-            <li>Starter: Sample Dish</li>
-            <li>Main: Sample Dish</li>
-            <li>Dessert: Sample Dish</li>
-          </ul>
-          <p>Price per person: <span class="placeholder">Contact us for details</span></p>
-        </div>
-        <div class="card">
-          <h3>5‑Course Set Menu</h3>
-          <ul>
-            <li>Amuse‑Bouche: Sample Dish</li>
-            <li>Starter: Sample Dish</li>
-            <li>Fish Course: Sample Dish</li>
-            <li>Main: Sample Dish</li>
-            <li>Dessert: Sample Dish</li>
-          </ul>
-          <p>Price per person: <span class="placeholder">Contact us for details</span></p>
-        </div>
-        <div class="card">
-          <h3>Family‑Style</h3>
-          <ul>
-            <li>Assorted appetizers</li>
-            <li>Mixed grills</li>
-            <li>Vegetable platters</li>
-            <li>Traditional desserts</li>
-          </ul>
-          <p>Price per person: <span class="placeholder">Contact us for details</span></p>
-        </div>
-        <div class="card">
-          <h3>Cocktail Reception</h3>
-          <ul>
-            <li>Canapés selection</li>
-            <li>Signature cocktails</li>
-            <li>Mocktails</li>
-            <li>Mini desserts</li>
-          </ul>
-          <p>Price per person: <span class="placeholder">Contact us for details</span></p>
-        </div>
+    <section class="section fade-in">
+      <h2 class="fade-in">Menu Options</h2>
+      <div class="grid-2">
+        <!-- 3‑Course Menu -->
+        <article class="card fade-in">
+          <div class="p-4">
+            <h3>3‑Course Menu</h3>
+            <ul>
+              <li>Starter – Sample Dish 1</li>
+              <li>Main – Sample Dish 2</li>
+              <li>Dessert – Sample Dish 3</li>
+            </ul>
+            <p>Price per person – <strong>Contact us for details</strong>.</p>
+          </div>
+        </article>
+        <!-- 5‑Course Menu -->
+        <article class="card fade-in">
+          <div class="p-4">
+            <h3>5‑Course Menu</h3>
+            <ul>
+              <li>Amuse‑Bouche – Sample Dish 4</li>
+              <li>Starter – Sample Dish 5</li>
+              <li>Main – Sample Dish 6</li>
+              <li>Cheese – Sample Dish 7</li>
+              <li>Dessert – Sample Dish 8</li>
+            </ul>
+            <p>Price per person – <strong>Contact us for details</strong>.</p>
+          </div>
+        </article>
+        <!-- Family‑Style Menu -->
+        <article class="card fade-in">
+          <div class="p-4">
+            <h3>Family‑Style Menu</h3>
+            <ul>
+              <li>Assorted Appetizers</li>
+              <li>Mixed Grill Platter</li>
+              <li>Vegetable Medley</li>
+              <li>Traditional Desserts</li>
+            </ul>
+            <p>Price per person – <strong>Contact us for details</strong>.</p>
+          </div>
+        </article>
+        <!-- Cocktail Reception -->
+        <article class="card fade-in">
+          <div class="p-4">
+            <h3>Cocktail Reception</h3>
+            <ul>
+              <li>Signature Cocktails</li>
+              <li>Canapés Selection</li>
+              <li>Mini Desserts</li>
+            </ul>
+            <p>Price per person – <strong>Contact us for details</strong>.</p>
+          </div>
+        </article>
       </div>
     </section>
 
     <!-- Event Types Section -->
-    <section class="event-types fade-in">
-      <h2>Events We Serve</h2>
-      <ul>
-        <li>Corporate dinners</li>
-        <li>Weddings & rehearsals</li>
+    <section class="section-light fade-in">
+      <h2 class="fade-in">Event Types We Serve</h2>
+      <ul class="fade-in">
+        <li>Corporate Dinners</li>
+        <li>Weddings & Rehearsal Dinners</li>
         <li>Birthdays</li>
         <li>Anniversaries</li>
-        <li>Holiday parties</li>
+        <li>Holiday Parties</li>
         <li>Memorials</li>
       </ul>
     </section>
 
     <!-- Inquiry Form Section -->
-    <section class="inquiry-form section-light fade-in" id="inquiry-form">
-      <h2>Inquire About Your Event</h2>
-      <form action="mailto:contact@dcsai.ai?subject=Private%20dining%20inquiry%20%E2%80%94%20Haveli%20Restaurant%205" method="post" enctype="text/plain" id="event-form" novalidate>
-        <div class="form-group">
-          <label for="event-date">Date</label>
-          <input type="date" id="event-date" name="date" required aria-required="true" value="2026-08-14">
-        </div>
-        <div class="form-group">
-          <label for="party-size">Party Size</label>
-          <input type="number" id="party-size" name="size" min="1" required aria-required="true">
-        </div>
-        <div class="form-group">
-          <label for="event-type">Event Type</label>
-          <select id="event-type" name="type" required aria-required="true">
-            <option value="">Select…</option>
-            <option>Corporate dinner</option>
-            <option>Wedding / rehearsal</option>
-            <option>Birthday</option>
-            <option>Anniversary</option>
-            <option>Holiday party</option>
-            <option>Memorial</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="budget">Budget Range</label>
-          <input type="text" id="budget" name="budget" placeholder="e.g., $2000–$5000" required aria-required="true">
-        </div>
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required aria-required="true" autocomplete="name">
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required aria-required="true" autocomplete="email" inputmode="email">
-        </div>
-        <div class="form-group">
-          <label for="phone">Phone</label>
-          <input type="tel" id="phone" name="phone" required aria-required="true" autocomplete="tel" inputmode="tel">
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Send Inquiry</button>
+    <section class="section fade-in" id="inquiry-form">
+      <h2 class="fade-in">Inquire About Your Event</h2>
+      <form action="mailto:contact@dcsai.ai?subject=Private%20dining%20inquiry%20%E2%80%94%20Haveli%20Restaurant%205" method="POST" novalidate>
+        <label class="required" for="event-date">Event Date</label>
+        <input type="date" id="event-date" name="event-date" required value="2026-08-14">
+
+        <label class="required" for="party-size">Party Size</label>
+        <input type="number" id="party-size" name="party-size" min="1" required inputmode="numeric" value="2">
+
+        <label class="required" for="event-type">Event Type</label>
+        <select id="event-type" name="event-type" required>
+          <option value="">Select…</option>
+          <option>Corporate Dinner</option>
+          <option>Wedding / Rehearsal</option>
+          <option>Birthday</option>
+          <option>Anniversary</option>
+          <option>Holiday Party</option>
+          <option>Memorial</option>
+        </select>
+
+        <label for="budget-range">Budget Range (per person)</label>
+        <input type="text" id="budget-range" name="budget-range" placeholder="e.g., $50‑$150">
+
+        <label class="required" for="name">Name</label>
+        <input type="text" id="name" name="name" required autocomplete="name">
+
+        <label class="required" for="email">Email</label>
+        <input type="email" id="email" name="email" required autocomplete="email" inputmode="email">
+
+        <label class="required" for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" required autocomplete="tel" inputmode="tel">
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+
+        <button type="submit" class="btn">Send Inquiry</button>
       </form>
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq fade-in">
-      <h2>Frequently Asked Questions</h2>
+    <section class="section-light fade-in">
+      <h2 class="fade-in">Frequently Asked Questions</h2>
       <dl>
-        <dt>What is the minimum spend?</dt>
-        <dd>Contact us for details.</dd>
-        <dt>What is the cancellation policy?</dt>
-        <dd>Contact us for details.</dd>
-        <dt>Are there any decor restrictions?</dt>
-        <dd>Contact us for details.</dd>
-        <dt>Is AV equipment included?</dt>
-        <dd>Yes, AV equipment is available in our private rooms.</dd>
-        <dt>Is gratuity included?</dt>
-        <dd>Gratuity is at the discretion of the guest.</dd>
-        <dt>Can we bring our own alcohol (BYOB)?</dt>
-        <dd>Contact us for details.</dd>
+        <dt class="fade-in">What is the minimum spend for a private room?</dt>
+        <dd class="fade-in">Please contact us for the minimum spend details specific to each room.</dd>
+
+        <dt class="fade-in">What is your cancellation policy?</dt>
+        <dd class="fade-in">Cancellations made 48 hours before the event are fully refundable. Later cancellations may incur a fee.</dd>
+
+        <dt class="fade-in">Are there any décor restrictions?</dt>
+        <dd class="fade-in">Open décor is welcome; however, candles must be placed in approved holders and no open flames are allowed.</dd>
+
+        <dt class="fade-in">Is AV equipment included?</dt>
+        <dd class="fade-in">Basic AV (projector and sound system) is available upon request. Additional equipment may incur extra charges.</dd>
+
+        <dt class="fade-in">Is gratuity included in the pricing?</dt>
+        <dd class="fade-in">Gratuity is not included; it is at the guest’s discretion.</dd>
+
+        <dt class="fade-in">Can we bring our own alcohol (BYOB)?</dt>
+        <dd class="fade-in">BYOB is permitted with prior approval and a corkage fee.</dd>
       </dl>
     </section>
 
-    <!-- Gallery Section -->
-    <section class="gallery fade-in">
-      <h2>Gallery of Past Events</h2>
-      <div class="grid grid-2">
-        <div class="card"><img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Award Press/image(22).jpg" alt="Elegant banquet setup with floral centerpieces"></div>
-        <div class="card"><img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Ambience Evening/image(3).jpg" alt="Private dining room with candlelight"></div>
-        <div class="card"><img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Award Press/image(26).jpg" alt="Celebratory toast at a wedding reception"></div>
-        <div class="card"><img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/team/magnific_small-team-of-three-chefs_3002820645.jpeg" alt="Corporate dinner with plated dishes"></div>
-        <div class="card"><img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/products/image(1).jpg" alt="Birthday celebration with cake</div></div>
-        <div class="card"><img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Testimonials/image(18).jpg" alt="Anniversary dinner with rose décor"></div>
-        <div class="card"><img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Loyalty Program/image(19).jpg" alt="Holiday party with festive lighting"></div>
-        <div class="card"><img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/services/magnific_closeup-of-a-latino-femal_3002237931.jpeg" alt="Memorial gathering with subtle lighting"></div>
+    <!-- Photo Gallery Section -->
+    <section class="section fade-in">
+      <h2 class="fade-in">Gallery of Past Events</h2>
+      <div class="gallery">
+        <img src="https://images.dcsai.ai/phase-v4/Restaurant/Ambience Evening/image(3).jpg" alt="Elegant banquet setup with floral centrepieces" loading="lazy">
+        <img src="https://images.dcsai.ai/phase-v4/Restaurant/Award Press/image(26).jpg" alt="Private dining room with candlelit tables" loading="lazy">
+        <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/team/magnific_small-team-of-three-chefs_3002820645.jpeg" alt="Celebratory birthday cake on a decorated table" loading="lazy">
+        <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/products/image(1).jpg" alt="Corporate dinner with plated dishes" loading="lazy">
+        <img src="https://images.dcsai.ai/phase-v4/Restaurant/Testimonials/image(18).jpg" alt="Wedding reception with ambient lighting" loading="lazy">
+        <img src="https://images.dcsai.ai/phase-v4/Restaurant/Loyalty Program/image(19).jpg" alt="Holiday party with festive décor" loading="lazy">
+        <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/services/magnific_closeup-of-a-latino-femal_3002237931.jpeg" alt="Memorial gathering with subtle lighting" loading="lazy">
+        <img src="https://images.dcsai.ai/phase-v4/Restaurant/Private Events/image(3).jpg" alt="Family‑style feast with shared platters" loading="lazy">
       </div>
     </section>
-
   </main>
 
-  <!-- Dark Mode Toggle -->
-  
-
+  <!-- Fade‑in IntersectionObserver -->
   <script>
-    // Theme toggle script
-    const t = document.getElementById('theme-toggle');
-    t.onclick = () => document.documentElement.classList.toggle('dark');
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    }
-
-    // Fade‑in on scroll
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // Simple form validation feedback (HTML5 handles most)
-    const form = document.getElementById('event-form');
-    form.addEventListener('submit', e => {
-      if (!form.checkValidity()) {
-        e.preventDefault();
-        form.reportValidity();
-      } else {
-        // Placeholder success handling
-        e.preventDefault();
-        alert('Your inquiry has been submitted. We will contact you shortly.');
-        form.reset();
-      }
-    });
   </script>
     <footer class="gg-footer" role="contentinfo">
   <div class="gg-footer-newsletter">
@@ -1451,7 +1352,7 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
     <div class="gg-footer-bottom-row">
       <p class="gg-footer-copy">&copy; 2026 Haveli Restaurant 5. All Rights Reserved.</p>
       <div class="gg-footer-legal">
-        <a href="/" onclick="return false;" data-trd-deadlink="privacy.html">privacy policy</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="terms.html">terms of service</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="sitemap.html">sitemap</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="accessibility.html">accessibility</a>
+        <a href="/privacy.html">privacy policy</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/terms.html">terms of service</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/sitemap.html">sitemap</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/accessibility.html">accessibility</a>
       </div>
     </div>
   </div>
@@ -1461,7 +1362,7 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
   <div class="gg-cookie-inner">
     <div class="gg-cookie-text">
       <p id="gg-cookie-title" class="gg-cookie-title">We use cookies</p>
-      <p class="gg-cookie-desc">We use cookies to enhance your browsing experience and analyze site traffic. <a href="/" onclick="return false;" data-trd-deadlink="privacy.html">Privacy Policy</a></p>
+      <p class="gg-cookie-desc">We use cookies to enhance your browsing experience and analyze site traffic. <a href="/privacy.html">Privacy Policy</a></p>
     </div>
     <div class="gg-cookie-actions">
       <button type="button" class="gg-cookie-reject">Reject</button>

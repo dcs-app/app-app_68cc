@@ -1,14 +1,14 @@
 {
   "brand": {
     "name": "Haveli Restaurant 5",
-    "tagline": "Authentic North Indian flavours in the heart of Hisar",
-    "industry": "restaurant",
+    "tagline": "Authentic North‑Indian flavours in the heart of Hisar",
+    "industry": "hospitality",
     "tone": "warm"
   },
   "archetype": "HOSPITALITY",
   "design_tokens": {
-    "font_serif": "\"Fraunces\", \"Cormorant\", \"Playfair Display\", serif",
-    "font_sans": "\"Inter\", system-ui, sans-serif",
+    "font_serif": "'Fraunces', 'Cormorant', 'Playfair Display', serif",
+    "font_sans": "'Inter', system-ui, sans-serif",
     "color_bg": "#FAF7F2",
     "color_surface": "#FFFFFF",
     "color_text_primary": "#1F1611",
@@ -35,44 +35,44 @@
   "header_nav": [
     { "label": "Home", "href": "/index.html" },
     { "label": "Menu", "href": "/menu.html" },
-    { "label": "Reservation", "href": "/reservation.html" },
     { "label": "About", "href": "/about.html" },
     { "label": "Gallery", "href": "/gallery.html" },
     { "label": "Contact", "href": "/contact.html" }
   ],
   "footer_links": {
-    "section_1_title": "Hours",
+    "section_1_title": "Explore",
     "section_1_links": [
-      { "label": "Mon–Thu: 11:00 – 23:00", "href": "/contact.html#hours" },
-      { "label": "Fri–Sat: 11:00 – 24:00", "href": "/contact.html#hours" },
-      { "label": "Sun: 11:00 – 22:00", "href": "/contact.html#hours" }
-    ],
-    "section_2_title": "Location",
-    "section_2_links": [
-      { "label": "Hisar — view on map", "href": "/contact.html#location" }
-    ],
-    "section_3_title": "Explore",
-    "section_3_links": [
+      { "label": "Home", "href": "/index.html" },
       { "label": "Menu", "href": "/menu.html" },
-      { "label": "Reserve a Table", "href": "/reservation.html" },
-      { "label": "Gallery", "href": "/gallery.html" }
+      { "label": "Reserve", "href": "/reservation.html" },
+      { "label": "About", "href": "/about.html" },
+      { "label": "Gallery", "href": "/gallery.html" },
+      { "label": "Contact", "href": "/contact.html" }
     ],
-    "section_4_title": "Contact",
-    "section_4_links": [
-      { "label": "Phone: [PHONE]", "href": "tel:[PHONE]" },
-      { "label": "Email: [EMAIL]", "href": "mailto:[EMAIL]" }
-    ]
+    "section_2_title": "Contact",
+    "section_2_links": [
+      { "label": "Phone", "href": "tel:[PHONE]" },
+      { "label": "Email", "href": "mailto:[EMAIL]" },
+      { "label": "Find us (map)", "href": "https://maps.google.com/?q=[Street+Address]+Hisar" }
+    ],
+    "section_3_title": "Legal",
+    "section_3_links": [
+      { "label": "Privacy", "href": "/privacy.html" },
+      { "label": "Terms", "href": "/terms.html" }
+    ],
+    "section_4_title": null,
+    "section_4_links": null
   },
-  "canonical_header_html": "<header class=\"site-header\">\n  <div class=\"header-inner\">\n    <a href=\"/index.html\" class=\"brand\">Haveli Restaurant 5</a>\n    <nav class=\"primary-nav\" aria-label=\"Primary navigation\">\n      <a href=\"/index.html\">Home</a>\n      <a href=\"/menu.html\">Menu</a>\n      <a href=\"/reservation.html\">Reservation</a>\n      <a href=\"/about.html\">About</a>\n      <a href=\"/gallery.html\">Gallery</a>\n      <a href=\"/contact.html\">Contact</a>\n    </nav>\n    <div class=\"header-cta\">\n      <a class=\"btn-reserve\" href=\"/reservation.html\">Reserve a Table</a>\n    </div>\n  </div>\n</header>",
-  "canonical_footer_html": "<footer class=\"site-footer\" role=\"contentinfo\">\n  <div class=\"footer-inner\">\n    <div class=\"footer-col footer-hours\">\n      <h4>Hours</h4>\n      <ul>\n        <li>Mon–Thu: 11:00 – 23:00</li>\n        <li>Fri–Sat: 11:00 – 24:00</li>\n        <li>Sun: 11:00 – 22:00</li>\n      </ul>\n    </div>\n    <div class=\"footer-col footer-location\">\n      <h4>Location</h4>\n      <address>\n        Haveli Restaurant 5<br>\n        Hisar<br>\n        [Street Address]\n      </address>\n    </div>\n    <div class=\"footer-col footer-contact\">\n      <h4>Contact</h4>\n      <p>Phone: <a href=\"tel:[PHONE]\">[PHONE]</a></p>\n      <p>Email: <a href=\"mailto:[EMAIL]\">[EMAIL]</a></p>\n      <div class=\"footer-social\">\n        <a href=\"#\" aria-label=\"Facebook\">f</a>\n        <a href=\"#\" aria-label=\"Instagram\">📷</a>\n        <a href=\"#\" aria-label=\"X\">𝕏</a>\n      </div>\n    </div>\n  </div>\n  <div class=\"footer-bottom\">\n    <div class=\"footer-brand\">Haveli Restaurant 5</div>\n    <div class=\"footer-tagline\">Authentic North Indian flavours in the heart of Hisar</div>\n    <div class=\"footer-copy\">© 2026 Haveli Restaurant 5. All rights reserved.</div>\n  </div>\n</footer>",
-  "shared_styles": "<style>\n:root {\n  --font-serif: 'Fraunces', 'Cormorant', 'Playfair Display', serif;\n  --font-sans: 'Inter', system-ui, sans-serif;\n  --color-bg: #FAF7F2;\n  --color-surface: #FFFFFF;\n  --color-text-primary: #1F1611;\n  --color-text-secondary: #6B5D52;\n  --color-accent: #B8860B;\n  --color-border: rgba(31,22,17,0.1);\n  --color-header-bg: rgba(250,247,242,0.94);\n  --color-footer-bg: #1F1611;\n  --radius-sm: 6px;\n  --radius-md: 12px;\n  --radius-lg: 32px;\n  --shadow-sm: 0 2px 8px rgba(31,22,17,0.06);\n  --shadow-md: 0 12px 36px rgba(31,22,17,0.1);\n  --max-width: 1200px;\n}\n*{box-sizing:border-box;margin:0;padding:0}\nhtml,body{height:100%;overflow-x:hidden}\nbody{font-family:var(--font-sans);background:var(--color-bg);color:var(--color-text-primary);-webkit-font-smoothing:antialiased;line-height:1.5}\nh1,h2,h3{font-family:var(--font-serif);color:var(--color-text-primary);letter-spacing:-0.01em}\na{color:inherit;text-decoration:none}\n.container{max-width:var(--max-width);margin:0 auto;padding:0 1rem}\n/* Header */\n.site-header{background:var(--color-header-bg);backdrop-filter:saturate(120%) blur(4px);box-shadow:var(--shadow-sm);position:sticky;top:0;z-index:50}\n.header-inner{display:flex;align-items:center;justify-content:space-between;max-width:var(--max-width);margin:0 auto;padding:14px 1rem}\n.brand{font-family:var(--font-serif);font-weight:700;font-size:1.125rem;color:var(--color-text-primary)}\n.primary-nav{display:flex;gap:18px;align-items:center}\n.primary-nav a{font-size:0.98rem;color:var(--color-text-secondary);padding:8px 12px;border-radius:6px;min-height:44px;display:flex;align-items:center}\n.primary-nav a:hover{color:var(--color-text-primary)}\n.header-cta .btn-reserve{background:var(--color-accent);color:#fff;padding:10px 14px;border-radius:10px;font-weight:600;min-height:44px;display:inline-flex;align-items:center}\n.header-cta .btn-reserve:hover{opacity:0.95}\n/* Bottom Navigation – visible on mobile */\n.bottom-nav{display:none;position:fixed;bottom:0;left:0;width:100%;background:var(--color-footer-bg);border-top:1px solid rgba(255,255,255,0.1);z-index:60;justify-content:space-around;padding:6px 0}\n.bottom-nav .nav-item{color:#fff;font-size:0.9rem;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:44px;min-width:44px;text-align:center}\n.bottom-nav .nav-item .icon{font-size:1.2rem}\n/* Footer */\n.site-footer{background:var(--color-footer-bg);color:#fff;padding:40px 1rem}\n.footer-inner{display:flex;gap:28px;max-width:var(--max-width);margin:0 auto;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,0.06)}\n.footer-col{flex:1;min-width:180px}\n.footer-col h4{font-family:var(--font-serif);margin-bottom:8px}\n.footer-col a{color:#fff;text-decoration:underline}\n.footer-social a{display:inline-block;margin-right:8px;color:#fff}\n.footer-bottom{max-width:var(--max-width);margin:18px auto 0;padding-top:14px;display:flex;flex-direction:column;align-items:center;gap:6px}\n.footer-brand{font-family:var(--font-serif);font-weight:700}\n.footer-copy{font-size:0.9rem;color:rgba(255,255,255,0.72)}\n/* Utilities */\n.btn{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--color-accent);color:#fff}\n.card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);overflow:hidden}\n.grid{display:grid;gap:16px}\n.grid-3{grid-template-columns:repeat(3,1fr)}\n/* Responsive Breakpoints */\n@media (max-width: 900px) {\n  .grid-3{grid-template-columns:repeat(2,1fr)}\n  .primary-nav{display:none}\n  .bottom-nav{display:flex}\n}\n@media (max-width: 600px) {\n  .grid-3{grid-template-columns:1fr}\n  .header-inner{padding:12px 1rem}\n}\n@media (max-width: 375px) {\n  .container{padding:0 .5rem}\n  .primary-nav a{font-size:0.9rem}\n}\n@media (max-width: 320px) {\n  .brand{font-size:1rem}\n  .header-cta .btn-reserve{font-size:0.9rem;padding:8px 12px}\n}\n</style>",
+  "canonical_header_html": "<header class='site-header' role='banner' aria-label='Main navigation'><div class='header-inner'><a href='/index.html' class='brand' aria-label='Haveli Restaurant 5'>Haveli Restaurant 5</a><nav class='primary-nav' aria-label='Primary navigation'><a href='/index.html'>Home</a><a href='/menu.html'>Menu</a><a href='/about.html'>About</a><a href='/gallery.html'>Gallery</a><a href='/contact.html'>Contact</a></nav><div class='header-cta'><a class='btn-reserve' href='/reservation.html' aria-label='Reserve a table'>Reserve a Table</a></div></div></header>",
+  "canonical_footer_html": "<footer class='site-footer' role='contentinfo'><div class='footer-inner'><div class='footer-col footer-hours'><h4>Hours</h4><p>Mon–Thu: 11:00 AM – 11:00 PM<br/>Fri–Sat: 11:00 AM – 12:00 AM<br/>Sun: 11:00 AM – 10:00 PM</p></div><div class='footer-col footer-location'><h4>Location</h4><p>Haveli Restaurant 5<br/>[Street Address], Hisar</p><p><a href='https://maps.google.com/?q=[Street+Address]+Hisar' class='map-link'>View on map</a></p></div><div class='footer-col footer-follow'><h4>Contact</h4><p>Phone: <a href='tel:[PHONE]'>[PHONE]</a><br/>Email: <a href='mailto:[EMAIL]'>[EMAIL]</a></p><div class='social-row' aria-label='social links'><a href='#facebook' aria-label='Facebook'>f</a><a href='#instagram' aria-label='Instagram'>📷</a><a href='#twitter' aria-label='X/Twitter'>𝕏</a></div></div></div><div class='footer-bottom'><div class='footer-brand'>Haveli Restaurant 5</div><div class='footer-copy'>© 2026 Haveli Restaurant 5. All rights reserved.</div></div></footer>",
+  "shared_styles": "<style>:root{ --font-serif: 'Fraunces', 'Cormorant', 'Playfair Display', serif; --font-sans: 'Inter', system-ui, sans-serif; --color-bg: #FAF7F2; --color-surface: #FFFFFF; --color-text-primary: #1F1611; --color-text-secondary: #6B5D52; --color-accent: #B8860B; --color-border: rgba(31,22,17,0.1); --color-header-bg: rgba(250,247,242,0.94); --color-footer-bg: #1F1611; --radius-sm: 6px; --radius-md: 12px; --radius-lg: 32px; --shadow-sm: 0 2px 8px rgba(31,22,17,0.06); --shadow-md: 0 12px 36px rgba(31,22,17,0.1); --max-width: 1200px; }*{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:var(--font-sans);background:var(--color-bg);color:var(--color-text-primary);-webkit-font-smoothing:antialiased;line-height:1.5}h1,h2,h3,h4{font-family:var(--font-serif);color:var(--color-text-primary)}a{color:inherit;text-decoration:none}img{max-width:100%;height:auto;display:block}.container{max-width:var(--max-width);margin:0 auto;padding:24px}.site-header{background:var(--color-header-bg);backdrop-filter:saturate(120%) blur(4px);border-bottom:1px solid var(--color-border)}.header-inner{max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;gap:16px}.brand{font-family:var(--font-serif);font-weight:700;color:var(--color-text-primary);font-size:1.125rem}.primary-nav{display:flex;gap:18px;align-items:center}.primary-nav a{padding:8px 6px;border-radius:6px;color:var(--color-text-primary)}.primary-nav a:hover{background:rgba(0,0,0,0.03)}.header-cta .btn-reserve{background:var(--color-accent);color:#fff;padding:10px 14px;border-radius:10px;font-weight:600;box-shadow:var(--shadow-sm)}.btn-reserve:hover{opacity:0.95}.site-footer{background:var(--color-footer-bg);color:#fff;padding:32px 0;border-top:4px solid rgba(255,255,255,0.03)}.footer-inner{max-width:var(--max-width);margin:0 auto;display:flex;gap:32px;padding:0 24px;flex-wrap:wrap}.footer-col{flex:1;min-width:220px}.footer-col h4{margin:0 0 8px 0;font-size:0.95rem}.footer-col p,a{color:rgba(255,255,255,0.9);font-size:0.95rem}.social-row{display:flex;gap:12px;margin-top:12px}.social-row a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.06);color:#fff}.footer-bottom{max-width:var(--max-width);margin:20px auto 0;padding:0 24px;display:flex;justify-content:space-between;align-items:center;font-size:0.9rem;color:rgba(255,255,255,0.7)}@media(max-width:800px){.primary-nav{display:none}.footer-inner{flex-direction:column}.footer-bottom{flex-direction:column;gap:8px;text-align:center}}.map-embed{background:linear-gradient(180deg,#fff0 0,#fff0 100%);border-radius:8px;border:1px solid var(--color-border);padding:12px;color:var(--color-text-secondary)}.badge{display:inline-block;background:var(--color-surface);color:var(--color-text-primary);padding:4px 8px;border-radius:8px;border:1px solid var(--color-border)}.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap} </style>",
   "image_strategy": {
-    "source": "mixed",
+    "source": "unsplash",
     "keywords": [
-      "Haryanvi-cuisine",
-      "rustic-haveli-dining",
-      "tandoor-dishes",
-      "traditional-indian-sweets"
+      "haryanvi-food",
+      "north-indian-cuisine",
+      "traditional-haveli-dining",
+      "tandoor-dishes"
     ],
     "fallback_color": "#FAF7F2"
   },
@@ -98,19 +98,11 @@
       },
       "menu": {
         "max_sections": 3,
-        "max_words": 600,
-        "required_sections": [
-          "veg",
-          "non-veg"
-        ]
+        "max_words": 600
       },
       "reservation": {
         "max_sections": 2,
-        "max_words": 300,
-        "required_sections": [
-          "form",
-          "confirmation"
-        ]
+        "max_words": 300
       }
     }
   },

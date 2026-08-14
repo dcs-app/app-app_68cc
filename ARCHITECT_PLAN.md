@@ -4,7 +4,7 @@
 
 **Framework:** static-html  
 **State:** none  
-**Styling:** vanilla-css  
+**Styling:** tailwind  
 **Data:** none  
 **Auth:** none
 
@@ -12,25 +12,22 @@
 No database — static content only.
 
 ## API Endpoints
-No backend — all forms handled with client-side validation and progressive enhancement. Reservation form will POST to a placeholder action (or be wired to a booking endpoint later by devops).
+No backend — all interactions are client-side (reservation form simulated client-side; form submission placeholder to be wired later).
 
 ## Frontend Components / Pages
-Pages to produce:
-- index (homepage with hero, opening hours, featured menu highlights, reservation CTA)
-- menu (veg & non-veg sections, price ranges, allergen labels)
-- reservation (reservation form: date, time, party size; client-side validation; success toast)
-- about (story, chef/heritage, hygiene/trust signals)
-- gallery (food & ambiance gallery with lazy-loading placeholders)
-- contact (map embed placeholder, hours, address, phone/email placeholders)
-
-Canonical header and footer are shared across all pages (copied verbatim from BUILD_MANIFEST.json).
+- index (homepage: hero, hours, reservation CTA, menu highlights, gallery preview, testimonials)
+- menu (full menu with Veg / Non‑Veg sections, price ranges, allergen labels)
+- reservation (reservation form with date, time, party size — client-side validation + success toast)
+- about (story, chef/heritage, trust signals)
+- gallery (food & ambience images with filters)
+- contact (contact details, map embed placeholder, opening hours, phone/email placeholders)
 
 ## Critical Requirements
-1. Persistent "Reserve a Table" CTA accessible across the site and linking to /reservation.html.  
-2. Reservation form with client-side validation, min-date set to today, and accessible success message.  
-3. Menu page separated into Veg / Non‑Veg with placeholder price ranges (e.g., ₹120–₹420), dietary/allergen labels, and "Call to confirm" delivery/availability note.  
-4. Contact page must include a map embed placeholder and consistent NAP (Name, Address, Phone) placeholders.  
-5. Mobile-first responsive layout, good contrast and accessible ARIA attributes on forms and navigation.
+1. Prominent, persistent "Reserve a Table" CTA on all pages linking to /reservation.html.  
+2. Menu page must show categories (Veg/Non‑Veg), item names/descriptions and placeholder price ranges (e.g., ₹120–₹220) and allergen markers.  
+3. Reservation form with client-side validation (required fields, date min=today, party size bounds) and accessible success feedback.  
+4. Opening hours visible site-wide and a map embed placeholder on Contact page.  
+5. Responsive, mobile-first layout and accessible header/footer components reused verbatim across pages.
 
 ## Complexity Rating
-Simple — static multi-page restaurant site with form validation and image/gallery placeholders.
+Medium — multi-page static site with accessible forms, image gallery and consistent header/footer system, requiring coordinated HTML/CSS and a small amount of JS for validation and UI state.

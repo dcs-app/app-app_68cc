@@ -131,43 +131,12 @@ section {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Order Online — Haveli Restaurant 5</title>
-  <meta name="description" content="Order your favorite Haveli dishes for delivery or pickup.">
+  <meta name="description" content="Order online from Haveli Restaurant 5 – delivery or pickup, view popular dishes, and checkout easily.">
   <meta property="og:title" content="Order Online — Haveli Restaurant 5">
-  <meta property="og:description" content="Order your favorite Haveli dishes for delivery or pickup.">
+  <meta property="og:description" content="Order online from Haveli Restaurant 5 – delivery or pickup, view popular dishes, and checkout easily.">
   <meta property="og:type" content="website">
+  <style>:root{ --font-serif: 'Fraunces', 'Cormorant', 'Playfair Display', serif; --font-sans: 'Inter', system-ui, sans-serif; --color-bg: #ffffff; --color-surface: #d4b5a5; --color-text-primary: #2a1a10; --color-text-secondary: color-mix(in oklab, #2a1a10 70%, transparent); --color-accent: #f05a28; --color-border: rgba(42,26,16,0.12); --color-header-bg: #ffffff; --color-footer-bg: #0a0a0a; --radius-sm: 6px; --radius-md: 12px; --radius-lg: 32px; --shadow-sm: 0 2px 8px rgba(31,22,17,0.06); --shadow-md: 0 12px 36px rgba(31,22,17,0.1); --max-width: 1200px; }*{box-sizing:border-box}html,body{height:100%}h1,h2,h3,h4{font-family:var(--font-serif);color:var(--color-text-primary)}a{color:inherit;text-decoration:none}img.primary-nav a{padding:8px 6px;border-radius:6px;color:var(--color-text-primary).header-cta .btn-reserve{background:var(--color-accent);color:#fff;padding:10px 14px;border-radius:10px;font-weight:600;box-shadow:var(--shadow-sm)}.btn-reserve:hover.footer-col{flex:1;min-width:220px}.footer-col h4{margin:0 0 8px 0;font-size:0.95rem}.footer-col p,a{color:rgba(255,255,255,0.9);font-size:0.95rem}.social-row{display:flex;gap:12px;margin-top:12px}.social-row a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.06);color:#fff}.footer-bottom}.map-embed{background:linear-gradient(180deg,#fff0 0,#fff0 100%);border-radius:8px;border:1px solid var(--color-border);padding:12px;color:var(--color-text-secondary)}.badge{display:inline-block;background:var(--color-surface);color:var(--color-text-primary);padding:4px 8px;border-radius:8px;border:1px solid var(--color-border)}.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}</style>
   <style>
-    /* Shared styles from manifest */
-    :root {
-      --font-serif: 'Fraunces', 'Cormorant', 'Playfair Display', serif;
-      --font-sans: 'Inter', system-ui, sans-serif;
-      --color-bg: #ffffff;
-      --color-surface: #d4b5a5;
-      --color-text-primary: #2a1a10;
-      --color-text-secondary: color-mix(in oklab, #2a1a10 70%, transparent);
-      --color-accent: #f05a28;
-      --color-border: rgba(42,26,16,0.12);
-      --color-header-bg: #ffffff;
-      --color-footer-bg: #0a0a0a;
-      --radius-sm: 6px;
-      --radius-md: 12px;
-      --radius-lg: 32px;
-      --shadow-sm: 0 2px 8px rgba(31,22,17,0.06);
-      --shadow-md: 0 12px 36px rgba(31,22,17,0.1);
-      --max-width: 1200px;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    h1,h2,h3{font-family:var(--font-serif);color:var(--color-text-primary);letter-spacing:-0.01em}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
-    .btn{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--color-accent);color:#fff;cursor:pointer}
-    .card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);overflow:hidden;padding:12px}
-    .grid{display:grid;gap:16px}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    @media(max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:600px){.grid-3{grid-template-columns:1fr}}
-    .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
-    .skip-link:focus{left:0;top:0;width:auto;height:auto;background:#fff;color:#000;padding:8px;z-index:1000}
     /* Dark mode */
     /* Micro animations */
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
@@ -178,7 +147,7 @@ section {
     .card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,0.12); }
     @keyframes countUp { from { opacity:0; } to { opacity:1; } }
     .stat-number { animation: countUp 0.6s ease forwards; }
-    /* Light section fix */
+    /* Light‑section contrast fix */
     .section-light, [data-bg="light"] {
       background: var(--tpl-light-surface, #f7f0e3);
       color: var(--tpl-text-on-light, #1a1a1a);
@@ -187,14 +156,28 @@ section {
     .section-light p, .section-light li, .section-light label, .section-light span {
       color: var(--tpl-text-on-light, #1a1a1a);
     }
-    /* Layout helpers */
-    .flex { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
-    .flex-center { justify-content:center; }
-    .toggle-group button { flex:1; }
-    .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); align-items:center; justify-content:center; }
-    .modal.active { display:flex; }
-    .modal-content { background:#fff;padding:20px;border-radius:8px;max-width:90%; }
-    .close { background:none;border:none;font-size:1.5rem;cursor:pointer;position:absolute;top:10px;right:10px; }
+    /* Layout */
+    .hero { text-align: center; padding: 2rem 1rem; }
+    .toggle-group { display: flex; gap: 1rem; justify-content: center; margin: 1rem 0; }
+    .toggle-group button { padding: .75rem 1.5rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface); cursor: pointer; }
+    .toggle-group button.active { background: var(--color-accent); color: #fff; }
+    .zip-check { display: flex; gap: .5rem; justify-content: center; margin: 1rem 0; }
+    .zip-check input { padding: .5rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); width: 150px; }
+    .popular-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); margin: 1rem 0; }
+    .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: .5rem; text-align: center; }
+    .card img { border-radius: var(--radius-sm); }
+    .cart-summary { position: fixed; right: 0; top: 0; height: 100%; width: 280px; background: var(--color-surface); border-left: 1px solid var(--color-border); padding: 1rem; overflow-y: auto; transform: translateX(100%); transition: transform .3s ease; }
+    .cart-summary.open { transform: translateX(0); }
+    .cart-item { margin-bottom: .5rem; }
+    .cart-total { margin-top: 1rem; font-weight: 600; }
+    .checkout-btn { width: 100%; padding: .75rem; background: var(--color-accent); color: #fff; border: none; border-radius: var(--radius-sm); cursor: pointer; margin-top: 1rem; }
+    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); align-items: center; justify-content: center; }
+    .modal.active { display: flex; }
+    .modal-content { background: var(--color-surface); padding: 1.5rem; border-radius: var(--radius-sm); max-width: 90%; width: 300px; text-align: center; }
+    .close { position: absolute; top: .5rem; right: .5rem; background: none; border: none; font-size: 1.2rem; cursor: pointer; }
+    @media (max-width: 768px) {
+      .cart-summary { position: static; width: 100%; height: auto; transform: translateX(0); border-left: none; border-top: 1px solid var(--color-border); }
+    }
   </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -827,7 +810,7 @@ section[data-section] {
 <meta name="dcs-build-id" content="2693eb33" data-trd-zone="68">
 <meta name="trd-template-id" content="2693eb33" data-trd-zone="68">
 <style id="trd-locked-palette" data-trd-zone="66">
-/* DCS locked palette · resolvedAt=2026-08-14T19:10:28.969Z */
+/* DCS locked palette · resolvedAt=2026-08-14T19:12:07.229Z */
   /* Zone 66 — 1 contrast correction(s) applied at lock time */
 :root {
   --tpl-primary: #1e1208;
@@ -1025,6 +1008,8 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
 </style>
 </head>
 <body data-trd-light-page="1">
+  
+
   <header class="gg-header" role="banner">
   <div class="gg-header-inner">
     <nav class="gg-nav-left" role="navigation" aria-label="Left navigation">
@@ -1071,81 +1056,83 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
 </div>
 
   <main id="main-content" class="container gg-main gg-section section-light">
-    <!-- Section 1: Hero + Delivery Toggle + ZIP Checker -->
-    <section class="section-light fade-in" aria-label="Order options">
+    <!-- Section 1: Hero + Toggle + ZIP -->
+    <section class="section-light hero fade-in" aria-label="Order hero">
       <h1 class="fade-in">Order Online</h1>
-      <p class="fade-in">Delivery within 5 km or pick up at the restaurant.</p>
-      <div class="flex toggle-group fade-in">
-        <button id="mode-delivery" class="btn" aria-pressed="true">Delivery</button>
-        <button id="mode-pickup" class="btn" aria-pressed="false">Pickup</button>
+      <p class="fade-in">Delivery within 5 km or pick‑up at the restaurant.</p>
+
+      <div class="toggle-group fade-in" role="group" aria-label="Delivery or Pickup">
+        <button type="button" id="mode-delivery" class="active">Delivery</button>
+        <button type="button" id="mode-pickup">Pickup</button>
       </div>
-      <form action="mailto:contact@dcsai.ai?subject=Website%20form%20submission%20%E2%80%94%20Haveli%20Restaurant%205" method="post" enctype="text/plain" id="zip-form" class="flex fade-in" style="margin-top:12px;">
-        <label for="zip-input">Enter ZIP code</label>
-        <input type="text" id="zip-input" placeholder="e.g., 12345" required style="padding:8px;border:1px solid var(--color-border);border-radius:4px;">
-        <button type="submit" class="btn">Check Availability</button>
-      </form>
-      <p id="zip-result" class="fade-in" style="margin-top:8px;"></p>
+
+      <div class="zip-check fade-in">
+        <label for="zip-input" class="visually-hidden">ZIP / Postal Code</label>
+        <input type="text" id="zip-input" placeholder="Enter ZIP" aria-label="ZIP code">
+        <button type="button" id="zip-check-btn" class="btn">Check Availability</button>
+      </div>
     </section>
 
-    <!-- Section 2: Popular Items -->
+    <!-- Section 2: Popular Items + Cart -->
     <section class="section-light fade-in" aria-label="Popular menu items">
       <h2 class="fade-in">Popular Items</h2>
-      <div class="grid grid-3">
+      <div class="popular-grid">
         <div class="card fade-in">
-          <img src="https://images.dcsai.ai/phase-v4/Restaurant/Private Events/image(1).jpg" alt="Spiced chicken tikka" loading="lazy">
-          <h3>Chicken Tikka</h3>
+          <img src="https://images.dcsai.ai/phase-v4/Restaurant/Private Events/image(1).jpg" alt="Delicious dish 1" loading="lazy">
+          <p class="stat-number">Paneer Tikka</p>
           <p>$12</p>
-          <a href="/reservation.html" style="text-decoration:none;display:inline-block;color:inherit;"><button class="btn add-to-cart" data-name="Chicken Tikka" data-price="12">Add to Cart</button></a>
+          <button class="btn add-to-cart" data-name="Paneer Tikka" data-price="12">+ Add to Cart</button>
         </div>
         <div class="card fade-in">
-          <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/services/magnific_closeup-of-a-black-female_3002470894.jpeg" alt="Paneer butter masala" loading="lazy">
-          <h3>Paneer Butter Masala</h3>
-          <p>$10</p>
-          <a href="/reservation.html" style="text-decoration:none;display:inline-block;color:inherit;"><button class="btn add-to-cart" data-name="Paneer Butter Masala" data-price="10">Add to Cart</button></a>
-        </div>
-        <div class="card fade-in">
-          <img src="https://images.dcsai.ai/phase-v4/Restaurant/Private Events/image(5).jpg" alt="Lamb biryani" loading="lazy">
-          <h3>Lamb Biryani</h3>
+          <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/services/magnific_closeup-of-a-black-female_3002470894.jpeg" alt="Delicious dish 2" loading="lazy">
+          <p class="stat-number">Chicken Curry</p>
           <p>$14</p>
-          <a href="/reservation.html" style="text-decoration:none;display:inline-block;color:inherit;"><button class="btn add-to-cart" data-name="Lamb Biryani" data-price="14">Add to Cart</button></a>
+          <button class="btn add-to-cart" data-name="Chicken Curry" data-price="14">+ Add to Cart</button>
         </div>
         <div class="card fade-in">
-          <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/services/image(19).jpg" alt="Vegetable samosa" loading="lazy">
-          <h3>Veg Samosa</h3>
-          <p>$5</p>
-          <a href="/reservation.html" style="text-decoration:none;display:inline-block;color:inherit;"><button class="btn add-to-cart" data-name="Veg Samosa" data-price="5">Add to Cart</button></a>
+          <img src="https://images.dcsai.ai/phase-v4/Restaurant/Private Events/image(5).jpg" alt="Delicious dish 3" loading="lazy">
+          <p class="stat-number">Veg Biryani</p>
+          <p>$10</p>
+          <button class="btn add-to-cart" data-name="Veg Biryani" data-price="10">+ Add to Cart</button>
         </div>
         <div class="card fade-in">
-          <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/hero/image(1).jpg" alt="Mango lassi" loading="lazy">
-          <h3>Mango Lassi</h3>
+          <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/services/image(19).jpg" alt="Delicious dish 4" loading="lazy">
+          <p class="stat-number">Butter Naan</p>
           <p>$4</p>
-          <a href="/reservation.html" style="text-decoration:none;display:inline-block;color:inherit;"><button class="btn add-to-cart" data-name="Mango Lassi" data-price="4">Add to Cart</button></a>
+          <button class="btn add-to-cart" data-name="Butter Naan" data-price="4">+ Add to Cart</button>
         </div>
         <div class="card fade-in">
-          <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/gallery/image(15).jpg" alt="Gulab jamun" loading="lazy">
-          <h3>Gulab Jamun</h3>
+          <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/hero/image(1).jpg" alt="Delicious dish 5" loading="lazy">
+          <p class="stat-number">Mango Lassi</p>
+          <p>$5</p>
+          <button class="btn add-to-cart" data-name="Mango Lassi" data-price="5">+ Add to Cart</button>
+        </div>
+        <div class="card fade-in">
+          <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/gallery/image(15).jpg" alt="Delicious dish 6" loading="lazy">
+          <p class="stat-number">Gulab Jamun</p>
           <p>$6</p>
-          <a href="/reservation.html" style="text-decoration:none;display:inline-block;color:inherit;"><button class="btn add-to-cart" data-name="Gulab Jamun" data-price="6">Add to Cart</button></a>
+          <button class="btn add-to-cart" data-name="Gulab Jamun" data-price="6">+ Add to Cart</button>
         </div>
       </div>
+
+      <aside id="cart" class="cart-summary" aria-label="Cart summary">
+        <h3>Cart</h3>
+        <div id="cart-items"></div>
+        <p id="cart-subtotal">Subtotal: $0</p>
+        <p id="delivery-fee">Delivery Fee: $5</p>
+        <p class="cart-total">Total: $0</p>
+        <button id="checkout-btn" class="checkout-btn btn">Checkout</button>
+      </aside>
     </section>
 
-    <!-- Section 3: Cart Summary & Checkout -->
-    <section class="section-light fade-in" aria-label="Cart summary">
-      <h2 class="fade-in">Your Cart</h2>
-      <div id="cart-panel" class="card fade-in" style="margin-bottom:12px;">
-        <p id="cart-empty">Your cart is empty.</p>
-        <ul id="cart-items"></ul>
-        <p id="subtotal" class="stat-number"></p>
-        <p id="delivery-fee" class="stat-number"></p>
-        <p id="total" class="stat-number"><strong>Total:</strong> <span id="total-amount"></span></p>
-      </div>
-      <button id="checkout-btn" class="btn">Checkout</button>
-      <p class="fade-in" style="margin-top:12px;">Also available on:
-        <a href="#!" class="btn">Uber Eats</a>
-        <a href="#!" class="btn">DoorDash</a>
-        <a href="#!" class="btn">Deliveroo</a>
-      </p>
+    <!-- Section 3: Third‑Party Apps & CTA -->
+    <section class="section-light fade-in" aria-label="Additional ordering options">
+      <h2 class="fade-in">Also available on:</h2>
+      <ul class="fade-in">
+        <li><a href="https://www.ubereats.com" target="_blank" rel="noopener">Uber Eats</a></li>
+        <li><a href="https://www.doordash.com" target="_blank" rel="noopener">DoorDash</a></li>
+        <li><a href="https://www.deliveroo.co.uk" target="_blank" rel="noopener">Deliveroo</a></li>
+      </ul>
     </section>
   <!-- ─── Phase F (section filler) — industry/page-aware fallback ─── -->
 <section class="trd-section-filler" data-trd-section-filler="phase-F" style="padding:48px 24px;max-width:880px;margin:0 auto;line-height:1.7;">
@@ -1156,6 +1143,15 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
 </section>
 <!-- ─── /Phase F ──────────────────────────────────────────────── -->
 </main>
+
+  <!-- Checkout Modal -->
+  <div id="checkout-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content">
+      <button class="close" aria-label="Close modal">&times;</button>
+      <h2 id="modal-title">Demo Cart</h2>
+      <p>This is a demo. Connect Stripe in production.</p>
+    </div>
+  </div>
 
   <footer class="gg-footer" role="contentinfo">
   <div class="gg-footer-newsletter">
@@ -1227,7 +1223,7 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
     <div class="gg-footer-bottom-row">
       <p class="gg-footer-copy">&copy; 2026 Haveli Restaurant 5. All Rights Reserved.</p>
       <div class="gg-footer-legal">
-        <a href="/" onclick="return false;" data-trd-deadlink="privacy.html">privacy policy</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="terms.html">terms of service</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="sitemap.html">sitemap</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="accessibility.html">accessibility</a>
+        <a href="/privacy.html">privacy policy</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/terms.html">terms of service</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/sitemap.html">sitemap</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/accessibility.html">accessibility</a>
       </div>
     </div>
   </div>
@@ -1237,7 +1233,7 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
   <div class="gg-cookie-inner">
     <div class="gg-cookie-text">
       <p id="gg-cookie-title" class="gg-cookie-title">We use cookies</p>
-      <p class="gg-cookie-desc">We use cookies to enhance your browsing experience and analyze site traffic. <a href="/" onclick="return false;" data-trd-deadlink="privacy.html">Privacy Policy</a></p>
+      <p class="gg-cookie-desc">We use cookies to enhance your browsing experience and analyze site traffic. <a href="/privacy.html">Privacy Policy</a></p>
     </div>
     <div class="gg-cookie-actions">
       <button type="button" class="gg-cookie-reject">Reject</button>
@@ -1299,105 +1295,87 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
 
 <script>(function(){function syncMore(){document.querySelectorAll('.trd-nav-more-btn').forEach(function(btn){try{var nav=btn.closest('ul,nav,header');if(!nav)return;var siblings=nav.querySelectorAll('a');var sibling=null;for(var i=0;i<siblings.length;i++){var a=siblings[i];if(a.closest('.trd-nav-more-panel'))continue;sibling=a;break;}if(!sibling)return;var s=window.getComputedStyle(sibling);btn.style.fontFamily=s.fontFamily;btn.style.fontSize=s.fontSize;btn.style.fontWeight=s.fontWeight;btn.style.letterSpacing=s.letterSpacing;btn.style.textTransform=s.textTransform;btn.style.fontStyle=s.fontStyle;nav.querySelectorAll('.trd-nav-more-panel a').forEach(function(da){da.style.fontFamily=s.fontFamily;da.style.fontSize=s.fontSize;da.style.fontWeight=s.fontWeight;da.style.letterSpacing=s.letterSpacing;da.style.textTransform=s.textTransform;});}catch(e){}});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',syncMore)}else{syncMore()}})();</script>
 
-  <!-- Theme toggle -->
-  
-
-  <!-- Checkout modal -->
-  <div id="checkout-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
-    <div class="modal-content">
-      <button class="close" aria-label="Close modal">&times;</button>
-      <h2 id="checkout-title">Demo Cart</h2>
-      <p>This is a demo. Connect Stripe in production.</p>
-    </div>
-  </div>
-
   <script>
-    // Theme toggle script
-    const t=document.getElementById("theme-toggle");
-    t.onclick=()=>document.documentElement.classList.toggle("dark");
-    if(localStorage.theme==="dark"||(!("theme"in localStorage)&&window.matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.classList.add("dark")}
-
-    // Fade-in observer
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add("visible"); });
-    }, { threshold: 0.1 });
-    document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
-
-    // Delivery mode toggle
-    const modeDeliveryBtn=document.getElementById("mode-delivery");
-    const modePickupBtn=document.getElementById("mode-pickup");
-    let deliveryMode="delivery";
-    function updateMode() {
-      if(deliveryMode==="delivery"){
-        modeDeliveryBtn.setAttribute("aria-pressed","true");
-        modePickupBtn.setAttribute("aria-pressed","false");
-      } else {
-        modeDeliveryBtn.setAttribute("aria-pressed","false");
-        modePickupBtn.setAttribute("aria-pressed","true");
-      }
-      calculateTotals();
+    // Theme toggle
+    const t = document.getElementById('theme-toggle');
+    t.onclick = () => document.documentElement.classList.toggle('dark');
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme:dark)').matches)) {
+      document.documentElement.classList.add('dark');
     }
-    modeDeliveryBtn.onclick=()=>{deliveryMode="delivery";updateMode();};
-    modePickupBtn.onclick=()=>{deliveryMode="pickup";updateMode();};
+
+    // Fade‑in on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Delivery / Pickup toggle
+    const modeDeliveryBtn = document.getElementById('mode-delivery');
+    const modePickupBtn = document.getElementById('mode-pickup');
+    const deliveryFeeEl = document.getElementById('delivery-fee');
+
+    function setMode(isDelivery) {
+      modeDeliveryBtn.classList.toggle('active', isDelivery);
+      modePickupBtn.classList.toggle('active', !isDelivery);
+      deliveryFeeEl.textContent = isDelivery ? 'Delivery Fee: $5' : 'Delivery Fee: $0';
+      updateTotal();
+    }
+    modeDeliveryBtn.onclick = () => setMode(true);
+    modePickupBtn.onclick = () => setMode(false);
+    setMode(true); // default
 
     // ZIP checker (mock)
-    const zipForm=document.getElementById("zip-form");
-    const zipResult=document.getElementById("zip-result");
-    zipForm.onsubmit=e=>{e.preventDefault();zipResult.textContent="Service available for this ZIP."};
+    (document.getElementById('zip-check-btn')||{onclick:undefined}).onclick= () => {
+      alert('Service is available for this ZIP code.');
+    };
 
     // Cart logic
-    const cart={};
-    const cartItemsEl=document.getElementById("cart-items");
-    const cartEmptyEl=document.getElementById("cart-empty");
-    const subtotalEl=document.getElementById("subtotal");
-    const deliveryFeeEl=document.getElementById("delivery-fee");
-    const totalAmountEl=document.getElementById("total-amount");
+    const cart = {};
+    const cartItemsEl = document.getElementById('cart-items');
+    const subtotalEl = document.getElementById('cart-subtotal');
+    const totalEl = document.querySelector('.cart-total');
 
-    function renderCart(){
-      const keys=Object.keys(cart);
-      cartItemsEl.innerHTML="";
-      if(keys.length===0){
-        cartEmptyEl.style.display="block";
-        subtotalEl.textContent="";
-        deliveryFeeEl.textContent="";
-        totalAmountEl.textContent="";
-        return;
-      }
-      cartEmptyEl.style.display="none";
-      let subtotal=0;
-      keys.forEach(name=>{
-        const item=cart[name];
-        const li=document.createElement("li");
-        li.textContent=`${name} x${item.qty} – $${(item.price*item.qty).toFixed(2)}`;
-        cartItemsEl.appendChild(li);
-        subtotal+=item.price*item.qty;
+    function renderCart() {
+      cartItemsEl.innerHTML = '';
+      let subtotal = 0;
+      Object.entries(cart).forEach(([name, data]) => {
+        const line = document.createElement('div');
+        line.className = 'cart-item';
+        line.textContent = `${name} x${data.qty} – $${(data.price * data.qty).toFixed(2)}`;
+        cartItemsEl.appendChild(line);
+        subtotal += data.price * data.qty;
       });
-      subtotalEl.textContent=`Subtotal: $${subtotal.toFixed(2)}`;
-      const deliveryFee=deliveryMode==="delivery"?5:0;
-      deliveryFeeEl.textContent=`Delivery Fee: $${deliveryFee.toFixed(2)}`;
-      const total=subtotal+deliveryFee;
-      totalAmountEl.textContent=`$${total.toFixed(2)}`;
+      subtotalEl.textContent = `Subtotal: $${subtotal.toFixed(2)}`;
+      updateTotal(subtotal);
     }
 
-    function calculateTotals(){ renderCart(); }
+    function updateTotal(subtotal = 0) {
+      const isDelivery = modeDeliveryBtn.classList.contains('active');
+      const fee = isDelivery ? 5 : 0;
+      const total = subtotal + fee;
+      totalEl.innerHTML = `Total: <strong>$${total.toFixed(2)}</strong>`;
+    }
 
-    document.querySelectorAll(".add-to-cart").forEach(btn=>{
-      btn.onclick=()=>{
-        const name=btn.dataset.name;
-        const price=parseFloat(btn.dataset.price);
-        if(cart[name]){ cart[name].qty+=1; }
-        else { cart[name]={price, qty:1}; }
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+      btn.onclick = () => {
+        const name = btn.dataset.name;
+        const price = parseFloat(btn.dataset.price);
+        if (!cart[name]) {
+          cart[name] = { price, qty: 0 };
+        }
+        cart[name].qty += 1;
         renderCart();
+        // Open cart on mobile
+        document.getElementById('cart').classList.add('open');
       };
     });
 
     // Checkout modal
-    const checkoutBtn=document.getElementById("checkout-btn");
-    const modal=document.getElementById("checkout-modal");
-    const closeBtn=modal.querySelector(".close");
-    checkoutBtn.onclick=()=>{ modal.classList.add("active"); };
-    closeBtn.onclick=()=>{ modal.classList.remove("active"); };
-    window.onclick=e=>{ if(e.target===modal){ modal.classList.remove("active"); } };
+    const modal = document.getElementById('checkout-modal');
+    const closeBtn = modal.querySelector('.close');
+    (document.getElementById('checkout-btn')||{onclick:undefined}).onclick= () => modal.classList.add('active');
+    closeBtn.onclick = () => modal.classList.remove('active');
+    window.onclick = e => { if (e.target === modal) modal.classList.remove('active'); };
   </script>
 <script data-trd-tpl-fadefix="phase-41">(function(){try{document.querySelectorAll('.fade-in,.scroll-reveal,.reveal').forEach(function(el){el.classList.add('visible');el.style.opacity='1';el.style.transform='none';el.style.visibility='visible';});}catch(e){}})();</script>
 <script>

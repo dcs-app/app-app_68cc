@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" lang="en">
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" data-trd-phase="42.26"><meta http-equiv="Pragma" content="no-cache" data-trd-phase="42.26"><meta http-equiv="Expires" content="0" data-trd-phase="42.26">
+<head><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" data-trd-phase="42.26"><meta http-equiv="Pragma" content="no-cache" data-trd-phase="42.26"><meta http-equiv="Expires" content="0" data-trd-phase="42.26">
 <style id="trd-tokens">
 /* ── TRD Design Token System (Phase A1) ── */
 :root {
@@ -129,109 +128,28 @@ section {
   .trd-container { padding: 0 var(--sp-3); }
 }
 </style>
-  <meta charset="UTF-8">
-  <title>Menu - Haveli Restaurant 5</title>
-  <style>
-    /* Shared design tokens */
-    :root {
-      --font-serif: 'Fraunces', 'Cormorant', 'Playfair Display', serif;
-      --font-sans: 'Inter', system-ui, sans-serif;
-      --color-bg: #ffffff;
-      --color-surface: #d4b5a5;
-      --color-text-primary: #2a1a10;
-      --color-text-secondary: color-mix(in oklab, #2a1a10 70%, transparent);
-      --color-accent: #f05a28;
-      --color-border: rgba(42,26,16,0.12);
-      --color-header-bg: #ffffff;
-      --color-footer-bg: #0a0a0a;
-      --radius-sm: 6px;
-      --radius-md: 12px;
-      --radius-lg: 32px;
-      --shadow-sm: 0 2px 8px rgba(31,22,17,0.06);
-      --shadow-md: 0 12px 36px rgba(31,22,17,0.1);
-      --max-width: 1200px;
-    }
-    h1, h2, h3 {
-      font-family: var(--font-serif);
-      color: var(--color-text-primary);
-    }
-    .btn {
-      display: inline-block;
-      padding: 10px 14px;
-      border-radius: 8px;
-      background: var(--color-accent);
-      color: #fff;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    .trd-menu__category {
-      margin-bottom: 2rem;
-    }
-    .trd-menu__cat-title {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    .trd-menu__grid {
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    }
-    .trd-menu-item {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-    }
-    .trd-menu-item__info {
-      padding: 0.75rem;
-    }
-    .trd-menu-item__top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.5rem;
-    }
-    .trd-menu-item__name {
-      font-weight: 600;
-    }
-    .trd-menu-item__price {
-      font-weight: 600;
-    }
-    .trd-menu-item__badge {
-      background: var(--color-accent);
-      color: #fff;
-      border-radius: 4px;
-      padding: 2px 6px;
-      font-size: 0.75rem;
-      margin-left: 0.5rem;
-    }
-    .trd-menu-item__desc {
-      font-size: 0.9rem;
-      color: var(--color-text-secondary);
-    }
-    /* Dark mode */
-    /* Micro animations */
-    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-    .btn { transition: transform 0.2s ease, box-shadow 0.2s ease; }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
-    .trd-menu-item { transition: transform 0.2s ease, box-shadow 0.2s ease; }
-    .trd-menu-item:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,0.12); }
-    /* Skip link */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: #000;
-      color: #fff;
-      padding: 8px;
-      z-index: 100;
-    }
-    .skip-link:focus {
-      top: 0;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menu — Haveli Restaurant 5</title>
+<meta name="description" content="Browse the authentic North‑Indian menu at Haveli Restaurant 5">
+<style>
+:root{ --font-serif: 'Fraunces', 'Cormorant', 'Playfair Display', serif; --font-sans: 'Inter', system-ui, sans-serif; --color-bg: #ffffff; --color-surface: #d4b5a5; --color-text-primary: #2a1a10; --color-text-secondary: color-mix(in oklab, #2a1a10 70%, transparent); --color-accent: #f05a28; --color-border: rgba(42,26,16,0.12); --color-header-bg: #ffffff; --color-footer-bg: #0a0a0a; --radius-sm: 6px; --radius-md: 12px; --radius-lg: 32px; --shadow-sm: 0 2px 8px rgba(31,22,17,0.06); --shadow-md: 0 12px 36px rgba(31,22,17,0.1); --max-width: 1200px; }
+h1,h2,h3{font-family:var(--font-serif);}
+.container{max-width:var(--max-width);margin:auto;padding:1rem;}
+/* Dark mode */
+/* Micro‑animations */
+.fade‑in{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
+.fade‑in.visible{opacity:1;transform:translateY(0);}
+.btn{transition:transform .2s ease,box-shadow .2s ease;}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.15);}
+.card{transition:transform .2s ease,box-shadow .2s ease;}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(0,0,0,.12);}
+.stat-number{animation:countUp .6s ease forwards;}
+@keyframes countUp{from{opacity:0}to{opacity:1}}
+/* Light‑section fix */
+.section-light, [data-bg="light"]{background:var(--tpl-light-surface,#f7f0e3);color:var(--tpl-text-on-light,#1a1a1a);}
+.section-light h1,.section-light h2,.section-light h3,.section-light h4,.section-light p,.section-light li,.section-light label,.section-light span{color:var(--tpl-text-on-light,#1a1a1a);}
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -860,10 +778,13 @@ section[data-section] {
   "certificateUrl": "https://api.dcsai.ai/api/storage/cert/4f125691-4370-491b-b4b9-d4f484bf4a83"
 }</script>
 <!-- /TRD Content Credentials -->
+<style id="trd-section-dividers">
+.trd-section-divider{height:1px;background:linear-gradient(to right,transparent,rgba(0,0,0,0.08),transparent);margin:0;border:none;}
+</style>
 <meta name="dcs-build-id" content="2693eb33" data-trd-zone="68">
 <meta name="trd-template-id" content="2693eb33" data-trd-zone="68">
 <style id="trd-locked-palette" data-trd-zone="66">
-/* DCS locked palette · resolvedAt=2026-08-14T19:10:28.969Z */
+/* DCS locked palette · resolvedAt=2026-08-14T19:12:07.229Z */
   /* Zone 66 — 1 contrast correction(s) applied at lock time */
 :root {
   --tpl-primary: #1e1208;
@@ -1120,332 +1041,386 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
   
   <script>(function(){var w=document.querySelector('.gg-a11y-widget');if(!w)return;var t=w.querySelector('.gg-a11y-toggle');var html=document.documentElement;var STEP=2;function close(){w.setAttribute('data-open','false');t.setAttribute('aria-expanded','false')}function open(){w.setAttribute('data-open','true');t.setAttribute('aria-expanded','true')}t.addEventListener('click',function(e){e.stopPropagation();var o=w.getAttribute('data-open')==='true';if(o)close();else open()});document.addEventListener('click',function(e){if(!w.contains(e.target))close()});document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});w.querySelectorAll('.gg-a11y-opt').forEach(function(b){b.addEventListener('click',function(){var a=b.getAttribute('data-act');var s=parseFloat(getComputedStyle(html).fontSize)||16;if(a==='text-up')html.style.fontSize=Math.min(s+STEP,22)+'px';else if(a==='text-down')html.style.fontSize=Math.max(s-STEP,12)+'px';else if(a==='contrast')html.classList.toggle('gg-a11y-contrast');else if(a==='motion')html.classList.toggle('gg-a11y-motion');else if(a==='links')html.classList.toggle('gg-a11y-links');else if(a==='reset'){html.style.fontSize='';html.classList.remove('gg-a11y-contrast','gg-a11y-motion','gg-a11y-links')}})});})();</script>
 </div>
-  
-  <script>
-    const t=document.getElementById('theme-toggle');
-    t.onclick=()=>document.documentElement.classList.toggle('dark');
-    if(localStorage.theme==='dark'||(!('theme'in localStorage)&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}
-  </script>
-  <main id="main-content" class="container gg-main gg-section section-light">
-    <h1 class="fade-in">Our Menu</h1>
-    <!-- Veg Starters -->
-    <div class="trd-menu__category" data-category="Veg Starters">
-      <h2 class="trd-menu__cat-title fade-in">Veg Starters</h2>
-      <div class="trd-menu__grid">
-        <div class="trd-menu-item">
-          <div class="trd-menu-item__info">
-            <div class="trd-menu-item__top">
-              <p class="trd-menu-item__name">Paneer Tikka</p>
-              <span class="trd-menu-item__price">₹180</span>
-              <span class="trd-menu-item__badge">V</span>
-            </div>
-            <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/products/image(7).jpg" alt="Paneer Tikka" loading="lazy" width="400" height="300" />
-            <p class="trd-menu-item__desc">Char‑grilled paneer cubes, spices, mint chutney.</p>
+<main id="main-content" class="container gg-main gg-section section-light">
+<h1 class="fade‑in">Our Menu</h1>
+<p class="fade‑in">Authentic North‑Indian flavours in Hisar</p>
+
+<nav class="trd-menu-nav fade‑in" aria-label="Menu categories">
+      <a href="/">Home</a>
+      <a href="/menu.html" aria-current="page">Menu</a>
+      <a href="/gallery.html">Gallery</a>
+      <a href="/reservation.html">Reservation</a>
+      <a href="/private-dining.html">Private Dining</a>
+      <a href="/accessibility.html">Accessibility</a>
+      <div class="trd-nav-more">
+        <button type="button" class="trd-nav-more-btn" aria-haspopup="true" aria-expanded="false" onclick="var d=this.closest('.trd-nav-more');var o=d.classList.toggle('is-open');this.setAttribute('aria-expanded',o);">More <span aria-hidden="true">▾</span></button>
+        <div class="trd-nav-more-panel trd-mega-panel trd-mega-3col" role="menu">
+          <div class="trd-mega-grid">
+          <div class="trd-mega-col" style="width:31%">
+            <div class="trd-mega-col-heading">MENU & DINING</div>
+            <a href="/chef-specials.html">Chef Specials</a>
+            <a href="/chefs.html">Chefs</a>
+            <a href="/events.html">Events</a>
+            <a href="/faq.html">FAQ</a>
+            <a href="/gift-cards.html">Gift Cards</a>
           </div>
-        </div>
-        <div class="trd-menu-item">
-          <div class="trd-menu-item__info">
-            <div class="trd-menu-item__top">
-              <p class="trd-menu-item__name">Aloo Chaat</p>
-              <span class="trd-menu-item__price">₹120</span>
-              <span class="trd-menu-item__badge">V</span>
-            </div>
-            <img src="https://images.dcsai.ai/phase-v4/Restaurant/Testimonials/image(2).jpg" alt="Aloo Chaat" loading="lazy" width="400" height="300" />
-            <p class="trd-menu-item__desc">Spiced fried potatoes, tamarind, cilantro.</p>
+          <div class="trd-mega-col" style="width:31%">
+            <div class="trd-mega-col-heading">RESERVATIONS</div>
+            <a href="/happy-hour.html">Happy Hour</a>
+            <a href="/history.html">History</a>
+            <a href="/locations.html">Locations</a>
+            <a href="/order.html">Order</a>
+            <a href="/pricing.html">Pricing</a>
           </div>
-        </div>
-        <div class="trd-menu-item">
-          <div class="trd-menu-item__info">
-            <div class="trd-menu-item__top">
-              <p class="trd-menu-item__name">Hara Bhara Kebab</p>
-              <span class="trd-menu-item__price">₹150</span>
-              <span class="trd-menu-item__badge">V</span>
-            </div>
-            <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/products/image(3).jpg" alt="Hara Bhara Kebab" loading="lazy" width="400" height="300" />
-            <p class="trd-menu-item__desc">Spinach‑mint patties, served with coriander dip.</p>
+          <div class="trd-mega-col" style="width:31%">
+            <div class="trd-mega-col-heading">EXPLORE</div>
+            <a href="/seasonal-menu.html">Seasonal Menu</a>
+            <a href="/services.html">Services</a>
+            <a href="/sitemap.html">Sitemap</a>
+            <a href="/testimonials.html">Testimonials</a>
+            <a href="/wine-list.html">Wine List</a>
           </div>
-        </div>
-        <div class="trd-menu-item">
-          <div class="trd-menu-item__info">
-            <div class="trd-menu-item__top">
-              <p class="trd-menu-item__name">Mixed Vegetable Pakora</p>
-              <span class="trd-menu-item__price">₹130</span>
-              <span class="trd-menu-item__badge">V</span>
-            </div>
-            <img src="https://images.dcsai.ai/phase-v4/Restaurant/Testimonials/image(6).jpg" alt="Mixed Vegetable Pakora" loading="lazy" width="400" height="300" />
-            <p class="trd-menu-item__desc">Assorted veg fritters, crispy, with tamarind sauce.</p>
           </div>
         </div>
       </div>
-    </div>
+    </nav>
 
-    <!-- Non-Veg Starters -->
-    <div class="trd-menu__category" data-category="Non-Veg Starters">
-      <h2 class="trd-menu__cat-title fade-in">Non-Veg Starters</h2>
-      <div class="trd-menu__grid">
-        <div class="trd-menu-item">
-          <div class="trd-menu-item__info">
-            <div class="trd-menu-item__top">
-              <p class="trd-menu-item__name">Chicken Seekh Kebab</p>
-              <span class="trd-menu-item__price">₹200</span>
-              <span class="trd-menu-item__badge">N</span>
-            </div>
-            <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/hero/image(18).jpg" alt="Chicken Seekh Kebab" loading="lazy" width="400" height="300" />
-            <p class="trd-menu-item__desc">Minced chicken skewers, smoky spices, mint sauce.</p>
-          </div>
+<section id="veg-starters" class="fade‑in">
+  <h2 class="trd-menu__cat-title">Veg Starters</h2>
+  <div class="trd-menu__grid">
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Paneer Tikka</p>
+          <span class="trd-menu-item__price">₹150</span>
+          <span class="trd-menu-item__badge">V</span>
         </div>
-        <div class="trd-menu-item">
-          <div class="trd-menu-item__info">
-            <div class="trd-menu-item__top">
-              <p class="trd-menu-item__name">Mutton Seekh Kebab</p>
-              <span class="trd-menu-item__price">₹220</span>
-              <span class="trd-menu-item__badge">N</span>
-            </div>
-            <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/cta/image(3).jpg" alt="Mutton Seekh Kebab" loading="lazy" width="400" height="300" />
-            <p class="trd-menu-item__desc">Spiced minced mutton, grilled, served with onion rings.</p>
-          </div>
-        </div>
-        <div class="trd-menu-item">
-          <div class="trd-menu-item__info">
-            <div class="trd-menu-item__top">
-              <p class="trd-menu-item__name">Fish Amritsari</p>
-              <span class="trd-menu-item__price">₹210</span>
-              <span class="trd-menu-item__badge">N</span>
-            </div>
-            <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/hero/image(7).jpg" alt="Fish Amritsari" loading="lazy" width="400" height="300" />
-            <p class="trd-menu-item__desc">Batter‑fried fish, aromatic spices, lemon wedges.</p>
-          </div>
-        </div>
-        <div class="trd-menu-item">
-          <div class="trd-menu-item__info">
-            <div class="trd-menu-item__top">
-              <p class="trd-menu-item__name">Prawn Masala</p>
-              <span class="trd-menu-item__price">₹230</span>
-              <span class="trd-menu-item__badge">N</span>
-            </div>
-            <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/cta/image(17).jpg" alt="Prawn Masala" loading="lazy" width="400" height="300" />
-            <p class="trd-menu-item__desc">Juicy prawns in rich tomato‑onion gravy.</p>
-          </div>
-        </div>
+        <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/products/image(7).jpg" alt="Paneer Tikka" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Char‑grilled cottage cheese with spices</p>
       </div>
     </div>
-
-    <!-- Veg Mains -->
-    <div class="trd-menu__category" data-category="Veg Mains">
-      <h2 class="trd-menu__cat-title fade-in">Veg Mains</h2>
-      <div class="trd-menu__grid">
-        <div class="trd-menu-item">
-          <div class="trd-menu-item__info">
-            <div class="trd-menu-item__top">
-              <p class="trd-menu-item__name">Dal Makhani</p>
-              <span class="trd-menu-item__price">₹250</span>
-              <span class="trd-menu-item__badge">V</span>
-            </div>
-            <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/hero/magnific_dark-evening-dining-room-_3001037938.jpeg" alt="Dal Makhani" loading="lazy" width="400" height="300" />
-            <p class="trd-menu-item__desc">Slow‑cooked black lentils, butter, cream.</p>
-          </div>
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Aloo Tikki</p>
+          <span class="trd-menu-item__price">₹120</span>
+          <span class="trd-menu-item__badge">V</span>
         </div>
-        <div class="trd-menu-item">
-          <div class="trd-menu-item__info">
-            <div class="trd-menu-item__top">
-              <p class="trd-menu-item__name">Paneer Butter Masala</p>
-              <span class="trd-menu-item__price">₹260</span>
-              <span class="trd-menu-item__badge">V</span>
-            </div>
-            <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/cta/image(13).jpg" alt="Paneer Butter Masala" loading="lazy" width="400" height="300" />
-            <p class="trd-menu-item__desc">Cubes of paneer in buttery tomato gravy.</p>
-          </div>
-        </div>
-        <div class="trd-menu-item">
-          <div class="trd-menu-item__info">
-            <div class="trd-menu-item__top">
-              <p class="trd-menu-item__name">Aloo Gobi</p>
-              <span class="trd-menu-item__price">₹240</span>
-              <span class="trd-menu-item__badge">V</span>
-            </div>
-            <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/gallery/magnific_upscale-restaurant-facade_3000509450.jpeg" alt="Aloo Gobi" loading="lazy" width="400" height="300" />
-            <p class="trd-menu-item__desc">Potatoes & cauliflower, turmeric, cumin.</p>
-          </div>
-        </div>
-        <div class="trd-menu-item">
-          <div class="trd-menu-item__info">
-            <div class="trd-menu-item__top">
-              <p class="trd-menu-item__name">Chole Bhature</p>
-              <span class="trd-menu-item__price">₹230</span>
-              <span class="trd-menu-item__badge">V</span>
-            </div>
-            <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/gallery/image(15).jpg" alt="Chole Bhature" loading="lazy" width="400" height="300" />
-            <p class="trd-menu-item__desc">Spicy chickpeas with fluffy fried bread.</p>
-          </div>
-        </div>
+        <img src="https://images.dcsai.ai/phase-v4/Restaurant/Testimonials/image(2).jpg" alt="Aloo Tikki" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Spiced potato patty served with tamarind chutney</p>
       </div>
     </div>
-
-    <!-- Non-Veg Mains -->
-    <div class="trd-menu__category" data-category="Non-Veg Mains">
-      <h2 class="trd-menu__cat-title fade-in">Non-Veg Mains</h2>
-      <div class="trd-menu__grid">
-        <div class="trd-menu-item">
-          <div class="trd-menu-item__info">
-            <div class="trd-menu-item__top">
-              <p class="trd-menu-item__name">Butter Chicken</p>
-              <span class="trd-menu-item__price">₹300</span>
-              <span class="trd-menu-item__badge">N</span>
-            </div>
-            <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/hero/image(1).jpg" alt="Butter Chicken" loading="lazy" width="400" height="300" />
-            <p class="trd-menu-item__desc">Tender chicken in creamy tomato sauce.</p>
-          </div>
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Hara Bhara Kebab</p>
+          <span class="trd-menu-item__price">₹140</span>
+          <span class="trd-menu-item__badge">V</span>
         </div>
-        <div class="trd-menu-item">
-          <div class="trd-menu-item__info">
-            <div class="trd-menu-item__top">
-              <p class="trd-menu-item__name">Rogan Josh</p>
-              <span class="trd-menu-item__price">₹320</span>
-              <span class="trd-menu-item__badge">N</span>
-            </div>
-            <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/services/image(19).jpg" alt="Rogan Josh" loading="lazy" width="400" height="300" />
-            <p class="trd-menu-item__desc">Aromatic lamb curry with Kashmiri chilies.</p>
-          </div>
-        </div>
-        <div class="trd-menu-item">
-          <div class="trd-menu-item__info">
-            <div class="trd-menu-item__top">
-              <p class="trd-menu-item__name">Lamb Curry</p>
-              <span class="trd-menu-item__price">₹310</span>
-              <span class="trd-menu-item__badge">N</span>
-            </div>
-            <img src="https://images.dcsai.ai/phase-v4/Restaurant/Private Events/image(5).jpg" alt="Lamb Curry" loading="lazy" width="400" height="300" />
-            <p class="trd-menu-item__desc">Slow‑cooked lamb in spiced gravy.</p>
-          </div>
-        </div>
-        <div class="trd-menu-item">
-          <div class="trd-menu-item__info">
-            <div class="trd-menu-item__top">
-              <p class="trd-menu-item__name">Chicken Biryani</p>
-              <span class="trd-menu-item__price">₹280</span>
-              <span class="trd-menu-item__badge">N</span>
-            </div>
-            <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/services/magnific_closeup-of-a-black-female_3002470894.jpeg" alt="Chicken Biryani" loading="lazy" width="400" height="300" />
-            <p class="trd-menu-item__desc">Fragrant rice layered with spiced chicken.</p>
-          </div>
-        </div>
+        <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/products/image(3).jpg" alt="Hara Bhara Kebab" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Spinach‑mint patties with a hint of lime</p>
       </div>
     </div>
-
-    <!-- Veg Desserts -->
-    <div class="trd-menu__category" data-category="Veg Desserts">
-      <h2 class="trd-menu__cat-title fade-in">Veg Desserts</h2>
-      <div class="trd-menu__grid">
-        <div class="trd-menu-item">
-          <div class="trd-menu-item__info">
-            <div class="trd-menu-item__top">
-              <p class="trd-menu-item__name">Gulab Jamun</p>
-              <span class="trd-menu-item__price">₹100</span>
-              <span class="trd-menu-item__badge">V</span>
-            </div>
-            <img src="https://images.dcsai.ai/phase-v4/Restaurant/Private Events/image(1).jpg" alt="Gulab Jamun" loading="lazy" width="400" height="300" />
-            <p class="trd-menu-item__desc">Soft milk‑solid dumplings in rose syrup.</p>
-          </div>
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Mixed Veg Pakora</p>
+          <span class="trd-menu-item__price">₹130</span>
+          <span class="trd-menu-item__badge">V</span>
         </div>
-        <div class="trd-menu-item">
-          <div class="trd-menu-item__info">
-            <div class="trd-menu-item__top">
-              <p class="trd-menu-item__name">Rasgulla</p>
-              <span class="trd-menu-item__price">₹90</span>
-              <span class="trd-menu-item__badge">V</span>
-            </div>
-            <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/services/magnific_closeup-of-a-white-male-c_3002248630.jpeg" alt="Rasgulla" loading="lazy" width="400" height="300" />
-            <p class="trd-menu-item__desc">Spongy cheese balls soaked in light syrup.</p>
-          </div>
-        </div>
-        <div class="trd-menu-item">
-          <div class="trd-menu-item__info">
-            <div class="trd-menu-item__top">
-              <p class="trd-menu-item__name">Kheer</p>
-              <span class="trd-menu-item__price">₹110</span>
-              <span class="trd-menu-item__badge">V</span>
-            </div>
-            <img src="https://images.dcsai.ai/phase-v4/Restaurant/Loyalty Program/image(17).jpg" alt="Kheer" loading="lazy" width="400" height="300" />
-            <p class="trd-menu-item__desc">Rice pudding with cardamom and pistachios.</p>
-          </div>
-        </div>
-        <div class="trd-menu-item">
-          <div class="trd-menu-item__info">
-            <div class="trd-menu-item__top">
-              <p class="trd-menu-item__name">Gajar Halwa</p>
-              <span class="trd-menu-item__price">₹120</span>
-              <span class="trd-menu-item__badge">V</span>
-            </div>
-            <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/services/magnific_closeup-of-east-asian-fem_3002350276.jpeg" alt="Gajar Halwa" loading="lazy" width="400" height="300" />
-            <p class="trd-menu-item__desc">Carrot jam with ghee, nuts, and cardamom.</p>
-          </div>
-        </div>
+        <img src="https://images.dcsai.ai/phase-v4/Restaurant/Testimonials/image(6).jpg" alt="Mixed Veg Pakora" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Assorted vegetables in a chickpea batter</p>
       </div>
     </div>
-
-    <!-- Non-Veg Desserts -->
-    <div class="trd-menu__category" data-category="Non-Veg Desserts">
-      <h2 class="trd-menu__cat-title fade-in">Non-Veg Desserts</h2>
-      <div class="trd-menu__grid">
-        <div class="trd-menu-item">
-          <div class="trd-menu-item__info">
-            <div class="trd-menu-item__top">
-              <p class="trd-menu-item__name">Mango Lassi Parfait</p>
-              <span class="trd-menu-item__price">₹130</span>
-              <span class="trd-menu-item__badge">N</span>
-            </div>
-            <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/cta/image(2).jpg" alt="Mango Lassi Parfait" loading="lazy" width="400" height="300" />
-            <p class="trd-menu-item__desc">Layered mango yogurt with crunchy granola.</p>
-          </div>
+  </div>
+</section><hr class="trd-section-divider"><section id="non-veg-starters" class="fade‑in">
+  <h2 class="trd-menu__cat-title">Non‑Veg Starters</h2>
+  <div class="trd-menu__grid">
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Chicken Seekh Kebab</p>
+          <span class="trd-menu-item__price">₹180</span>
+          <span class="trd-menu-item__badge">N</span>
         </div>
-        <div class="trd-menu-item">
-          <div class="trd-menu-item__info">
-            <div class="trd-menu-item__top">
-              <p class="trd-menu-item__name">Ras Malai</p>
-              <span class="trd-menu-item__price">₹140</span>
-              <span class="trd-menu-item__badge">N</span>
-            </div>
-            <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/products/image(16).jpg" alt="Ras Malai" loading="lazy" width="400" height="300" />
-            <p class="trd-menu-item__desc">Soft cheese discs in saffron‑scented milk.</p>
-          </div>
-        </div>
-        <div class="trd-menu-item">
-          <div class="trd-menu-item__info">
-            <div class="trd-menu-item__top">
-              <p class="trd-menu-item__name">Rabri</p>
-              <span class="trd-menu-item__price">₹130</span>
-              <span class="trd-menu-item__badge">N</span>
-            </div>
-            <img src="https://images.dcsai.ai/phase-v4/Restaurant/Testimonials/image(7).jpg" alt="Rabri" loading="lazy" width="400" height="300" />
-            <p class="trd-menu-item__desc">Thick sweetened milk with nuts.</p>
-          </div>
-        </div>
-        <div class="trd-menu-item">
-          <div class="trd-menu-item__info">
-            <div class="trd-menu-item__top">
-              <p class="trd-menu-item__name">Falooda</p>
-              <span class="trd-menu-item__price">₹150</span>
-              <span class="trd-menu-item__badge">N</span>
-            </div>
-            <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/products/image(2).jpg" alt="Falooda" loading="lazy" width="400" height="300" />
-            <p class="trd-menu-item__desc">Rose‑syrup vermicelli with ice cream.</p>
-          </div>
-        </div>
+        <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/hero/image(18).jpg" alt="Chicken Seekh Kebab" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Minced chicken skewers with aromatic spices</p>
       </div>
     </div>
-
-    <div class="cta-section fade-in" style="text-align:center;margin:2rem 0;">
-      <a href="/reservation.html" class="btn">Reserve a Table</a>
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Lamb Sheekh Kebab</p>
+          <span class="trd-menu-item__price">₹200</span>
+          <span class="trd-menu-item__badge">N</span>
+        </div>
+        <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/cta/image(3).jpg" alt="Lamb Sheekh Kebab" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Tender lamb mince seasoned with garam masala</p>
+      </div>
     </div>
-  </main>
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Fish Amritsari</p>
+          <span class="trd-menu-item__price">₹190</span>
+          <span class="trd-menu-item__badge">N</span>
+        </div>
+        <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/hero/image(7).jpg" alt="Fish Amritsari" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Battered fish fried to golden crisp</p>
+      </div>
+    </div>
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Prawn Chili</p>
+          <span class="trd-menu-item__price">₹210</span>
+          <span class="trd-menu-item__badge">N</span>
+        </div>
+        <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/cta/image(17).jpg" alt="Prawn Chili" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Spicy sautéed prawns with garlic and chilies</p>
+      </div>
+    </div>
+  </div>
+</section><hr class="trd-section-divider"><section id="veg-mains" class="fade‑in">
+  <h2 class="trd-menu__cat-title">Veg Mains</h2>
+  <div class="trd-menu__grid">
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Dal Makhani</p>
+          <span class="trd-menu-item__price">₹250</span>
+          <span class="trd-menu-item__badge">V</span>
+        </div>
+        <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/hero/magnific_dark-evening-dining-room-_3001037938.jpeg" alt="Dal Makhani" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Slow‑cooked black lentils in buttery gravy</p>
+      </div>
+    </div>
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Paneer Butter Masala</p>
+          <span class="trd-menu-item__price">₹260</span>
+          <span class="trd-menu-item__badge">V</span>
+        </div>
+        <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/cta/image(13).jpg" alt="Paneer Butter Masala" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Cottage cheese cubes in creamy tomato sauce</p>
+      </div>
+    </div>
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Chole Bhature</p>
+          <span class="trd-menu-item__price">₹240</span>
+          <span class="trd-menu-item__badge">V</span>
+        </div>
+        <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/gallery/magnific_upscale-restaurant-facade_3000509450.jpeg" alt="Chole Bhature" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Spicy chickpeas with fluffy fried bread</p>
+      </div>
+    </div>
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Baingan Bharta</p>
+          <span class="trd-menu-item__price">₹230</span>
+          <span class="trd-menu-item__badge">V</span>
+        </div>
+        <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/gallery/image(15).jpg" alt="Baingan Bharta" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Smoky roasted eggplant mashed with spices</p>
+      </div>
+    </div>
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Aloo Gobi</p>
+          <span class="trd-menu-item__price">₹240</span>
+          <span class="trd-menu-item__badge">V</span>
+        </div>
+        <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/hero/image(1).jpg" alt="Aloo Gobi" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Potato‑cauliflower stir‑fry with turmeric</p>
+      </div>
+    </div>
+  </div>
+</section><hr class="trd-section-divider"><section id="non-veg-mains" class="fade‑in">
+  <h2 class="trd-menu__cat-title">Non‑Veg Mains</h2>
+  <div class="trd-menu__grid">
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Butter Chicken</p>
+          <span class="trd-menu-item__price">₹350</span>
+          <span class="trd-menu-item__badge">N</span>
+        </div>
+        <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/services/image(19).jpg" alt="Butter Chicken" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Tender chicken in creamy tomato gravy</p>
+      </div>
+    </div>
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Rogan Josh</p>
+          <span class="trd-menu-item__price">₹340</span>
+          <span class="trd-menu-item__badge">N</span>
+        </div>
+        <img src="https://images.dcsai.ai/phase-v4/Restaurant/Private Events/image(5).jpg" alt="Rogan Josh" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Slow‑cooked lamb in aromatic Kashmiri sauce</p>
+      </div>
+    </div>
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Chicken Biryani</p>
+          <span class="trd-menu-item__price">₹300</span>
+          <span class="trd-menu-item__badge">N</span>
+        </div>
+        <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/services/magnific_closeup-of-a-black-female_3002470894.jpeg" alt="Chicken Biryani" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Fragrant rice layered with spiced chicken</p>
+      </div>
+    </div>
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Mutton Curry</p>
+          <span class="trd-menu-item__price">₹360</span>
+          <span class="trd-menu-item__badge">N</span>
+        </div>
+        <img src="https://images.dcsai.ai/phase-v4/Restaurant/Private Events/image(1).jpg" alt="Mutton Curry" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Rich gravy with tender goat pieces</p>
+      </div>
+    </div>
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Fish Curry</p>
+          <span class="trd-menu-item__price">₹330</span>
+          <span class="trd-menu-item__badge">N</span>
+        </div>
+        <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/services/magnific_closeup-of-a-white-male-c_3002248630.jpeg" alt="Fish Curry" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Coconut‑based sauce with fresh fish</p>
+      </div>
+    </div>
+  </div>
+</section><hr class="trd-section-divider"><section id="veg-desserts" class="fade‑in">
+  <h2 class="trd-menu__cat-title">Veg Desserts</h2>
+  <div class="trd-menu__grid">
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Gulab Jamun</p>
+          <span class="trd-menu-item__price">₹120</span>
+          <span class="trd-menu-item__badge">V</span>
+        </div>
+        <img src="https://images.dcsai.ai/phase-v4/Restaurant/Loyalty Program/image(17).jpg" alt="Gulab Jamun" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Soft milk‑solid dumplings in rose syrup</p>
+      </div>
+    </div>
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Rasgulla</p>
+          <span class="trd-menu-item__price">₹110</span>
+          <span class="trd-menu-item__badge">V</span>
+        </div>
+        <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/services/magnific_closeup-of-east-asian-fem_3002350276.jpeg" alt="Rasgulla" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Spongy cheese balls soaked in light syrup</p>
+      </div>
+    </div>
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Kheer</p>
+          <span class="trd-menu-item__price">₹130</span>
+          <span class="trd-menu-item__badge">V</span>
+        </div>
+        <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/cta/image(2).jpg" alt="Kheer" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Rice pudding flavored with cardamom</p>
+      </div>
+    </div>
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Gajar Halwa</p>
+          <span class="trd-menu-item__price">₹140</span>
+          <span class="trd-menu-item__badge">V</span>
+        </div>
+        <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/products/image(16).jpg" alt="Gajar Halwa" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Carrot jam cooked with ghee and nuts</p>
+      </div>
+    </div>
+  </div>
+</section><hr class="trd-section-divider"><section id="drinks" class="fade‑in">
+  <h2 class="trd-menu__cat-title">Drinks</h2>
+  <div class="trd-menu__grid">
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Masala Chai</p>
+          <span class="trd-menu-item__price">₹80</span>
+        </div>
+        <img src="https://images.dcsai.ai/phase-v4/Restaurant/Testimonials/image(7).jpg" alt="Masala Chai" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Spiced tea with milk and ginger</p>
+      </div>
+    </div>
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Mango Lassi</p>
+          <span class="trd-menu-item__price">₹100</span>
+        </div>
+        <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/products/image(2).jpg" alt="Mango Lassi" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Yogurt drink blended with ripe mango</p>
+      </div>
+    </div>
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Fresh Lime Soda</p>
+          <span class="trd-menu-item__price">₹90</span>
+        </div>
+        <img src="https://images.dcsai.ai/phase-v4/Restaurant/Testimonials/image(3).jpg" alt="Fresh Lime Soda" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Carbonated water with lime and a pinch of salt</p>
+      </div>
+    </div>
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Rose Sharbat</p>
+          <span class="trd-menu-item__price">₹110</span>
+        </div>
+        <img src="https://images.dcsai.ai/images-phase-v1/restaurant-images/products/image(6).jpg" alt="Rose Sharbat" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Rose‑flavored syrup diluted with water</p>
+      </div>
+    </div>
+    <div class="trd-menu-item">
+      <div class="trd-menu-item__info">
+        <div class="trd-menu-item__top">
+          <p class="trd-menu-item__name">Kingfisher Beer</p>
+          <span class="trd-menu-item__price">₹150</span>
+        </div>
+        <img src="https://images.dcsai.ai/phase-v4/Restaurant/Process/image(23).jpg" alt="Kingfisher Beer" loading="lazy" width="400" height="300" />
+        <p class="trd-menu-item__desc">Classic Indian lager, 5% ABV</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <script>
-    // Intersection Observer for fade‑in
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-  </script>
+<div class="cta-section fade‑in" style="text-align:center;margin:2rem 0;">
+  <a href="/reservation.html" class="btn" style="background:var(--color-accent);color:#fff;padding:0.75rem 1.5rem;border-radius:8px;font-weight:600;">Reserve a Table</a>
+</div>
+
+</main>
+
+<script>
+const t=document.createElement('button');
+t.id='theme-toggle';
+t.setAttribute('aria-label','Toggle dark mode');
+t.textContent='◐';
+t.style='position:fixed;bottom:1rem;right:1rem;padding:0.5rem;background:var(--color-accent);color:#fff;border:none;border-radius:50%;cursor:pointer;';
+document.body.appendChild(t);
+t.onclick=()=>document.documentElement.classList.toggle('dark');
+if(localStorage.theme==='dark'||(!('theme' in localStorage)&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark');}
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});}, {threshold:0.1});
+document.querySelectorAll('.fade‑in').forEach(el=>observer.observe(el));
+</script>
     <footer class="gg-footer" role="contentinfo">
   <div class="gg-footer-newsletter">
     <h3 class="gg-footer-newsletter-title">join the herd!</h3>
@@ -1516,7 +1491,7 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
     <div class="gg-footer-bottom-row">
       <p class="gg-footer-copy">&copy; 2026 Haveli Restaurant 5. All Rights Reserved.</p>
       <div class="gg-footer-legal">
-        <a href="/" onclick="return false;" data-trd-deadlink="privacy.html">privacy policy</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="terms.html">terms of service</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="sitemap.html">sitemap</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="accessibility.html">accessibility</a>
+        <a href="/privacy.html">privacy policy</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/terms.html">terms of service</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/sitemap.html">sitemap</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/accessibility.html">accessibility</a>
       </div>
     </div>
   </div>
@@ -1526,7 +1501,7 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
   <div class="gg-cookie-inner">
     <div class="gg-cookie-text">
       <p id="gg-cookie-title" class="gg-cookie-title">We use cookies</p>
-      <p class="gg-cookie-desc">We use cookies to enhance your browsing experience and analyze site traffic. <a href="/" onclick="return false;" data-trd-deadlink="privacy.html">Privacy Policy</a></p>
+      <p class="gg-cookie-desc">We use cookies to enhance your browsing experience and analyze site traffic. <a href="/privacy.html">Privacy Policy</a></p>
     </div>
     <div class="gg-cookie-actions">
       <button type="button" class="gg-cookie-reject">Reject</button>

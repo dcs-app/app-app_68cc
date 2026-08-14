@@ -131,84 +131,52 @@ section {
   <meta charset="UTF-8">
   <title>Spring Menu – Haveli Restaurant 5</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Shared design tokens are injected by the orchestrator -->
   <style>
-    /* -------------------------------------------------
-       Design Tokens (variables injected by orchestrator)
-       ------------------------------------------------- */
-    :root {
+    /* Design tokens (fallback values) */
+    :root{
       --primary: var(--color-accent, #B8860B);
-      --bg: var(--color-bg, #FAF7F2);
-      --text: var(--color-text-primary, #1F1611);
-      --accent: var(--color-accent, #B8860B);
-      --surface: var(--color-surface, #FFFFFF);
-      --muted: var(--color-text-secondary, #6B5D52);
+      --bg: #FAF7F2;
+      --text: #1F1611;
+      --surface: #FFFFFF;
+      --border: rgba(31,22,17,0.1);
+      --accent: #B8860B;
+      --font-sans: 'Inter', system-ui, sans-serif;
+      --font-serif: 'Playfair Display', serif;
+      --max-width: 1200px;
     }
-    /* -------------------------------------------------
-       Global Styles
-       ------------------------------------------------- */
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,
-    h1,h2,h3{font-family:var(--font-serif, serif);color:var(--text);margin-bottom:.5rem}
-    p,li,time{margin-bottom:.75rem}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:var(--max-width,1200px);margin:auto;padding:1rem}
-    .btn{
-      display:inline-block;
-      padding:10px 14px;
-      border-radius:8px;
-      background:var(--primary);
-      color:#fff;
-      font-weight:600;
-      cursor:pointer;
-      text-align:center;
-    }
-    .btn:hover{opacity:.95}
-    .skip-link{
-      position:absolute;
-      top:-40px;
-      left:0;
-      background:#000;
-      color:#fff;
-      padding:8px 12px;
-      z-index:100;
-    }
-    .skip-link:focus{top:0}
-    .menu-item{border:1px solid var(--muted,rgba(0,0,0,0.1));border-radius:8px;padding:1rem;background:var(--surface);margin-bottom:1rem}
-    .menu-item h3{font-size:1.2rem;margin-bottom:.25rem}
-    .price{font-weight:600;color:var(--accent)}
-    .allergen{font-size:.9rem;color:var(--muted)}
-    /* -------------------------------------------------
-       Dark Mode (Phase D3)
-       ------------------------------------------------- */
-    /* -------------------------------------------------
-       Micro Animations (Phase D3)
-       ------------------------------------------------- */
-    .fade-in{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
-    .fade-in.visible{opacity:1;transform:translateY(0)}
-    .btn{transition:transform .2s ease,box-shadow .2s ease}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.15)}
-    .card{transition:transform .2s ease,box-shadow .2s ease}
-    .card:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(0,0,0,.12)}
-    @keyframes countUp{from{opacity:0}to{opacity:1}}
-    .stat-number{animation:countUp .6s ease forwards}
-    /* -------------------------------------------------
-       Light‑section Contrast Fix (B12)
-       ------------------------------------------------- */
+    /* Dark mode */
+    /* Micro‑animations */
+    .fade-in{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
+    .fade-in.visible{opacity:1;transform:translateY(0);}
+    .btn{display:inline-block;padding:.6rem 1.2rem;border-radius:.5rem;background:var(--primary);color:#fff;text-decoration:none;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease;}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.15);}
+    .card{background:var(--surface);border-radius:.75rem;overflow:hidden;transition:transform .2s ease,box-shadow .2s ease;}
+    .card:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(0,0,0,.12);}
+    @keyframes countUp{from{opacity:0;}to{opacity:1;}}
+    .stat-number{animation:countUp .6s ease forwards;}
+    /* Light‑section contrast fix */
     .section-light, [data-bg="light"]{
-      background:var(--tpl-light-surface,#f7f0e3);
-      color:var(--tpl-text-on-light,#1a1a1a);
+      background:var(--tpl-light-surface, #f7f0e3);
+      color:var(--tpl-text-on-light, #1a1a1a);
     }
-    .section-light h1,.section-light h2,.section-light h3,
-    .section-light p,.section-light li,.section-light label,
-    .section-light span{
-      color:var(--tpl-text-on-light,#1a1a1a);
+    .section-light h1,.section-light h2,.section-light h3,.section-light h4,
+    .section-light p,.section-light li,.section-light label,.section-light span{
+      color:var(--tpl-text-on-light, #1a1a1a);
     }
-    /* -------------------------------------------------
-       Layout Helpers
-       ------------------------------------------------- */
-    .hero img{width:100%;height:auto;margin-top:1rem;border-radius:8px}
-    .ingredient-spotlight img{width:100%;height:auto;border-radius:8px;margin-top:.5rem}
+    /* Layout */
+    .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;}
+    .container{max-width:var(--max-width);margin:auto;padding:1rem;}
+    .hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:2rem 1rem;}
+    .hero img{max-width:100%;height:auto;border-radius:0.5rem;}
+    .section{padding:2rem 0;}
+    .section h2{font-size:1.75rem;margin-bottom:1rem;}
+    .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;}
+    .menu-item{border:1px solid var(--border);border-radius:0.5rem;padding:1rem;background:var(--surface);}
+    .menu-item h3{font-size:1.25rem;margin:0 0 .5rem;}
+    .menu-item p{margin:0 0 .5rem;}
+    .menu-item .price{font-weight:600;}
+    .cta{text-align:center;padding:2rem;background:var(--surface);}
+    
   </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -841,7 +809,7 @@ section[data-section] {
 <meta name="dcs-build-id" content="2693eb33" data-trd-zone="68">
 <meta name="trd-template-id" content="2693eb33" data-trd-zone="68">
 <style id="trd-locked-palette" data-trd-zone="66">
-/* DCS locked palette · resolvedAt=2026-08-14T19:10:28.969Z */
+/* DCS locked palette · resolvedAt=2026-08-14T19:12:07.229Z */
   /* Zone 66 — 1 contrast correction(s) applied at lock time */
 :root {
   --tpl-primary: #1e1208;
@@ -1098,75 +1066,96 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
   
   <script>(function(){var w=document.querySelector('.gg-a11y-widget');if(!w)return;var t=w.querySelector('.gg-a11y-toggle');var html=document.documentElement;var STEP=2;function close(){w.setAttribute('data-open','false');t.setAttribute('aria-expanded','false')}function open(){w.setAttribute('data-open','true');t.setAttribute('aria-expanded','true')}t.addEventListener('click',function(e){e.stopPropagation();var o=w.getAttribute('data-open')==='true';if(o)close();else open()});document.addEventListener('click',function(e){if(!w.contains(e.target))close()});document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});w.querySelectorAll('.gg-a11y-opt').forEach(function(b){b.addEventListener('click',function(){var a=b.getAttribute('data-act');var s=parseFloat(getComputedStyle(html).fontSize)||16;if(a==='text-up')html.style.fontSize=Math.min(s+STEP,22)+'px';else if(a==='text-down')html.style.fontSize=Math.max(s-STEP,12)+'px';else if(a==='contrast')html.classList.toggle('gg-a11y-contrast');else if(a==='motion')html.classList.toggle('gg-a11y-motion');else if(a==='links')html.classList.toggle('gg-a11y-links');else if(a==='reset'){html.style.fontSize='';html.classList.remove('gg-a11y-contrast','gg-a11y-motion','gg-a11y-links')}})});})();</script>
 </div>
-  <main id="main-content" class="container gg-main gg-section section-light">
-    <!-- Hero Section -->
-    <section class="hero fade-in section-light">
+  <main id="main" class="container gg-main gg-section section-light">
+    <!-- Hero -->
+    <section class="hero fade-in">
+      <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Testimonials/image(8).jpg" alt="Fresh spring ingredients displayed at Haveli Restaurant">
       <h1>Spring Menu</h1>
-      <p class="subhead">Available <time datetime="2024-03-01">March 1</time> – <time datetime="2024-05-31">May 31, 2024</time></p>
-      <button class="btn" onclick="location.href='/reservation.html'">Reserve a Table</button>
-      <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Testimonials/image(8).jpg" alt="Fresh spring ingredients and vibrant Indian dishes">
+      <p class="subhead">Available March 1 – May 31, 2024</p>
+      <a href="/reservation.html" class="btn">Reserve a Table</a>
     </section>
 
     <!-- Seasonal Philosophy -->
-    <section class="philosophy fade-in section-light">
+    <section class="section fade-in">
       <h2>Seasonal Philosophy</h2>
-      <p>Our chef celebrates the arrival of spring by highlighting the freshest produce available in the region. From tender peas to fragrant herbs, each dish is crafted to showcase the bright, vibrant flavors of the season while staying true to authentic North Indian culinary traditions.</p>
+      <p>Our chef celebrates the vibrant flavors of spring, sourcing fresh local produce and aromatic herbs to create dishes that reflect the season’s renewal. From garden‑fresh vegetables to tender meats, every plate is crafted with care and inspiration from the blossoming landscape.</p>
     </section>
 
     <!-- Starters -->
-    <section class="menu-starters fade-in section-light">
+    <section class="section fade-in">
       <h2>Starters</h2>
-      <article class="menu-item">
-        <h3>Paneer Tikka</h3>
-        <p>Marinated cottage cheese cubes grilled with spring herbs and spices.</p>
-        <p class="price">₹200</p>
-        <p class="allergen">Allergen: Dairy</p>
-      </article>
+      <div class="menu-grid">
+        <article class="menu-item card fade-in">
+          <h3>Paneer Tikka</h3>
+          <p>Marinated paneer cubes grilled with spring peppers and a hint of mint.</p>
+          <p class="price">₹180</p>
+        </article>
+      </div>
     </section>
 
     <!-- Mains -->
-    <section class="menu-mains fade-in section-light">
+    <section class="section fade-in">
       <h2>Mains</h2>
-      <article class="menu-item">
-        <h3>Butter Chicken</h3>
-        <p>Succulent chicken simmered in a buttery tomato sauce infused with fresh spring aromatics.</p>
-        <p class="price">₹350</p>
-        <p class="allergen">Allergen: None</p>
-      </article>
+      <div class="menu-grid">
+        <article class="menu-item card fade-in">
+          <h3>Butter Chicken</h3>
+          <p>Classic creamy tomato sauce with tender chicken, infused with fresh coriander.</p>
+          <p class="price">₹350</p>
+        </article>
+      </div>
     </section>
 
     <!-- Desserts -->
-    <section class="menu-desserts fade-in section-light">
+    <section class="section fade-in">
       <h2>Desserts</h2>
-      <article class="menu-item">
-        <h3>Gajar Halwa</h3>
-        <p>Carrot pudding flavored with cardamom, garnished with pistachios.</p>
-        <p class="price">₹180</p>
-        <p class="allergen">Allergen: Nuts</p>
-      </article>
+      <div class="menu-grid">
+        <article class="menu-item card fade-in">
+          <h3>Gajar Halwa</h3>
+          <p>Sweet carrot pudding flavored with cardamom and garnished with toasted nuts.</p>
+          <p class="price">₹150</p>
+        </article>
+      </div>
     </section>
 
-    <!-- Featured Ingredient Spotlight -->
-    <section class="ingredient-spotlight fade-in section-light">
-      <h2>Featured Ingredient: Fresh Spring Peas</h2>
-      <p>We source our peas from local farms just outside Hisar, ensuring peak sweetness and crisp texture.</p>
-      <img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/products/image(15).jpg" alt="Close‑up of fresh spring peas">
+    <!-- Featured Ingredients -->
+    <section class="section fade-in">
+      <h2>Featured Ingredients</h2>
+      <div class="menu-grid">
+        <article class="card fade-in">
+          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/products/image(15).jpg" alt="Fresh spring carrots">
+          <h3>Carrots</h3>
+          <p>Locally sourced from nearby farms, these carrots add natural sweetness to our Gajar Halwa.</p>
+        </article>
+        <article class="card fade-in">
+          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/phase-v4/Restaurant/Testimonials/image(12).jpg" alt="Mint leaves">
+          <h3>Mint</h3>
+          <p>Picked fresh each morning, our mint brightens the Paneer Tikka with a cool aroma.</p>
+        </article>
+        <article class="card fade-in">
+          <img loading="lazy" decoding="async" src="https://images.dcsai.ai/images-phase-v1/restaurant-images/products/image(11).jpg" alt="Coriander">
+          <h3>Coriander</h3>
+          <p>Harvested from our garden, coriander adds a fresh finish to the Butter Chicken sauce.</p>
+        </article>
+      </div>
     </section>
 
     <!-- Pairing Suggestions -->
-    <section class="pairings fade-in section-light">
-      <h2>Wine & Cocktail Pairings</h2>
-      <p>Our sommelier has curated a selection of wines and cocktails that complement the bright flavors of our spring menu. <a href="/contact.html">Contact us</a> for personalized pairing recommendations.</p>
+    <section class="section fade-in">
+      <h2>Wine &amp; Cocktail Pairings</h2>
+      <p>Our sommelier recommends a crisp Sauvignon Blanc or a refreshing cucumber gin cocktail to complement the spring menu. <a href="/contact.html" class="btn">Contact us for details</a></p>
     </section>
 
-    <!-- Availability Note -->
-    <section class="availability fade-in section-light">
+    <!-- Availability -->
+    <section class="section fade-in">
       <h2>Availability</h2>
-      <p>This seasonal menu is available from <time datetime="2024-03-01">March 1, 2024</time> through <time datetime="2024-05-31">May 31, 2024</time>. Book early to enjoy these limited‑time offerings.</p>
+      <p>Enjoy this seasonal menu from <time datetime="2024-03-01">March 1, 2024</time> through <time datetime="2024-05-31">May 31, 2024</time>.</p>
     </section>
 
     <!-- Bottom CTA -->
-    
+    <div class="cta fade-in">
+      <h2>Ready to taste spring?</h2>
+      <a href="/reservation.html" class="btn">Reserve a Table</a>
+    </div>
   <!-- ─── Phase F (section filler) — industry/page-aware fallback ─── -->
 <section class="trd-section-filler" data-trd-section-filler="phase-F" style="padding:48px 24px;max-width:880px;margin:0 auto;line-height:1.7;">
   <h2 style="font-size:1.5rem;font-weight:700;margin:0 0 18px;">Seasonal highlights</h2>
@@ -1175,27 +1164,22 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
 <!-- ─── /Phase F ──────────────────────────────────────────────── -->
 </main>
 
-  <!-- Theme Toggle (positioned 80px from bottom) -->
+  <!-- Theme toggle -->
   
 
-  <!-- -------------------------------------------------
-       Scripts: Theme Toggle & Fade‑in Observer
-       ------------------------------------------------- -->
   <script>
-    // Theme toggle logic (Phase D3)
-    const themeBtn = document.getElementById('theme-toggle');
-    themeBtn.onclick = () => document.documentElement.classList.toggle('dark');
+    // Theme toggle logic
+    const t = document.getElementById('theme-toggle');
+    t.onclick = () => document.documentElement.classList.toggle('dark');
     if (localStorage.theme === 'dark' ||
         (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme:dark)').matches)) {
       document.documentElement.classList.add('dark');
     }
 
-    // IntersectionObserver for fade‑in animations
+    // Fade‑in on scroll
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, {threshold: 0.1});
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
     <footer class="gg-footer" role="contentinfo">
@@ -1268,7 +1252,7 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
     <div class="gg-footer-bottom-row">
       <p class="gg-footer-copy">&copy; 2026 Haveli Restaurant 5. All Rights Reserved.</p>
       <div class="gg-footer-legal">
-        <a href="/" onclick="return false;" data-trd-deadlink="privacy.html">privacy policy</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="terms.html">terms of service</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="sitemap.html">sitemap</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="accessibility.html">accessibility</a>
+        <a href="/privacy.html">privacy policy</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/terms.html">terms of service</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/sitemap.html">sitemap</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/accessibility.html">accessibility</a>
       </div>
     </div>
   </div>
@@ -1278,7 +1262,7 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
   <div class="gg-cookie-inner">
     <div class="gg-cookie-text">
       <p id="gg-cookie-title" class="gg-cookie-title">We use cookies</p>
-      <p class="gg-cookie-desc">We use cookies to enhance your browsing experience and analyze site traffic. <a href="/" onclick="return false;" data-trd-deadlink="privacy.html">Privacy Policy</a></p>
+      <p class="gg-cookie-desc">We use cookies to enhance your browsing experience and analyze site traffic. <a href="/privacy.html">Privacy Policy</a></p>
     </div>
     <div class="gg-cookie-actions">
       <button type="button" class="gg-cookie-reject">Reject</button>

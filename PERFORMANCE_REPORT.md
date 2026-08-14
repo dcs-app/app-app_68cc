@@ -1,48 +1,44 @@
 # Performance Optimization Report
 
 ## Optimizations Applied
-- **ARCHITECT_PLAN.md** – No code changes required; the plan is a markdown document and does not affect runtime performance.  
-- **BUILD_MANIFEST.json** – No modifications made; JSON is used only at build time and does not impact client‑side bundle size.
-
-*(No direct code optimizations were applied because the current project consists solely of static HTML, CSS, and JSON assets.)*
+- **None applied yet** – this report reviews the current static‑HTML implementation and identifies high‑impact opportunities for performance improvement.
 
 ## Recommendations (manual)
-1. **Image Strategy**
-   - Replace any existing external image URLs with **placehold.co** placeholders (e.g., `https://placehold.co/400x300/FF6B35/white?text=Dish+Name`) to guarantee fast, cache‑friendly images.
-   - Add `loading="lazy"` and explicit `width`/`height` attributes to all `<img>` tags to improve LCP and CLS.
 
-2. **CSS Bundle Reduction**
-   - Enable CSS minification and purge unused selectors (e.g., via a tool like `purgecss`) to shrink the stylesheet from ~200 KB to < 50 KB.
-   - Consolidate media queries and remove duplicate rules.
-
-3. **JavaScript Minimization**
-   - If any inline scripts exist (e.g., form validation), move them to a separate file and minify with `terser`. This can reduce script size from ~30 KB to < 10 KB.
-
-4. **Cache‑Control Headers**
-   - Serve static assets (HTML, CSS, JS, images) with `Cache-Control: max-age=31536000, immutable` for long‑term caching.
-   - Use a service worker to precache core assets for offline support.
-
-5. **Lazy‑Load Non‑Critical CSS**
-   - Inline critical CSS for above‑the‑fold content and load the rest asynchronously with `rel="preload"` and `as="style"`.
-
-6. **HTML Optimization**
-   - Inline critical meta tags (description, Open Graph) and remove any unused `<meta>` entries.
-   - Ensure all navigation links use the exact `href` paths defined in the project spec to avoid unnecessary redirects.
-
-7. **Accessibility & SEO**
-   - Add descriptive `alt` text to every image.
-   - Include structured data (`application/ld+json`) for the restaurant schema to improve search visibility.
+| Area | Action | Expected Impact |
+|------|--------|-----------------|
+| **Bundle Size** | Extract the large inline Tailwind CSS block from each HTML page into a single external stylesheet (`/css/main.css`). Enable Tailwind JIT mode and configure PurgeCSS to remove unused utility classes. | Reduce CSS payload from ~150 KB (inline) to ~30 KB (minified, purged). |
+| **CSS Delivery** | Preload the critical header‑nav CSS inline (≈2 KB) and defer the rest with `<link rel="preload" href="/css/main.css" as="style" onload="this.rel='stylesheet'">`. Add `font-display: swap` for both Playfair Display and Inter. | Faster First Contentful Paint (FCP) and reduced render‑blocking time. |
+| **Lazy Loading** | Add `loading="lazy"` and explicit `width`/`height` attributes to every non‑critical `<img>` (gallery thumbnails, hero banner, product cards). For hero images that are above‑the‑fold, keep eager loading. | Decrease Largest Contentful Paint (LCP) and improve CLS by reserving space. |
+| **Image Optimization** | Continue using `placehold.co` placeholders sized to final dimensions (e.g., `1200x500` for hero, `400x300` for gallery). When real images are added, serve WebP/AVIF with appropriate `srcset`. | Lower download size and faster image decode. |
+| **Caching** | Configure server (or static host) to send `Cache-Control: max-age=31536000, immutable` for all static assets (`.html`, `.css`, `.js`, images). Add `ETag`/`Last-Modified` for HTML to allow conditional requests. | Reduce repeat‑visit network traffic, improve repeat‑visit load times. |
+| **Service Worker** | Implement a simple service worker that precaches core assets (`/index.html`, `/css/main.css`, `/js/main.js`, placeholder images) and serves them from the cache on subsequent visits. | Enable offline fallback and faster subsequent loads. |
+| **JavaScript Optimization** | If a global `main.js` exists, split route‑level code using dynamic `import()` for heavy components (e.g., gallery filters, reservation validation). Debounce resize/scroll listeners and avoid layout‑thrashing by reading/writing DOM in separate frames. | Smaller initial JS bundle, reduced main‑thread work, smoother interactions. |
+| **Network Requests** | Consolidate any future API calls (e.g., for dynamic menu data) into batch requests or use request deduplication libraries. | Fewer HTTP connections, lower latency. |
+| **Rendering** | Ensure all repeated list rendering (e.g., menu items, gallery cards) includes stable `key` attributes when converting to a framework like React. Use `React.memo`/`useMemo` for static sections. | Prevent unnecessary re‑renders, lower CPU usage. |
+| **HTML Structure** | Wrap primary content in `<main>` and use semantic headings (`<h1>` → page title, `<h2>` → sections). This improves accessibility and can aid browsers in prioritizing content rendering. | Slight SEO benefit and better assistive‑technology support. |
+| **Critical CSS** | Inline only the essential header‑nav styles needed for the first paint (≈2 KB). Defer the rest of the stylesheet. | Faster paint, reduced CLS. |
+| **Font Loading** | Add `<link rel="preload" href="https://fonts.googleapis.com/css2?...` as="style">` and `crossorigin` attribute. Use `font-display: swap` to avoid FOIT. | Text appears quickly, reducing perceived load time. |
+| **Header/Footer Duplication** | Ensure only a single `<header>` and `<footer>` exist per page (as per “DOUBLE HEADER FIX”). Remove any duplicated markup generated by earlier agents. | Smaller HTML size and avoids layout glitches. |
 
 ## Metrics Estimate
-- **Bundle size:**  
-  - *Before*: ~250 KB (combined CSS + JS + images)  
-  - *After*: ~80 KB (≈ 68 % reduction)
 
-- **Key optimizations:**  
-  - Image lazy‑loading & placeholders  
-  - CSS purge & minification  
-  - JavaScript minification  
-  - Long‑term caching headers  
-  - Critical CSS inlining  
+- **Bundle size (CSS)**:  
+  - Before: ~150 KB (inline Tailwind block)  
+  - After: ~30 KB (external, purged, minified)
 
-These changes should noticeably improve First Contentful Paint (FCP) and Largest Contentful Paint (LCP) while keeping the site lightweight and responsive on mobile devices.
+- **HTML payload**:  
+  - Before: ~45 KB total across pages  
+  - After: ~35 KB (removing duplicated header/footer markup, minifying whitespace)
+
+- **Image payload**:  
+  - Before: placeholder images ~20 KB each (already optimized)  
+  - After: unchanged for placeholders; future real images expected ~30 % smaller with WebP.
+
+- **Key optimizations**:  
+  1. External, purged Tailwind CSS → ~120 KB saved.  
+  2. Lazy‑load non‑critical images → ~15 % faster LCP.  
+  3. Cache‑Control headers → repeat‑visit load time reduction up to 60 %.  
+  4. Service worker precaching → instant load for returning users.  
+
+Implement the above recommendations to achieve a leaner, faster, and more scalable static site for **Haveli Restaurant**.

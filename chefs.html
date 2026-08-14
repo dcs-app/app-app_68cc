@@ -131,48 +131,27 @@ section {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Chefs — Haveli Restaurant 5</title>
-  <meta name="description" content="Meet the chefs behind Haveli Restaurant 5’s authentic North Indian flavours.">
+  <meta name="description" content="Authentic North‑Indian flavours in the heart of Hisar">
   <meta property="og:title" content="Our Chefs — Haveli Restaurant 5">
-  <meta property="og:description" content="Meet the chefs behind Haveli Restaurant 5’s authentic North Indian flavours.">
+  <meta property="og:description" content="Authentic North‑Indian flavours in the heart of Hisar">
   <meta property="og:type" content="website">
+  <style>:root{ --font-serif: 'Fraunces', 'Cormorant', 'Playfair Display', serif; --font-sans: 'Inter', system-ui, sans-serif; --color-bg: #ffffff; --color-surface: #d4b5a5; --color-text-primary: #2a1a10; --color-text-secondary: color-mix(in oklab, #2a1a10 70%, transparent); --color-accent: #f05a28; --color-border: rgba(42,26,16,0.12); --color-header-bg: #ffffff; --color-footer-bg: #0a0a0a; --radius-sm: 6px; --radius-md: 12px; --radius-lg: 32px; --shadow-sm: 0 2px 8px rgba(31,22,17,0.06); --shadow-md: 0 12px 36px rgba(31,22,17,0.1); --max-width: 1200px; }*{box-sizing:border-box}html,body{height:100%}h1,h2,h3,h4{font-family:var(--font-serif);color:var(--color-text-primary)}a{color:inherit;text-decoration:none}img.primary-nav a{padding:8px 6px;border-radius:6px;color:var(--color-text-primary).header-cta .btn-reserve{background:var(--color-accent);color:#fff;padding:10px 14px;border-radius:10px;font-weight:600;box-shadow:var(--shadow-sm)}.btn-reserve:hover.footer-col{flex:1;min-width:220px}.footer-col h4{margin:0 0 8px 0;font-size:0.95rem}.footer-col p,a{color:rgba(255,255,255,0.9);font-size:0.95rem}.social-row{display:flex;gap:12px;margin-top:12px}.social-row a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.06);color:#fff}.footer-bottom}.map-embed{background:linear-gradient(180deg,#fff0 0,#fff0 100%);border-radius:8px;border:1px solid var(--color-border);padding:12px;color:var(--color-text-secondary)}.badge{display:inline-block;background:var(--color-surface);color:var(--color-text-primary);padding:4px 8px;border-radius:8px;border:1px solid var(--color-border)}.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}</style>
   <style>
-    /* Shared styles from manifest */
-    :root {
-      --font-serif: 'Fraunces', 'Cormorant', 'Playfair Display', serif;
-      --font-sans: 'Inter', system-ui, sans-serif;
-      --color-bg: #ffffff;
-      --color-surface: #d4b5a5;
-      --color-text-primary: #2a1a10;
-      --color-text-secondary: color-mix(in oklab, #2a1a10 70%, transparent);
-      --color-accent: #f05a28;
-      --color-border: rgba(42,26,16,0.12);
-      --color-header-bg: #ffffff;
-      --color-footer-bg: #0a0a0a;
-      --radius-sm: 6px;
-      --radius-md: 12px;
-      --radius-lg: 32px;
-      --shadow-sm: 0 2px 8px rgba(31,22,17,0.06);
-      --shadow-md: 0 12px 36px rgba(31,22,17,0.1);
-      --max-width: 1200px;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    h1,h2,h3{font-family:var(--font-serif);color:var(--color-text-primary);letter-spacing:-0.01em}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
-    .btn{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--color-accent);color:#fff;transition:transform .2s ease,box-shadow .2s ease}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.15)}
-    .card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);overflow:hidden;transition:transform .2s ease,box-shadow .2s ease}
-    .card:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(0,0,0,0.12)}
-    .grid{display:grid;gap:16px}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    @media(max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:600px){.grid-3{grid-template-columns:1fr}}
     /* Dark mode */
-    /* Fade‑in animation */
-    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .5s ease, transform .5s ease; }
+    /* Micro animations */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
-    /* Section light fix (none needed here) */
+    .btn { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+    .card { transition: transform 0.2s ease, box-shadow 0.2s ease; border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); overflow: hidden; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,0.12); }
+    .chef-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+    .values-grid { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .value-card { flex: 1; min-width: 200px; background: var(--color-surface); padding: 1rem; border-radius: var(--radius-sm); text-align: center; }
+    .hero { padding: 2rem 0; text-align: center; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: .5rem; }
+    .hero p { font-size: clamp(1rem, 2.5vw, 1.25rem); max-width: 40rem; margin: 0 auto; }
+    .cta { text-align: center; margin: 2rem 0; }
   </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -805,7 +784,7 @@ section[data-section] {
 <meta name="dcs-build-id" content="2693eb33" data-trd-zone="68">
 <meta name="trd-template-id" content="2693eb33" data-trd-zone="68">
 <style id="trd-locked-palette" data-trd-zone="66">
-/* DCS locked palette · resolvedAt=2026-08-14T19:10:28.969Z */
+/* DCS locked palette · resolvedAt=2026-08-14T19:12:07.229Z */
   /* Zone 66 — 1 contrast correction(s) applied at lock time */
 :root {
   --tpl-primary: #1e1208;
@@ -1003,7 +982,12 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
 </style>
 </head>
 <body data-trd-light-page="1">
-  <!-- Header (canonical) -->
+  
+  <script>
+    const t=document.getElementById("theme-toggle");
+    t.onclick=()=>document.documentElement.classList.toggle("dark");
+    if(localStorage.theme==="dark"||(!("theme"in localStorage)&&window.matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.classList.add("dark")}
+  </script>
   <header class="gg-header" role="banner">
   <div class="gg-header-inner">
     <nav class="gg-nav-left" role="navigation" aria-label="Left navigation">
@@ -1048,74 +1032,81 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
   
   <script>(function(){var w=document.querySelector('.gg-a11y-widget');if(!w)return;var t=w.querySelector('.gg-a11y-toggle');var html=document.documentElement;var STEP=2;function close(){w.setAttribute('data-open','false');t.setAttribute('aria-expanded','false')}function open(){w.setAttribute('data-open','true');t.setAttribute('aria-expanded','true')}t.addEventListener('click',function(e){e.stopPropagation();var o=w.getAttribute('data-open')==='true';if(o)close();else open()});document.addEventListener('click',function(e){if(!w.contains(e.target))close()});document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});w.querySelectorAll('.gg-a11y-opt').forEach(function(b){b.addEventListener('click',function(){var a=b.getAttribute('data-act');var s=parseFloat(getComputedStyle(html).fontSize)||16;if(a==='text-up')html.style.fontSize=Math.min(s+STEP,22)+'px';else if(a==='text-down')html.style.fontSize=Math.max(s-STEP,12)+'px';else if(a==='contrast')html.classList.toggle('gg-a11y-contrast');else if(a==='motion')html.classList.toggle('gg-a11y-motion');else if(a==='links')html.classList.toggle('gg-a11y-links');else if(a==='reset'){html.style.fontSize='';html.classList.remove('gg-a11y-contrast','gg-a11y-motion','gg-a11y-links')}})});})();</script>
 </div>
-
-  <!-- Theme toggle -->
-  
-  <script>
-    const t=document.getElementById("theme-toggle");
-    t.onclick=()=>document.documentElement.classList.toggle("dark");
-    if(localStorage.theme==="dark"||(!("theme"in localStorage)&&window.matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.classList.add("dark")}
-  </script>
-
   <main id="main-content" class="container gg-main gg-section section-light">
-    <!-- SECTION 1: HERO & Head Chef -->
-    <section aria-label="Chef introduction" class="fade-in">
+    <!-- HERO SECTION -->
+    <section aria-label="Chef introduction" class="hero fade-in">
       <h1 class="fade-in">Meet the Chefs</h1>
-      <p class="fade-in">Our kitchen blends heritage recipes with modern technique, delivering warm, authentic North Indian flavours.</p>
-      <div class="card fade-in" style="margin-top:1rem;">
-        <img src="https://images.dcsai.ai/phase-v4/Restaurant/Award Press/image(11).jpg" alt="Executive Chef smiling in kitchen" loading="lazy" style="width:100%;height:auto;">
-        <div style="padding:1rem;">
-          <h2>Executive Chef <span style="font-weight:normal;">(Chef Arjun Singh)</span></h2>
-          <p>With over 20 years of experience, Chef Arjun leads our brigade, curating dishes that celebrate regional spices and seasonal produce.</p>
-          <p>Signature dish: <strong>Smoked Tandoori Lamb Chops</strong> – a perfect balance of smoky char and aromatic herbs.</p>
+      <p class="fade-in">Our kitchen brigade blends tradition with innovation, crafting authentic North‑Indian flavours that celebrate Hisar’s heritage.</p>
+    </section>
+
+    <!-- HEAD CHEF SPOTLIGHT -->
+    <section aria-label="Head Chef spotlight" class="fade-in">
+      <div class="card" style="display:flex;flex-direction:column;align-items:center;padding:1.5rem;">
+        <img src="https://images.dcsai.ai/phase-v4/Restaurant/Award Press/image(11).jpg" alt="Portrait of the Executive Chef" loading="lazy" style="border-radius:50%;width:200px;height:200px;object-fit:cover;">
+        <h2 class="fade-in" style="margin-top:1rem;">Chef </h2>
+        <p class="fade-in"><strong>Executive Chef</strong></p>
+        <p class="fade-in">With over 15 years of culinary mastery, our Executive Chef curates each dish to honor regional spices while embracing modern techniques. Passionate about sourcing locally, they ensure every plate tells a story of heritage and freshness.</p>
+        <p class="fade-in">Beyond the kitchen, the Chef mentors the brigade, fostering a culture of creativity and precision. Their signature dish, “Royal Tandoori Platter,” showcases a harmonious blend of marinated meats, aromatic herbs, and a whisper of smoky char.</p>
+      </div>
+    </section>
+
+    <!-- CHEF GRID -->
+    <section aria-label="Our culinary team" class="fade-in">
+      <h2 class="fade-in">Our Culinary Team</h2>
+      <div class="chef-grid">
+        <div class="card">
+          <img src="https://images.dcsai.ai/phase-v4/Restaurant/Ambience Evening/image(17).jpg" alt="Portrait of Chef " loading="lazy">
+          <h3 class="fade-in">Chef </h3>
+          <p class="fade-in"><em>Sous Chef</em></p>
+          <p class="fade-in">Specialist in regional breads and tandoor classics.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.dcsai.ai/phase-v4/Restaurant/Award Press/image(5).jpg" alt="Portrait of Chef " loading="lazy">
+          <h3 class="fade-in">Chef </h3>
+          <p class="fade-in"><em>Pastry Chef</em></p>
+          <p class="fade-in">Crafts traditional Indian sweets with a modern twist.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.dcsai.ai/phase-v4/Restaurant/Award Press/image(2).jpg" alt="Portrait of Chef " loading="lazy">
+          <h3 class="fade-in">Chef </h3>
+          <p class="fade-in"><em>Chef de Partie</em></p>
+          <p class="fade-in">Focuses on seasonal vegetable creations.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.dcsai.ai/phase-v4/Restaurant/Ambience Evening/image.jpg" alt="Portrait of Chef " loading="lazy">
+          <h3 class="fade-in">Chef </h3>
+          <p class="fade-in"><em>Chef de Partie</em></p>
+          <p class="fade-in">Expert in grill‑ready meats and marinades.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.dcsai.ai/phase-v4/Restaurant/Award Press/image(7).jpg" alt="Portrait of Chef " loading="lazy">
+          <h3 class="fade-in">Chef </h3>
+          <p class="fade-in"><em>Junior Chef</em></p>
+          <p class="fade-in">Assists with daily prep and plating finesse.</p>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 2: Chef Grid & Kitchen Values -->
-    <section aria-label="Our culinary team" class="fade-in" style="margin-top:2rem;">
-      <h2 class="fade-in">Our Brigade</h2>
-      <div class="grid grid-3 fade-in" style="margin-top:1rem;">
-        <div class="card">
-          <img src="https://images.dcsai.ai/phase-v4/Restaurant/Ambience Evening/image(17).jpg" alt="Chef Maya preparing a dish" loading="lazy">
-          <div style="padding:.5rem;">
-            <h3>Chef Maya</h3>
-            <p>Pastry Specialist</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://images.dcsai.ai/phase-v4/Restaurant/Award Press/image(5).jpg" alt="Chef Rahul grilling kebabs" loading="lazy">
-          <div style="padding:.5rem;">
-            <h3>Chef Rahul</h3>
-            <p>Grill Master</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://images.dcsai.ai/phase-v4/Restaurant/Award Press/image(2).jpg" alt="Chef Leena plating a curry" loading="lazy">
-          <div style="padding:.5rem;">
-            <h3>Chef Leena</h3>
-            <p>Sauce Artisan</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid-3 fade-in" style="margin-top:2rem;">
-        <div style="text-align:center;">
+    <!-- KITCHEN VALUES -->
+    <section aria-label="Kitchen values" class="fade-in">
+      <h2 class="fade-in">Our Kitchen Values</h2>
+      <div class="values-grid">
+        <div class="value-card fade-in">
           <h3>Locally Sourced</h3>
-          <p>Fresh ingredients from Hisar farms.</p>
+          <p>We partner with nearby farms to bring fresh, seasonal produce to every dish.</p>
         </div>
-        <div style="text-align:center;">
+        <div class="value-card fade-in">
           <h3>From Scratch</h3>
-          <p>All sauces and breads made in‑house.</p>
+          <p>All sauces, breads, and spices are crafted in‑house for authentic flavor.</p>
         </div>
-        <div style="text-align:center;">
+        <div class="value-card fade-in">
           <h3>Seasonal Menu</h3>
-          <p>Rotating dishes reflecting the harvest.</p>
+          <p>Our menu evolves with the seasons, highlighting the best of each harvest.</p>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 3: CTA -->
+    <!-- CTA -->
     
   <!-- ─── Phase F (section filler) — industry/page-aware fallback ─── -->
 <section class="trd-section-filler" data-trd-section-filler="phase-F" style="padding:48px 24px;max-width:880px;margin:0 auto;line-height:1.7;">
@@ -1125,8 +1116,6 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
 </section>
 <!-- ─── /Phase F ──────────────────────────────────────────────── -->
 </main>
-
-  <!-- Footer (canonical) -->
   <footer class="gg-footer" role="contentinfo">
   <div class="gg-footer-newsletter">
     <h3 class="gg-footer-newsletter-title">join the herd!</h3>
@@ -1197,7 +1186,7 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
     <div class="gg-footer-bottom-row">
       <p class="gg-footer-copy">&copy; 2026 Haveli Restaurant 5. All Rights Reserved.</p>
       <div class="gg-footer-legal">
-        <a href="/" onclick="return false;" data-trd-deadlink="privacy.html">privacy policy</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="terms.html">terms of service</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="sitemap.html">sitemap</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="accessibility.html">accessibility</a>
+        <a href="/privacy.html">privacy policy</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/terms.html">terms of service</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/sitemap.html">sitemap</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/accessibility.html">accessibility</a>
       </div>
     </div>
   </div>
@@ -1207,7 +1196,7 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
   <div class="gg-cookie-inner">
     <div class="gg-cookie-text">
       <p id="gg-cookie-title" class="gg-cookie-title">We use cookies</p>
-      <p class="gg-cookie-desc">We use cookies to enhance your browsing experience and analyze site traffic. <a href="/" onclick="return false;" data-trd-deadlink="privacy.html">Privacy Policy</a></p>
+      <p class="gg-cookie-desc">We use cookies to enhance your browsing experience and analyze site traffic. <a href="/privacy.html">Privacy Policy</a></p>
     </div>
     <div class="gg-cookie-actions">
       <button type="button" class="gg-cookie-reject">Reject</button>
@@ -1268,13 +1257,12 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
 })();</script>
 
 <script>(function(){function syncMore(){document.querySelectorAll('.trd-nav-more-btn').forEach(function(btn){try{var nav=btn.closest('ul,nav,header');if(!nav)return;var siblings=nav.querySelectorAll('a');var sibling=null;for(var i=0;i<siblings.length;i++){var a=siblings[i];if(a.closest('.trd-nav-more-panel'))continue;sibling=a;break;}if(!sibling)return;var s=window.getComputedStyle(sibling);btn.style.fontFamily=s.fontFamily;btn.style.fontSize=s.fontSize;btn.style.fontWeight=s.fontWeight;btn.style.letterSpacing=s.letterSpacing;btn.style.textTransform=s.textTransform;btn.style.fontStyle=s.fontStyle;nav.querySelectorAll('.trd-nav-more-panel a').forEach(function(da){da.style.fontFamily=s.fontFamily;da.style.fontSize=s.fontSize;da.style.fontWeight=s.fontWeight;da.style.letterSpacing=s.letterSpacing;da.style.textTransform=s.textTransform;});}catch(e){}});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',syncMore)}else{syncMore()}})();</script>
-
   <script>
-    // IntersectionObserver for fade‑in
+    // Intersection Observer for fade‑in animations
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add("visible"); });
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
-    document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
 <script data-trd-tpl-fadefix="phase-41">(function(){try{document.querySelectorAll('.fade-in,.scroll-reveal,.reveal').forEach(function(el){el.classList.add('visible');el.style.opacity='1';el.style.transform='none';el.style.visibility='visible';});}catch(e){}})();</script>
 <script>

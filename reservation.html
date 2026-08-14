@@ -129,37 +129,109 @@ section {
   .trd-container { padding: 0 var(--sp-3); }
 }
 </style>
-<meta charset="UTF-8">
-<title>Reserve Your Table – Haveli Restaurant 5</title>
-
-<style>
-/* Dark mode */
-/* Micro animations */
-.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
-.btn { transition: transform 0.2s ease, box-shadow 0.2s ease; }
-.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
-.card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
-.card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,0.12); }
-@keyframes countUp { from { opacity:0; } to { opacity:1; } }
-.stat-number { animation: countUp 0.6s ease forwards; }
-/* Light‑section contrast fix */
-.section-light, [data-bg="light"] {
-  background: var(--tpl-light-surface, #f7f0e3);
-  color: var(--tpl-text-on-light, #1a1a1a);
-}
-.section-light h1, .section-light h2, .section-light h3, .section-light h4,
-.section-light p, .section-light li, .section-light label, .section-light span {
-  color: var(--tpl-text-on-light, #1a1a1a);
-}
-/* Simple layout */
-.container { max-width: var(--max-width); margin: 0 auto; padding: 1rem; }
-section { margin-bottom: 2rem; }
-h1, h2 { margin-bottom: .5rem; }
-ul { list-style: disc inside; margin-left: 1rem; }
-a { color: var(--color-accent); }
-button, .trd-btn { cursor: pointer; }
-</style>
+  <meta charset="UTF-8">
+  <title>Reserve a Table – Haveli Restaurant 5</title>
+  <meta name="description" content="Book a table at Haveli Restaurant 5. Choose date, time, and party size – instant confirmation.">
+  <style>
+    /* Shared design tokens */
+    :root{
+      --font-serif: 'Fraunches', 'Cormorant', 'Playfair Display', serif;
+      --font-sans: 'Inter', system-ui, sans-serif;
+      --color-bg: #ffffff;
+      --color-surface: #d4b5a5;
+      --color-text-primary: #2a1a10;
+      --color-text-secondary: color-mix(in oklab, #2a1a10 70%, transparent);
+      --color-accent: #f05a28;
+      --color-border: rgba(42,26,16,0.12);
+      --color-header-bg: #ffffff;
+      --color-footer-bg: #0a0a0a;
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 32px;
+      --shadow-sm: 0 2px 8px rgba(31,22,17,0.06);
+      --shadow-md: 0 12px 36px rgba(31,22,17,0.1);
+      --max-width: 1200px;
+    }
+    .container{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:1rem;
+    }
+    h1{
+      font-family:var(--font-serif);
+      font-size:2rem;
+      margin-bottom:0.5rem;
+    }
+    h2{
+      font-family:var(--font-serif);
+      font-size:1.5rem;
+      margin-top:1.5rem;
+      margin-bottom:0.5rem;
+    }
+    .btn{
+      display:inline-block;
+      padding:0.6rem 1rem;
+      background:var(--color-accent);
+      color:#fff;
+      border:none;
+      border-radius:var(--radius-sm);
+      cursor:pointer;
+      font-weight:600;
+    }
+    .field{
+      margin-bottom:1rem;
+    }
+    .field label{
+      display:block;
+      margin-bottom:0.3rem;
+    }
+    .field input,
+    .field select,
+    .field textarea{
+      width:100%;
+      padding:0.5rem;
+      border:1px solid var(--color-border);
+      border-radius:var(--radius-sm);
+      font-family:var(--font-sans);
+    }
+    .form-note{
+      font-size:0.9rem;
+      color:var(--color-text-secondary);
+    }
+    .form-success{
+      margin-top:1rem;
+      padding:0.8rem;
+      background:#e6f4ea;
+      border:1px solid #a3d9a5;
+      border-radius:var(--radius-sm);
+    }
+    .policy-list{
+      list-style:disc;
+      margin-left:1.2rem;
+      margin-top:0.5rem;
+    }
+    .hours-block{
+      margin-top:1rem;
+    }
+    .hours-block .trd-location__hours-row{
+      display:flex;
+      justify-content:space-between;
+      padding:0.2rem 0;
+    }
+    .hours-block .today{
+      font-weight:600;
+    }
+    /* Dark mode */
+    /* Micro‑animations */
+    .fade-in{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
+    .fade-in.visible{opacity:1;transform:translateY(0);}
+    .btn{transition:transform .2s ease,box-shadow .2s ease;}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.15);}
+    .trd-reservation-form .field{transition:transform .2s ease,box-shadow .2s ease;}
+    .trd-reservation-form .field:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(0,0,0,0.12);}
+    .stat-number{animation:countUp .6s ease forwards;}
+    @keyframes countUp{from{opacity:0;}to{opacity:1;}}
+  </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -788,13 +860,10 @@ section[data-section] {
   "certificateUrl": "https://api.dcsai.ai/api/storage/cert/4f125691-4370-491b-b4b9-d4f484bf4a83"
 }</script>
 <!-- /TRD Content Credentials -->
-<style id="trd-section-dividers">
-.trd-section-divider{height:1px;background:linear-gradient(to right,transparent,rgba(0,0,0,0.08),transparent);margin:0;border:none;}
-</style>
 <meta name="dcs-build-id" content="2693eb33" data-trd-zone="68">
 <meta name="trd-template-id" content="2693eb33" data-trd-zone="68">
 <style id="trd-locked-palette" data-trd-zone="66">
-/* DCS locked palette · resolvedAt=2026-08-14T19:10:28.969Z */
+/* DCS locked palette · resolvedAt=2026-08-14T19:12:07.229Z */
   /* Zone 66 — 1 contrast correction(s) applied at lock time */
 :root {
   --tpl-primary: #1e1208;
@@ -1051,35 +1120,97 @@ posthog.init('phc_t94UQ8ksdEr7vFedexH3TkqVyNgdZWHSGjK8e2VYPdqd', {api_host:'http
   
   <script>(function(){var w=document.querySelector('.gg-a11y-widget');if(!w)return;var t=w.querySelector('.gg-a11y-toggle');var html=document.documentElement;var STEP=2;function close(){w.setAttribute('data-open','false');t.setAttribute('aria-expanded','false')}function open(){w.setAttribute('data-open','true');t.setAttribute('aria-expanded','true')}t.addEventListener('click',function(e){e.stopPropagation();var o=w.getAttribute('data-open')==='true';if(o)close();else open()});document.addEventListener('click',function(e){if(!w.contains(e.target))close()});document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});w.querySelectorAll('.gg-a11y-opt').forEach(function(b){b.addEventListener('click',function(){var a=b.getAttribute('data-act');var s=parseFloat(getComputedStyle(html).fontSize)||16;if(a==='text-up')html.style.fontSize=Math.min(s+STEP,22)+'px';else if(a==='text-down')html.style.fontSize=Math.max(s-STEP,12)+'px';else if(a==='contrast')html.classList.toggle('gg-a11y-contrast');else if(a==='motion')html.classList.toggle('gg-a11y-motion');else if(a==='links')html.classList.toggle('gg-a11y-links');else if(a==='reset'){html.style.fontSize='';html.classList.remove('gg-a11y-contrast','gg-a11y-motion','gg-a11y-links')}})});})();</script>
 </div>
+  
 
+  <main id="main-content" class="container gg-main gg-section section-light">
+    <!-- HERO SECTION -->
+    <section class="fade-in">
+      <h1>Book a Table</h1>
+      <p>Reserve your spot at Haveli Restaurant 5 and enjoy authentic North‑Indian flavours.</p>
+    </section>
 
-<main id="main-content" class="container gg-main gg-section section-light">
-  <section class="hero fade-in">
-    <h1>Book a Table</h1>
-    <p>Authentic North Indian flavours in the heart of Hisar</p>
-  </section><hr class="trd-section-divider"><hr class="trd-section-divider"><section class="policies fade-in">
-    <h2>Reservation Policies</h2>
-    <ul>
-      <li>Cancellation up to 2 hours before the reservation.</li>
-      <li>We accommodate dietary restrictions upon request.</li>
-      <li>Smart‑casual dress code is required.</li>
-      <li>For parties larger than 10, please call us directly.</li>
-    </ul>
-  </section><hr class="trd-section-divider"><section class="phone-fallback fade-in">
-    <h2>Call to Book Directly</h2>
-    <p>Phone: </p>
-  </section><hr class="trd-section-divider"><section class="location fade-in">
-    <h2>Our Location</h2>
-    <address>
-      Haveli Restaurant 5<br>
-      Hisur<br>
-      Contact us for our address
-    </address>
-    <div class="hours">
-      
-    </div>
-  </section>
+    <!-- RESERVATION FORM SECTION (includes policies, phone fallback, location) -->
+    <section class="fade-in">
+      <h2>Reservation Form</h2>
+      <!-- Form HTML injected from VARIABLES -->
+      <div class="trd-reservation-form-wrapper">
+        <form class="trd-reservation-form" action="mailto:contact@dcsai.ai?subject=Reservation%20request%20%E2%80%94%20Haveli%20Restaurant%205">
+          <div class="field" data-field="name">
+            <label for="res-name">Your Name *</label>
+            <input type="text" id="res-name" name="name" required aria-required="true" autocomplete="name" />
+          </div>
+          <div class="field" data-field="email">
+            <label for="res-email">Email *</label>
+            <input type="email" id="res-email" name="email" required aria-required="true" autocomplete="email" inputmode="email" />
+          </div>
+          <div class="field" data-field="phone">
+            <label for="res-phone">Phone *</label>
+            <input type="tel" id="res-phone" name="phone" required aria-required="true" autocomplete="tel" inputmode="tel" />
+          </div>
+          <div class="field" data-field="date">
+            <label for="res-date">Date *</label>
+            <input type="date" id="res-date" name="date" required aria-required="true" / value="2026-08-14">
+          </div>
+          <div class="field" data-field="time">
+            <label for="res-time">Time *</label>
+            <input type="time" id="res-time" name="time" min="11:00" max="22:00" step="900" required aria-required="true" />
+          </div>
+          <div class="field" data-field="guests">
+            <label for="res-guests">Number of guests *</label>
+            <select id="res-guests" name="guests" required aria-required="true" aria-label="Number of guests">
+              <option value="">Select party size</option>
+              <option value="1">1 guest</option>
+              <option value="2" selected>2 guests</option>
+              <option value="3">3 guests</option>
+              <option value="4">4 guests</option>
+              <option value="5">5 guests</option>
+              <option value="6">6 guests</option>
+              <option value="7">7 guests</option>
+              <option value="8">8 guests</option>
+              <option value="9">9 guests</option>
+              <option value="10">10 guests</option>
+            </select>
+          </div>
+          <div class="field" data-field="notes">
+            <label for="res-notes">Special requests (optional)</label>
+            <textarea id="res-notes" name="notes" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn">Confirm Booking</button>
+          <p class="form-note">For groups over 10, please call us directly.</p>
+        </form>
+        <div class="form-success" role="status" tabindex="-1" hidden>
+          <p>Thanks — we received your booking request and will confirm by email within 1 hour.</p>
+        </div>
+      </div>
 
+      <!-- Policies -->
+      <h2>Reservation Policies</h2>
+      <ul class="policy-list">
+        <li>Cancellation must be made 2 hours before the reservation.</li>
+        <li>We accommodate dietary restrictions upon request.</li>
+        <li>Smart‑casual dress code applies.</li>
+        <li>For parties larger than 10, please call us directly.</li>
+      </ul>
+
+      <!-- Phone fallback -->
+      <h2>Need Immediate Assistance?</h2>
+      <p>Call us now at <strong></strong> to secure your table.</p>
+
+      <!-- Location & Hours -->
+      <h2>Our Location</h2>
+      <p>Address: <strong>Contact us for our address</strong></p>
+      <div class="hours-block">
+        <h3>Opening Hours</h3>
+        <div class="trd-location__hours-row"><span class="trd-location__hours-day">Sunday</span><span class="trd-location__hours-time">11:00 AM – 10:00 PM</span></div>
+        <div class="trd-location__hours-row today"><span class="trd-location__hours-day">Monday</span><span class="trd-location__hours-time">11:00 AM – 11:00 PM</span></div>
+        <div class="trd-location__hours-row"><span class="trd-location__hours-day">Tuesday</span><span class="trd-location__hours-time">11:00 AM – 11:00 PM</span></div>
+        <div class="trd-location__hours-row"><span class="trd-location__hours-day">Wednesday</span><span class="trd-location__hours-time">11:00 AM – 11:00 PM</span></div>
+        <div class="trd-location__hours-row"><span class="trd-location__hours-day">Thursday</span><span class="trd-location__hours-time">11:00 AM – 11:00 PM</span></div>
+        <div class="trd-location__hours-row"><span class="trd-location__hours-day">Friday</span><span class="trd-location__hours-time">11:00 AM – 12:00 AM</span></div>
+        <div class="trd-location__hours-row"><span class="trd-location__hours-day">Saturday</span><span class="trd-location__hours-time">11:00 AM – 12:00 AM</span></div>
+      </div>
+    </section>
+  
 
 <div id="trd-reservation-widget" style="background:var(--trd-bg-card,#fff);border:1px solid var(--trd-border,#e2e8f0);border-radius:16px;padding:32px;max-width:500px;margin:40px auto;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
   <h3 style="margin:0 0 20px;font-size:1.3rem;font-weight:700;">Reserve a Table</h3>
@@ -1124,60 +1255,56 @@ function trdSubmitReservation() {
 <!-- ─── /Phase F ──────────────────────────────────────────────── -->
 </main>
 
-<script>
-// Theme toggle
-const themeBtn = document.getElementById('theme-toggle');
-themeBtn.onclick = () => document.documentElement.classList.toggle('dark');
-if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-  document.documentElement.classList.add('dark');
-}
+  <script>
+    // Theme toggle
+    const themeBtn = document.getElementById('theme-toggle');
+    themeBtn.onclick = () => document.documentElement.classList.toggle('dark');
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme:dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
 
-// Fade‑in on scroll
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    // Fade‑in on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// Set min date to today
-document.addEventListener('DOMContentLoaded', () => {
-  const today = new Date().toISOString().split('T')[0];
-  const dateInput = document.getElementById('res-date');
-  if (dateInput) dateInput.setAttribute('min', today);
-});
+    // Set min date to today
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('res-date').setAttribute('min', today);
 
-// Form validation & submit simulation
-(function() {
-  const form = document.querySelector('.trd-reservation-form');
-  if (!form) return;
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    let allOk = true;
-    this.querySelectorAll('input[required], select[required], textarea[required]').forEach(el => {
-      if (!el.value.trim()) {
-        el.setAttribute('aria-invalid', 'true');
-        allOk = false;
-      } else {
-        el.removeAttribute('aria-invalid');
-      }
-    });
-    if (!allOk) return;
-    const btn = this.querySelector('button[type="submit"]');
-    const originalText = btn.textContent;
-    btn.disabled = true;
-    btn.textContent = 'Booking…';
-    setTimeout(() => {
-      btn.textContent = '✓ Booked!';
-      const successMsg = this.parentElement.querySelector('.form-success');
-      if (successMsg) { successMsg.hidden = false; successMsg.focus(); }
-      this.reset();
-      setTimeout(() => {
-        btn.textContent = originalText;
-        btn.disabled = false;
-      }, 2000);
-    }, 800);
-  });
-})();
-</script>
+    // Form handling
+    (function() {
+      const form = document.querySelector('.trd-reservation-form');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        let allOk = true;
+        form.querySelectorAll('input[required], select[required], textarea[required]').forEach(el => {
+          if (!el.value.trim()) {
+            el.setAttribute('aria-invalid', 'true');
+            allOk = false;
+          } else {
+            el.removeAttribute('aria-invalid');
+          }
+        });
+        if (!allOk) return;
+        const btn = form.querySelector('button[type="submit"]');
+        const originalText = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = 'Booking…';
+        setTimeout(() => {
+          btn.textContent = '✓ Booked!';
+          const success = form.parentElement.querySelector('.form-success');
+          if (success) { success.hidden = false; success.focus(); }
+          form.reset();
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.disabled = false;
+          }, 2000);
+        }, 800);
+      });
+    })();
+  </script>
     <footer class="gg-footer" role="contentinfo">
   <div class="gg-footer-newsletter">
     <h3 class="gg-footer-newsletter-title">join the herd!</h3>
@@ -1248,7 +1375,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="gg-footer-bottom-row">
       <p class="gg-footer-copy">&copy; 2026 Haveli Restaurant 5. All Rights Reserved.</p>
       <div class="gg-footer-legal">
-        <a href="/" onclick="return false;" data-trd-deadlink="privacy.html">privacy policy</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="terms.html">terms of service</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="sitemap.html">sitemap</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/" onclick="return false;" data-trd-deadlink="accessibility.html">accessibility</a>
+        <a href="/privacy.html">privacy policy</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/terms.html">terms of service</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/sitemap.html">sitemap</a> <span class="gg-legal-sep" aria-hidden="true">&middot;</span> <a href="/accessibility.html">accessibility</a>
       </div>
     </div>
   </div>
@@ -1258,7 +1385,7 @@ document.addEventListener('DOMContentLoaded', () => {
   <div class="gg-cookie-inner">
     <div class="gg-cookie-text">
       <p id="gg-cookie-title" class="gg-cookie-title">We use cookies</p>
-      <p class="gg-cookie-desc">We use cookies to enhance your browsing experience and analyze site traffic. <a href="/" onclick="return false;" data-trd-deadlink="privacy.html">Privacy Policy</a></p>
+      <p class="gg-cookie-desc">We use cookies to enhance your browsing experience and analyze site traffic. <a href="/privacy.html">Privacy Policy</a></p>
     </div>
     <div class="gg-cookie-actions">
       <button type="button" class="gg-cookie-reject">Reject</button>
